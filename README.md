@@ -1,4 +1,4 @@
-vipsystem
-=========
+flask mvc
+================
 
-vipsystem
+a simple flask mvc example
