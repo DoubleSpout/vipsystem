@@ -1,0 +1,99 @@
+Userid：表示用户的id
+Type：枚举，up或者down，表示积分的增加或减少
+枚举：up，down
+
+Score：表示增加或减少的积分
+Expiretime：此积分过期时间
+Writetime：此积分获取时间
+
+Way：枚举，用来表示是通过什么渠道增加或者减少积分的，
+枚举下列值：
+1、day（签到获取的积分）：
+ScoreCode1：记录签到日期，
+ScoreCode2：记录连续签到次数
+ScoreCode3：记录是否补签
+
+2、vip（vip升级获取的积分）：
+ScoreCode1：升级前VIP等级
+ScoreCode2：升级后VIP等级
+
+3、pay（充值获取积分，）
+ScoreCode1：rechargeId，订单id
+ScoreCode2：充值金额
+ScoreCode3：充值的渠道
+
+
+4、exchange（兑换扣除的积分），
+ScoreCode1：商品的type值，
+枚举：tryMember（唐人游会员类型商品）、tryGift（唐人游白银新手和高级礼包）、tryCoin（唐人游游戏币礼包）、6998Vip（6998vip礼包）、gameCard（页游礼品卡）
+
+ScoreCode2：此处填写商品的GoodsId
+
+ScoreCode3：
+如果是：tryGift（唐人游白银新手和高级礼包），此处为增加的银子数量
+如果是：tryCoin（唐人游游戏币礼包），此处为增加的银子数量
+如果是：6998Vip（6998vip礼包），此处为升级到的vip等级
+如果是：gameCard（页游礼品卡），此处是礼品卡的卡序列号
+
+
+ScoreCode4：
+如果是：6998Vip（6998vip礼包），此处为临时vip等级过期时间
+如果是：gameCard（页游礼品卡），如果有卡密码，此处为礼品卡卡密码
+
+
+
+
+
+
+
+
+
+
+
+googds表说明：
+    Id = db.Column(db.Integer, primary_key=True)商品 id
+    Name = db.Column(db.String(255))
+商品名称
+    Price = db.Column(db.Integer)
+商品价格，所需积分
+Type枚举，可以是：
+
+1\tryMember 唐人游会员
+code1表示会员等级：0 无会员(普通玩家) 
+	1 临时会员 
+	2 普通 
+	3 高级 
+	4 白金
+
+
+2\tryGift 唐人游新手礼包
+code1表示新手礼包:1、新手礼包，2、高级礼包
+code2表示银子数量，10W两，50W两
+
+3\tryCoin 唐人游游戏币礼包
+code1表示游戏币数量
+
+
+4\6998Vip 6998vip体验
+code1 表示体验的vip等级
+code2 表示vip体验过期时间
+
+5\gameCard 表示页游礼包
+code1 表示页游礼包Id号
+code2 表示页游渠道号
+
+
+    Inventory =  db.Column(db.Integer)
+
+商品库存
+    IsShow = db.Column(db.Integer)
+
+是否显示
+    WriteTime = db.Column(db.DateTime)
+
+写入时间
+    EName = db.Column(db.String(255))
+英文名，唯一字段，和cms关联字段
+
+
+
