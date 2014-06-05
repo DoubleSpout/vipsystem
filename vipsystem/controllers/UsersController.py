@@ -1,9 +1,8 @@
 # -*- coding: utf-8 -*-
 from vipsystem import app
-from vipsystem import app
 import flask
 import json
-from flask import render_template, request, redirect, url_for, sessions
+from flask import render_template, request, redirect, url_for, sessions, Response
 from vipsystem.models import UsersModel
 from vipsystem.bussiness import UsersBl
 from vipsystem.bussiness import LoggerBl
@@ -29,7 +28,7 @@ def loginjump():
     passprotHost = app.config['PASSPORT_SERVER']
     #定义参数
     params = urllib.urlencode({'ticket':ticket, 'service':app.config['CURRENT_HOST']+'/loginjump'});
-    conn = httplib.HTTPSConnection(passprotHost)
+    conn = httplib.HTTPSConnection(passprotHost,timeout=10)
     conn.request('GET', '/ServiceValidate?'+params,)
     res = conn.getresponse()
     data = res.read()  #读取响应的xml文档
@@ -48,7 +47,7 @@ def loginjump():
         t1 = item.getElementsByTagName('cas:name')[0].childNodes[0].data
         t2 = item.getElementsByTagName('cas:value')[0].childNodes[0].data
         if t1 == 'UserID':
-            userid = t2
+            userid = int(t2)
         elif t1 == 'UserName':
             username = t2
     
@@ -73,24 +72,26 @@ def sign_sign():
     if not flask.session.has_key('userid') or flask.session['userid'] == 0:
         return json.dumps({'error':1,data:'请先登录'})
     
-    timestamp = request.args.get('timestamp')
-    
+    timestamp = request.args.get('ts')
+    if not timestamp:
+        return Response(json.dumps({'error':1,'data':'ts 为空'}),mimetype='application/json')
     try:
         timestamp = int(timestamp);
     except ValueError:
-        return json.dumps({'error':1,data:'timestamp参数非法'})
+        return Response(json.dumps({'error':1,'data':'ts 参数非法'}),mimetype='application/json')
     
     uid = flask.session['userid']
     userbl = UsersBl.UsersBl(uid)
     
     #执行签到的操作
-    r = userbl.daySign()
+    r = userbl.daySign(timestamp)
     
     #如果出错，记录日志
     if r['error'] == 1:
-        LoggerBl.log.error(r.data)
+        LoggerBl.log.error(r['data'])
+        r['data'] = str(r['data'])
         
-    return json.dumps(r)
+    return Response(json.dumps(r),mimetype='application/json')
 
 
 #用户领取薪水ajax
@@ -107,9 +108,11 @@ def salary_get():
     
     #如果出错，记录日志
     if r['error'] == 1:
-        LoggerBl.log.error(r.data)
+        LoggerBl.log.error(r['data'])
+        r['data'] = str(r['data'])
         
-    return json.dumps(r)
+    return Response(json.dumps(r),mimetype='application/json')
+    
 
 
 #获取用户状态ajax
@@ -126,9 +129,9 @@ def user_status():
     
     #如果出错，记录日志
     if r['error'] == 1:
-        LoggerBl.log.error(r.data)
-        
-    return json.dumps(r)
+        LoggerBl.log.error(r['data'])
+        r['data'] = str(r['data'])
+    return Response(json.dumps(r),mimetype='application/json')
 
 
 
@@ -147,16 +150,16 @@ def index():
     
     #如果出错，记录日志
     if r['error'] == 1:
-        LoggerBl.log.error(r.data)
+        LoggerBl.log.error(r['data'])
         #出错跳转到6998主页
-        return redirect('http://www.6998.com', code=302)
+        #return redirect('http://www.6998.com', code=302)
         
     return render_template('index.html', data=r['data'],uid=uid,uname=uname) 
 
 
 #每日签到页面
 @app.route('/sign/index', methods=['GET'])
-def index():
+def sign_index():
     if not flask.session.has_key('userid') or flask.session['userid'] == 0:
         return redirect('/login', code=302)
         
@@ -169,21 +172,21 @@ def index():
     
     #如果出错，记录日志
     if r['error'] == 1:
-        LoggerBl.log.error(r.data)
+        LoggerBl.log.error(r['data'])
         #出错跳转到6998主页
-        return redirect('http://www.6998.com', code=302)
+        #return redirect('http://www.6998.com', code=302)
     
     r2 = userbl.getCurMonthSign()
-        
-    return render_template('day_sign.html', data=r['data'],uid=uid,uname=uname,signArray = r2['data'])
+    
+    return render_template('day_sign.html', data=r['data'],uid=uid,uname=uname,signArray = json.dumps(r2['data']))
 
 
 #常见问题
 @app.route('/qa/index', methods=['GET'])
-def index():
+def qa_index():
     if not flask.session.has_key('userid') or flask.session['userid'] == 0:
         return redirect('/login', code=302)
-        
+    
     uid = flask.session['userid']
     uname = flask.session['username']
     userbl = UsersBl.UsersBl(uid)
@@ -193,9 +196,9 @@ def index():
     
     #如果出错，记录日志
     if r['error'] == 1:
-        LoggerBl.log.error(r.data)
+        LoggerBl.log.error(r['data'])
         #出错跳转到6998主页
-        return redirect('http://www.6998.com', code=302)
+        #return redirect('http://www.6998.com', code=302)
         
     return render_template('qa_index.html', data=r['data'],uid=uid,uname=uname) 
 

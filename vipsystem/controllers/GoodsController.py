@@ -1,10 +1,9 @@
 # -*- coding: utf-8 -*-
 from vipsystem import app
-from vipsystem import app
 import flask
 import json
 import re
-from flask import render_template, request, redirect, url_for, sessions
+from flask import render_template, request, redirect, url_for, sessions, Response
 from vipsystem.models import UsersModel
 from vipsystem.bussiness import UsersBl
 from vipsystem.bussiness import GoodsBl
@@ -19,7 +18,7 @@ from xml.dom.minidom import parse, parseString
 @app.route('/goods/list', methods=['GET'])
 def goods_list():
     if not flask.session.has_key('userid') or flask.session['userid'] == 0:
-        return json.dumps({'error':1,data:'请先登录'})
+        return json.dumps({'error':1,'data':'请先登录'})
     
     uid = flask.session['userid']
     uname = flask.session['userid']
@@ -31,7 +30,8 @@ def goods_list():
     
     #如果出错，记录日志
     if r['error'] == 1:
-        LoggerBl.log.error(r.data)
+        LoggerBl.log.error(r['data'])
+        r['data'] = str(r['data'])
         
     return json.dumps(r)
 
@@ -39,13 +39,16 @@ def goods_list():
 @app.route('/goods/detail', methods=['GET'])
 def goods_detail():
     if not flask.session.has_key('userid') or flask.session['userid'] == 0:
-        return json.dumps({'error':1,data:'请先登录'})
+        return Response(json.dumps({'error':1,'data':'请先登录'}),mimetype='application/json')
     
     #判断参数ename
     ename = request.args.get('ename')
-    reReslut = re.search(r'^[a-zA-z]$', ename) 
+    if not ename:
+        return Response(json.dumps({'error':1,'data':'需要参数ename'}),mimetype='application/json')
+    
+    reReslut = re.search(r'^[A-Za-z0-9]+$', ename) 
     if not reReslut:
-        return json.dumps({'error':1,data:'参数ename有误'})
+        return Response(json.dumps({'error':1,'data':'参数ename有误'}),mimetype='application/json')
     
     uid = flask.session['userid']
     uname = flask.session['userid']
@@ -57,25 +60,29 @@ def goods_detail():
     
     #如果出错，记录日志
     if r['error'] == 1:
-        LoggerBl.log.error(r.data)
+        LoggerBl.log.error(r['data'])
+        r['data'] = str(r['data'])
         
-    return json.dumps(r)
+    return Response(json.dumps(r),mimetype='application/json')
 
 
 #换取虚拟物品
-@app.route('/goods/exchange', methods=['POST'])
+@app.route('/goods/exchange', methods=['GET','POST'])
 def goods_exchange():
     if not flask.session.has_key('userid') or flask.session['userid'] == 0:
-        return json.dumps({'error':1,data:'请先登录'})
+        return Response(json.dumps({'error':1,'data':'请先登录'}),mimetype='application/json')
     
     #判断参数ename
-    ename = request.form.get('ename')
-    reReslut = re.search(r'^[a-zA-z]$', ename) 
+    ename = request.args.get('ename')
+    if not ename:
+        return Response(json.dumps({'error':1,'data':'需要参数ename'}),mimetype='application/json')
+    
+    reReslut = re.search(r'^[A-Za-z0-9]+$', ename) 
     if not reReslut:
-        return json.dumps({'error':1,data:'参数ename有误'})
+        return Response(json.dumps({'error':1,'data':'参数ename有误'}),mimetype='application/json')
     
     uid = flask.session['userid']
-    uname = flask.session['userid']
+    uname = flask.session['username']
     uip = request.remote_addr
     goodsbl = GoodsBl.GoodsBl(uid,uname,uip)
         
@@ -84,9 +91,10 @@ def goods_exchange():
     
     #如果出错，记录日志
     if r['error'] == 1:
-        LoggerBl.log.error(r.data)
+        LoggerBl.log.error(r['data'])
+        r['data'] = str(r['data'])
         
-    return json.dumps(r)
+    return Response(json.dumps(r),mimetype='application/json')
 
 
 
@@ -106,9 +114,9 @@ def goods_index():
     
     #如果出错，记录日志
     if r['error'] == 1:
-        LoggerBl.log.error(r.data)
+        LoggerBl.log.error(r['data'])
         #出错跳转到6998主页
-        return redirect('http://www.6998.com', code=302)
+        #return redirect('http://www.6998.com', code=302)
         
     return render_template('goods_index.html', data=r['data'],uid=uid,uname=uname)
 
@@ -119,8 +127,11 @@ def goods_info():
         return redirect('/login', code=302)
     
      #判断参数ename
-    ename = request.form.get('ename')
-    reReslut = re.search(r'^[a-zA-z]$', ename) 
+    ename = request.args.get('ename')
+    if not ename:
+        return '需要参数ename'
+    
+    reReslut = re.search(r'^[A-Za-z0-9]+$', ename) 
     if not reReslut:
         return 'ename参数有误'
     
@@ -133,8 +144,8 @@ def goods_info():
     
     #如果出错，记录日志
     if r['error'] == 1:
-        LoggerBl.log.error(r.data)
+        LoggerBl.log.error(r['data'])
         #出错跳转到6998主页
-        return redirect('http://www.6998.com', code=302)
+        #return redirect('http://www.6998.com', code=302)
          
-    return render_template('goods_detail.html', data=r['data'],uid=uid,uname=uname) 
+    return render_template('goods_detail.html', data=r['data'],uid=uid,uname=uname,ename=ename) 

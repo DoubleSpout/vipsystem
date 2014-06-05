@@ -2,21 +2,23 @@
 import hashlib
 import time
 import httplib
+import urllib
 import json
 import calendar
-from datetime import *
-
+from datetime import datetime
+from vipsystem import app
 from vipsystem import config
 from vipsystem.models import UsersModel
+from vipsystem.models import LogscoreModel
 from sqlalchemy import *
+from flask.ext.sqlalchemy import SQLAlchemy
+
+#数据库访问
+db = SQLAlchemy(app)
 
 #vip对应等级可以补签的次数
 vipPatchTimes = (1,2,3,5,8,10)
 
-
-
-
-    
 #定义用户业务层
 class UsersBl(object):
 
@@ -25,50 +27,84 @@ class UsersBl(object):
     
     #初始化用户
     def initUser(self):
-        userDict = UsersModel.VIP_User.query.filter_by(UserId=self.uid).first()
-        if userDict.Id :
-            pass
+        userDict = UsersModel.VIP_User.query.filter_by(UserId=self.uid).all()
+               
+        if len(userDict) > 0 :
+            return
         
         #如果没有记录,将用户信息插入数据库
-        me = VIP_User(self.uid)
+        me = UsersModel.VIP_User(int(self.uid))
         db.session.add(me)
         db.session.commit()
         pass
     
-    def sendRequest(self,method,url,paramDict,host=app.config['CORESERVICE_HOST']):
+    def sendRequest(self,method,url,paramDict,host=''):
         #请求coreservice接口，获取用户vip信息
-        headers = {}
+        #如果没有传递host参数
+        if not host or host == '':
+            host=app.config['CORESERVICE_HOST']
+        
+        #生成参数    
+        if not paramDict:
+            paramDict = {}
         paramDictStr = urllib.urlencode(paramDict)
-        if method == 'POST':
-            headers = {"Content-type": "application/x-www-form-urlencoded",
-                        "Accept": "text/plain"}
-            conn = httplib.HTTPConnection(host)    
-            conn.request(method, url, paramDictStr, headers)
-        else:    
-            headers = {"Content-type": "application/x-www-form-urlencoded",
-                        "Accept": "text/plain"}
-            conn = httplib.HTTPConnection(app.config['CORESERVICE_HOST'])    
-            conn.request(method, url+'?'+paramDictStr)
-            
+        
+        #如果是coreservice服务器，则前缀加上/api
+        if host == app.config['CORESERVICE_HOST']:
+            url = '/api'+url
+            paramDictStr = json.dumps(paramDict)       
+           
+        conn = httplib.HTTPConnection(host)
+        #尝试连接coreservice主机
+        
+        errPrefix = 'method:{0},host:{1},url:{2},param:{3}'.format(method,host,url,paramDictStr)
+        
+        try:
+            if method == 'POST':
+                headers = {"Content-type": "application/x-www-form-urlencoded",
+                            "Accept": "text/plain"}
+                #如果是coreservice转json
+                if host == app.config['CORESERVICE_HOST']:
+                    headers = {"Content-type": "application/json",
+                            "Accept": "application/json"}
+                    
+                
+                conn.request(method, url, paramDictStr, headers)
+            else: 
+                conn.request(method, url+'?'+paramDictStr)
+        except Exception as err:
+             return {'error':1,'data':'{0},{1}'.format(errPrefix,err)}
+        
+        #获取响应  
         res = conn.getresponse()
-        if res.status != 200 :
-            return {'error':1,'data':'coreservice服务异常'}
         data = res.read()  #读取响应
-        conn.close()       #关闭连接
+             #关闭连接
+        #print(res)
+        
+        if res.status != 200 :
+            return {'error':1,'data':'{0}, coreservice服务异常,状态:{1},响应:{2}'.format(errPrefix,res.status,data)}
+        conn.close()       
+        
+        if app.config['ENV'] == 'Debug':
+            print('--------------')
+            print(errPrefix)
+            print(res.status)
+            print(data)
+            print('--------------')       
         
         #将data转换成dict
         dataDict = {}
         try:
             dataDict = json.loads(data)
         except Exception as err:
-             return {'error':1,'data':err}
+             return {'error':1,'data':'json decode error,{0},{1}'.format(errPrefix,err)}
         
         #如果接口处理失败
         if not dataDict.has_key('ret'):
-            return 
+            return dataDict
         
-        if dataDict['ret'] == false:
-            return {'error':1,'data':dataDict.errMsg}
+        if dataDict['ret'] == False:
+            return {'error':1,'data':dataDict['errMsg']}
         #接口处理成功
         return {'error':0,'data':dataDict}
         
@@ -76,64 +112,82 @@ class UsersBl(object):
     #public获取用户vip状态
     def getUserVipStatus(self):
         #请求coreservice接口，获取用户vip信息
-        dataDict = self.sendRequest('GET','/vip/getsalary',{'userid':self.uid})       
+        dataDict = self.sendRequest('POST','/VIPCenter/UserVIPDetail',{'UserID':self.uid})       
         return dataDict
         
     #public用户领取工资
     def getSalary(self):
-        dataDict = self.sendRequest('GET','/vip/getsalary',{'userid':self.uid})       
+        dataDict = self.sendRequest('POST','/VIPCenter/UserVIPSalaryGet',{'UserID':self.uid})       
         return dataDict
     
     #public获取当月的签到状态列表
     def getCurMonthSign(self):
-        now = datetime.datetime.now()
-        curMonthTime = time.struct_time(tm_year=now.year, tm_mon=now.month, tm_mday=1, tm_hour=00, tm_min=00, tm_sec=00)
+        now = datetime.now()
+        curMonthTime = datetime(now.year,now.month,1,0,0,0)
         #获取当月的签到状态列表
-        signArray = UsersModel.Log_Score.query.filter_by(Way='day',UserId=self.uid).filter(UsersModel.Log_Score.Writetime >= curMonthTime).order_by(desc(UsersModel.ScoreCode1)).all()       
-        
-        return {'error':0, data:signArray}
+        signArray = LogscoreModel.Log_Score.query.filter_by(Way='day',UserId=self.uid).filter(LogscoreModel.Log_Score.Writetime >= curMonthTime).order_by(desc(LogscoreModel.Log_Score.ScoreCode1)).all()       
+        #转换成list
+        signArray = LogscoreModel.Log_Score.parseToList(signArray)        
+        return {'error':0, 'data':signArray}
     
     
     def daySign(self,signTime):
         #积分获取和消费的url
-        scoreLogUrl = '/score/log'
+        scoreLogUrl = '/VIPCenter/UserVIPScoreUpdate'
         
         uid = self.uid
         #转换signTime类型
-        signDateDict = datetime.datetime.fromtimestamp(signTime)
-        signDateTime = time.struct_time(tm_year=signDateDict.year, tm_mon=signDateDict.month, tm_mday=signDateDict.day, tm_hour=00, tm_min=00, tm_sec=00)
-        signTime = int(signDateTime.time())
+        now = datetime.now()
+        signDateDict = datetime.fromtimestamp(signTime)
+        
+        #转时间戳
+        signTime = signDateDict.timetuple()
+        signTime = int(time.mktime(signTime))
                     
-        #设置当天时间
-        now = datetime.datetime.now()
-        todayZeroTime = time.struct_time(tm_year=now.year, tm_mon=now.month, tm_mday=now.day, tm_hour=00, tm_min=00, tm_sec=00)
-        todayZeroTs = int(todayZeroTime.time())
+        #设置当天时间    
+        todayZeroTime = datetime(now.year,now.month,now.day,0,0,0)
+        todayZeroTs = todayZeroTime.timetuple()
+        todayZeroTs = int(time.mktime(todayZeroTs))
         #设置当月时间
-        curMonthTime = time.struct_time(tm_year=now.year, tm_mon=now.month, tm_mday=1, tm_hour=00, tm_min=00, tm_sec=00)
+        curMonthTime = datetime(now.year,now.month,1,0,0,0)
         monthInDay = int(now.day)
         #如果没有传signTime默认使用当天的
         if not signTime:
             signTime = todayZeroTs
     
         #判断signTime时间戳是否合法,sign时间戳表示的年月和当前年月不相符，则表示非法
-        if signDateDict.year != now.year or signDateDict.month != now.month or todayZeroTs - signTime >3600*24*monthInDay:
-            return {'error':1,data:'不能补签上个月的'}
+        if signDateDict.year != now.year or signDateDict.month != now.month or todayZeroTs - signTime >3600*24*monthInDay or signTime > todayZeroTs:
+            return {'error':1,'data':'不能补签过期日期或未达到日期'}
         
         #初始化是否是补签
-        isPatch = false                      
+        isPatch = 0                      
         #如果签名的时间戳小于当天的，则认为是补签
         if signTime < todayZeroTs:
-            isPatch = true
-            
-        #获得用户信息
-        userDict = UsersModel.VIP_User.query.filter_by(UserId='uid').first()
-        #获得用户签名的日志
-        signArray = UsersModel.Log_Score.query.filter_by(Way='day',UserId=uid).filter(UsersModel.Log_Score.Writetime >= curMonthTime).order_by(desc(UsersModel.ScoreCode1)).all()
-                
-        vipLevel = int(userDict.CurrentLevel)
+            isPatch = 1
+        
+        #print('#########')
+        #print(signTime)
+        #print(todayZeroTs)
+        #print(monthInDay)
+        #print(isPatch)
+        #print(curMonthTime)
+        
+        #获得用户信息并转换为list
+        userDict = UsersModel.VIP_User.query.filter_by(UserId=uid).first()
+        userDict = UsersModel.VIP_User.parseToList([userDict])[0]
+        #获得用户签名的日志并转换为list
+        signArray = LogscoreModel.Log_Score.query.filter_by(Way='day',UserId=uid).filter(LogscoreModel.Log_Score.Writetime >= curMonthTime).order_by(desc(LogscoreModel.Log_Score.ScoreCode1)).all()
+        signArray = LogscoreModel.Log_Score.parseToList(signArray)
+        
+        #print('******')
+        #print(userDict)
+        #print(signArray)
+        
+        
+        vipLevel = int(userDict['CurrentLevel'])
         #已经补签次数为0
         hasPathCount = 0
-        continueSign = 0
+        continueSign = 1
         #设置本次签到获得积分      
         dayScore = 0
         hasBreak = false #已经断了,没连续
@@ -143,23 +197,26 @@ class UsersBl(object):
             #判断今天是否已经签过到
             hasSign = false
             for item in signArray:
-                if int(item.ScoreCode1) == signTime: 
+                signArray[0]['ScoreCode1'] = int(signArray[0]['ScoreCode1'])
+                
+                if item['ScoreCode1'] == signTime: 
                     hasSign = true
-                if item.ScoreCode3:
+                if item['ScoreCode3'] != '0':
                         hasPathCount += 1
 
             #判断是不是超过最大补签次数
-            if isPatch and hasPathCount>0 and hasPathCount >= vipPatchTimes[vipLevel]:
-                return {'error':1,data:'补签次数过多'}                
-            #判断当天是否已经签过到了
-            if hasSign:
+            if hasSign == true:
                 return {'error':1,'data':'已经签到过了'}
+            if isPatch == 1 and hasPathCount>0 and hasPathCount >= vipPatchTimes[vipLevel]:
+                return {'error':1,'data':'补签次数过多'}                
+            #判断当天是否已经签过到了
+            
             
             #如果不是补签
             #补签将不记录连续获得积分
-            if not isPatch:
+            if isPatch == 0:
                 #判断当前日期和最后一条日期是否在48小时内，如果在则表示连续补签
-                if signTime - signArray[0].ScoreCode1 <=3600*24*2:
+                if signTime - signArray[0]['ScoreCode1'] <=3600*24*2:
                     continueSign += 1
                 else:
                     hasBreak = true
@@ -169,12 +226,13 @@ class UsersBl(object):
                 for i in range(0,signLen):
                     item = signArray[i]
                     if i != signLen-1 and not hasBreak:
-                        citemTs = int(item.ScoreCode1)
-                        nitemTs = int(signArray[i+1].ScoreCode1)
+                        citemTs = item['ScoreCode1']
+                        nitemTs = int(signArray[i+1]['ScoreCode1'])
                         if citemTs - nitemTs > 0 and citemTs - nitemTs <= 3600*24:
                             continueSign+=1
                         else:
                             hasBreak = true
+                
                 #开始进行连续签到的处理,必须不是补签
                 if continueSign>=2 and continueSign<5:
                     dayScore += 5
@@ -192,15 +250,20 @@ class UsersBl(object):
         if vipLevel>=3:
             dayScore += 5
         
+        #print('$$$$$$$$$$$$$$')
+        #print(dayScore)
+        #print(hasBreak)
+        
+        
         #去coreservice处理积分         
         reqResult = self.sendRequest('POST',scoreLogUrl,{
                     'UserId':uid,
                     'Type':'up',
                     'Score':dayScore,
                     'Way':'day',
-                    'ScoreCode1':signTime,
-                    'ScoreCode2':continueSign,
-                    'ScoreCode3':isPatch
+                    'Code1':signTime,
+                    'Code2':continueSign,
+                    'Code3':isPatch
                     })   
         
         return reqResult  

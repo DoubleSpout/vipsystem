@@ -3,10 +3,15 @@ from datetime import datetime
 from flask import Flask
 from flask.ext.sqlalchemy import SQLAlchemy
 from vipsystem import app
+import json
+
 db = SQLAlchemy(app)
 
 #vip用户的model
 class VIP_User(db.Model):
+    #表名
+    __tablename__ = 'VIP_User'
+    
     Id = db.Column(db.Integer, primary_key=True)
     UserId = db.Column(db.Integer)
     CurrentLevel = db.Column(db.Integer)
@@ -22,34 +27,22 @@ class VIP_User(db.Model):
         self.Score = Score
         self.HistoryScore = HistoryScore
         self.WriteTime = datetime.now()
-
-
-    def __repr__(self):
-        return '<Category %r>' % self.name
-
-#积分获取日志model
-class Log_Score(db.Model):
-    Id = db.Column(db.Integer, primary_key=True)
-    UserId = db.Column(db.Integer)
-    Type = db.Column(db.String(16))
-    Score = db.Column(db.Integer)
-    Way = db.Column(db.String(16))
-    ScoreCode1 = db.Column(db.String(255))
-    ScoreCode2 = db.Column(db.String(255))
-    ScoreCode3 = db.Column(db.String(255))
-    ScoreCode4 = db.Column(db.String(255))
-    ScoreCode5 = db.Column(db.String(255))
-    Writetime = db.Column(db.DateTime)
-
-    category_id = db.Column(db.Integer, db.ForeignKey('category.id'))
-    category = db.relationship('Category',
-        backref=db.backref('posts', lazy='dynamic'))
-
-    def __init__(self, UserId, Way):
-        self.UserId = UserId
-        self.Way = Way
-     
-
-    def __repr__(self):
-        return '<Post %r>' % self.title
-
+        
+    @staticmethod
+    def parseToList(objary):
+        objLen = len(objary)
+        tempArray = []
+        for i in range(0,objLen):
+            if not objary[i]:
+                tempArray.append({})
+            else:
+                tempArray.append({
+                    'Id':objary[i].Id,
+                    'UserId':objary[i].UserId,
+                    'CurrentLevel':objary[i].CurrentLevel,
+                    'HistoryLevel':objary[i].HistoryLevel,
+                    'Score':objary[i].Score,
+                    'HistoryScore':objary[i].HistoryScore,
+                    'WriteTime' :objary[i].WriteTime.strftime('%Y-%m-%d %H:%M:%S'),          
+                })
+        return tempArray

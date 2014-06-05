@@ -1,15 +1,26 @@
 # -*- coding: utf-8 -*-
-import flask
-from vipsystem import app
-from vipsystem import config
-from vipsystem.controllers import *
-from vipsystem.models import *
 import os
 import sys
 import getopt
+import flask
+from vipsystem import app
+from vipsystem import config
 
 
+#获取配置参数并return {'error':1,'data':'不能补签过期日期'}
+__opts, _ = getopt.getopt(sys.argv[1:], "e:") #获取命令行参数
+__scritpEnv = ""
 
+for name, value in __opts:
+    if name == "-e": #获取命令行参数e
+        __scritpEnv = value    
+if __scritpEnv == "Production" :
+    app.config.from_object(config.Production())
+else:
+    app.config.from_object(config.Debug())
+
+#session支持
+app.secret_key = app.config['SESSION_KEY']
 
 def mkdir(path):
     # 引入模块
@@ -44,20 +55,11 @@ logsPath = curPath + os.sep + 'vipsystem' + os.sep + 'logs'
 mkdir(logsPath)
 
 
+from vipsystem.controllers import *
+from vipsystem.models import *
 
-__opts, _ = getopt.getopt(sys.argv[1:], "e:") #获取命令行参数
-__scritpEnv = ""
 
-for name, value in __opts:
-    if name == "-e": #获取命令行参数e
-        __scritpEnv = value    
 
-if __scritpEnv == "Production" :
-    app.config.from_object(config.Production())
-else:
-    app.config.from_object(config.Debug())
-
-app.secret_key = app.config['SESSION_KEY']
 
 if __name__ == '__main__':
     app.run(host=app.config.get("HOST"),port=app.config.get("PORT"))

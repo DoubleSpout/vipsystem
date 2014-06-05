@@ -1,0 +1,165 @@
+2014-06-05 15:15:49,617 - mylogger - INFO - log start in Debug
+2014-06-05 15:15:50,951 - mylogger - INFO - log start in Debug
+2014-06-05 15:17:05,043 - mylogger - ERROR - method:POST,host:core.6998apitest.com,url:/api/VIPCenter/UserVIPDetail,param:UserID=577, coreservice服务异常
+2014-06-05 15:19:09,543 - mylogger - INFO - log start in Debug
+2014-06-05 15:19:33,374 - mylogger - ERROR - method:POST,host:core.6998apitest.com,url:/api/VIPCenter/UserVIPDetail,param:UserID=577, coreservice服务异常
+2014-06-05 15:19:35,371 - mylogger - ERROR - method:POST,host:core.6998apitest.com,url:/api/VIPCenter/UserVIPDetail,param:UserID=577, coreservice服务异常
+2014-06-05 15:19:36,028 - mylogger - ERROR - method:POST,host:core.6998apitest.com,url:/api/VIPCenter/UserVIPDetail,param:UserID=577, coreservice服务异常
+2014-06-05 15:19:36,292 - mylogger - ERROR - method:POST,host:core.6998apitest.com,url:/api/VIPCenter/UserVIPDetail,param:UserID=577, coreservice服务异常
+2014-06-05 15:19:36,526 - mylogger - ERROR - method:POST,host:core.6998apitest.com,url:/api/VIPCenter/UserVIPDetail,param:UserID=577, coreservice服务异常
+2014-06-05 15:20:04,582 - mylogger - INFO - log start in Debug
+2014-06-05 15:20:13,256 - mylogger - INFO - log start in Debug
+2014-06-05 15:20:21,884 - mylogger - INFO - log start in Debug
+2014-06-05 15:20:24,625 - mylogger - ERROR - method:POST,host:core.6998apitest.com,url:/api/VIPCenter/UserVIPDetail,param:UserID=577, coreservice服务异常,响应: 
+2014-06-05 15:20:28,019 - mylogger - ERROR - method:POST,host:core.6998apitest.com,url:/api/VIPCenter/UserVIPDetail,param:UserID=577, coreservice服务异常,响应: 
+2014-06-05 15:20:28,240 - mylogger - ERROR - method:POST,host:core.6998apitest.com,url:/api/VIPCenter/UserVIPDetail,param:UserID=577, coreservice服务异常,响应: 
+2014-06-05 15:20:28,421 - mylogger - ERROR - method:POST,host:core.6998apitest.com,url:/api/VIPCenter/UserVIPDetail,param:UserID=577, coreservice服务异常,响应: 
+2014-06-05 15:20:28,585 - mylogger - ERROR - method:POST,host:core.6998apitest.com,url:/api/VIPCenter/UserVIPDetail,param:UserID=577, coreservice服务异常,响应: 
+2014-06-05 15:20:28,717 - mylogger - ERROR - method:POST,host:core.6998apitest.com,url:/api/VIPCenter/UserVIPDetail,param:UserID=577, coreservice服务异常,响应: 
+2014-06-05 15:20:28,871 - mylogger - ERROR - method:POST,host:core.6998apitest.com,url:/api/VIPCenter/UserVIPDetail,param:UserID=577, coreservice服务异常,响应: 
+2014-06-05 15:21:22,427 - mylogger - INFO - log start in Debug
+2014-06-05 15:21:25,898 - mylogger - ERROR - method:POST,host:core.6998apitest.com,url:/api/VIPCenter/UserVIPDetail,param:UserID=577, coreservice服务异常,状态:500,响应:
+2014-06-05 15:21:27,933 - mylogger - ERROR - method:POST,host:core.6998apitest.com,url:/api/VIPCenter/UserVIPDetail,param:UserID=577, coreservice服务异常,状态:500,响应:
+2014-06-05 15:21:35,601 - mylogger - ERROR - method:POST,host:core.6998apitest.com,url:/api/VIPCenter/UserVIPDetail,param:UserID=577, coreservice服务异常,状态:500,响应:
+2014-06-05 15:21:39,604 - mylogger - INFO - log start in Debug
+2014-06-05 15:21:40,088 - mylogger - ERROR - method:POST,host:core.6998apitest.com,url:/api/VIPCenter/UserVIPDetail,param:UserID=577, coreservice服务异常,状态:500,响应:
+2014-06-05 15:21:40,585 - mylogger - ERROR - method:POST,host:core.6998apitest.com,url:/api/VIPCenter/UserVIPDetail,param:UserID=577, coreservice服务异常,状态:500,响应:
+2014-06-05 15:21:40,757 - mylogger - ERROR - method:POST,host:core.6998apitest.com,url:/api/VIPCenter/UserVIPDetail,param:UserID=577, coreservice服务异常,状态:500,响应:
+2014-06-05 15:21:40,878 - mylogger - ERROR - method:POST,host:core.6998apitest.com,url:/api/VIPCenter/UserVIPDetail,param:UserID=577, coreservice服务异常,状态:500,响应:
+2014-06-05 15:21:41,042 - mylogger - ERROR - method:POST,host:core.6998apitest.com,url:/api/VIPCenter/UserVIPDetail,param:UserID=577, coreservice服务异常,状态:500,响应:
+2014-06-05 15:23:41,441 - mylogger - ERROR - method:POST,host:core.6998apitest.com,url:/api/VIPCenter/UserVIPDetail,param:UserID=577, coreservice服务异常,状态:500,响应:
+2014-06-05 15:23:42,319 - mylogger - ERROR - method:POST,host:core.6998apitest.com,url:/api/VIPCenter/UserVIPDetail,param:UserID=577, coreservice服务异常,状态:500,响应:
+2014-06-05 15:24:01,187 - mylogger - INFO - log start in Debug
+2014-06-05 15:24:24,812 - mylogger - INFO - log start in Debug
+2014-06-05 15:24:29,197 - mylogger - INFO - log start in Debug
+2014-06-05 15:24:30,148 - mylogger - ERROR - method:POST,host:core.6998apitest.com,url:/api/VIPCenter/UserVIPDetail,param:UserID=577, coreservice服务异常,状态:500,响应:
+2014-06-05 15:24:30,700 - mylogger - ERROR - method:POST,host:core.6998apitest.com,url:/api/VIPCenter/UserVIPDetail,param:UserID=577, coreservice服务异常,状态:500,响应:
+2014-06-05 15:24:30,874 - mylogger - ERROR - method:POST,host:core.6998apitest.com,url:/api/VIPCenter/UserVIPDetail,param:UserID=577, coreservice服务异常,状态:500,响应:
+2014-06-05 15:27:01,562 - mylogger - ERROR - method:POST,host:core.6998apitest.com,url:/api/VIPCenter/UserVIPDetail,param:UserID=577, coreservice服务异常,状态:500,响应:
+2014-06-05 15:31:43,664 - mylogger - INFO - log start in Debug
+2014-06-05 15:31:45,048 - mylogger - INFO - log start in Debug
+2014-06-05 15:31:57,831 - mylogger - ERROR - method:POST,host:core.6998apitest.com,url:/api/VIPCenter/UserVIPDetail,param:UserID=577, coreservice服务异常,状态:500,响应:
+2014-06-05 15:32:07,385 - mylogger - ERROR - method:POST,host:core.6998apitest.com,url:/api/VIPCenter/UserVIPDetail,param:UserID=577, coreservice服务异常,状态:500,响应:
+2014-06-05 15:32:07,569 - mylogger - ERROR - method:POST,host:core.6998apitest.com,url:/api/VIPCenter/UserVIPDetail,param:UserID=577, coreservice服务异常,状态:500,响应:
+2014-06-05 15:32:07,750 - mylogger - ERROR - method:POST,host:core.6998apitest.com,url:/api/VIPCenter/UserVIPDetail,param:UserID=577, coreservice服务异常,状态:500,响应:
+2014-06-05 15:32:07,920 - mylogger - ERROR - method:POST,host:core.6998apitest.com,url:/api/VIPCenter/UserVIPDetail,param:UserID=577, coreservice服务异常,状态:500,响应:
+2014-06-05 15:32:08,101 - mylogger - ERROR - method:POST,host:core.6998apitest.com,url:/api/VIPCenter/UserVIPDetail,param:UserID=577, coreservice服务异常,状态:500,响应:
+2014-06-05 15:32:08,285 - mylogger - ERROR - method:POST,host:core.6998apitest.com,url:/api/VIPCenter/UserVIPDetail,param:UserID=577, coreservice服务异常,状态:500,响应:
+2014-06-05 15:32:08,450 - mylogger - ERROR - method:POST,host:core.6998apitest.com,url:/api/VIPCenter/UserVIPDetail,param:UserID=577, coreservice服务异常,状态:500,响应:
+2014-06-05 15:32:08,614 - mylogger - ERROR - method:POST,host:core.6998apitest.com,url:/api/VIPCenter/UserVIPDetail,param:UserID=577, coreservice服务异常,状态:500,响应:
+2014-06-05 15:33:12,509 - mylogger - INFO - log start in Debug
+2014-06-05 15:33:13,007 - mylogger - ERROR - method:POST,host:core.6998apitest.com,url:/api/VIPCenter/UserVIPDetail,param:UserID=577, coreservice服务异常,状态:500,响应:
+2014-06-05 15:33:15,740 - mylogger - INFO - log start in Debug
+2014-06-05 15:33:31,799 - mylogger - INFO - log start in Debug
+2014-06-05 15:33:34,523 - mylogger - ERROR - method:POST,host:core.6998apitest.com,url:/api/VIPCenter/UserVIPDetail,param:UserID=577,No JSON object could be decoded
+2014-06-05 15:33:42,569 - mylogger - INFO - log start in Debug
+2014-06-05 15:33:50,094 - mylogger - INFO - log start in Debug
+2014-06-05 15:33:51,282 - mylogger - ERROR - method:POST,host:core.6998apitest.com,url:/api/VIPCenter/UserVIPDetail,param:UserID=577,No JSON object could be decoded
+2014-06-05 15:34:13,905 - mylogger - INFO - log start in Debug
+2014-06-05 15:34:14,065 - mylogger - ERROR - json decode error,method:POST,host:core.6998apitest.com,url:/api/VIPCenter/UserVIPDetail,param:UserID=577,No JSON object could be decoded
+2014-06-05 15:34:34,398 - mylogger - INFO - log start in Debug
+2014-06-05 15:34:34,677 - mylogger - ERROR - json decode error,method:POST,host:core.6998apitest.com,url:/api/VIPCenter/UserVIPDetail,param:UserID=577,No JSON object could be decoded
+2014-06-05 15:34:37,568 - mylogger - INFO - log start in Debug
+2014-06-05 15:34:52,569 - mylogger - INFO - log start in Debug
+2014-06-05 15:34:55,763 - mylogger - INFO - log start in Debug
+2014-06-05 15:34:55,951 - mylogger - ERROR - json decode error,method:POST,host:core.6998apitest.com,url:/api/VIPCenter/UserVIPDetail,param:UserID=577,No JSON object could be decoded
+2014-06-05 15:34:58,934 - mylogger - INFO - log start in Debug
+2014-06-05 15:34:59,158 - mylogger - ERROR - json decode error,method:POST,host:core.6998apitest.com,url:/api/VIPCenter/UserVIPDetail,param:UserID=577,No JSON object could be decoded
+2014-06-05 15:36:01,519 - mylogger - INFO - log start in Debug
+2014-06-05 15:36:10,127 - mylogger - INFO - log start in Debug
+2014-06-05 15:36:29,338 - mylogger - INFO - log start in Debug
+2014-06-05 15:36:30,674 - mylogger - INFO - log start in Debug
+2014-06-05 15:36:52,151 - mylogger - INFO - log start in Debug
+2014-06-05 15:37:56,801 - mylogger - INFO - log start in Debug
+2014-06-05 15:38:23,796 - mylogger - INFO - log start in Debug
+2014-06-05 15:38:25,984 - mylogger - INFO - log start in Debug
+2014-06-05 15:38:42,265 - mylogger - INFO - log start in Debug
+2014-06-05 15:38:48,670 - mylogger - INFO - log start in Debug
+2014-06-05 15:38:50,838 - mylogger - INFO - log start in Debug
+2014-06-05 15:38:50,970 - mylogger - ERROR - method:POST,host:core.6998apitest.com,url:/api/VIPCenter/UserVIPSalaryGet,param:UserID=577,
+2014-06-05 15:39:13,352 - mylogger - INFO - log start in Debug
+2014-06-05 15:39:13,471 - mylogger - ERROR - 
+2014-06-05 15:39:25,349 - mylogger - INFO - log start in Debug
+2014-06-05 15:39:34,967 - mylogger - INFO - log start in Debug
+2014-06-05 15:39:35,484 - mylogger - ERROR - 
+2014-06-05 15:40:21,303 - mylogger - ERROR - 不能补签过期日期或未达到日期
+2014-06-05 15:42:05,632 - mylogger - INFO - log start in Debug
+2014-06-05 15:43:30,822 - mylogger - INFO - log start in Debug
+2014-06-05 15:43:58,918 - mylogger - INFO - log start in Debug
+2014-06-05 15:49:45,913 - mylogger - ERROR - 对不起您的积分不够
+2014-06-05 15:52:10,535 - mylogger - INFO - log start in Debug
+2014-06-05 15:56:05,075 - mylogger - ERROR - 发货唐人游会员失败,错误代码:ERROR
+2014-06-05 15:56:59,982 - mylogger - INFO - log start in Debug
+2014-06-05 15:57:00,256 - mylogger - ERROR - 发货唐人游会员失败,错误代码:ERROR
+2014-06-05 15:57:03,221 - mylogger - INFO - log start in Debug
+2014-06-05 15:57:35,684 - mylogger - INFO - log start in Debug
+2014-06-05 15:57:42,039 - mylogger - INFO - log start in Debug
+2014-06-05 15:57:44,141 - mylogger - INFO - log start in Debug
+2014-06-05 15:57:57,010 - mylogger - INFO - log start in Debug
+2014-06-05 16:00:11,226 - mylogger - INFO - log start in Debug
+2014-06-05 16:02:19,059 - mylogger - INFO - log start in Debug
+2014-06-05 16:02:23,282 - mylogger - INFO - log start in Debug
+2014-06-05 16:02:56,667 - mylogger - INFO - log start in Debug
+2014-06-05 16:03:13,910 - mylogger - INFO - log start in Debug
+2014-06-05 16:03:58,161 - mylogger - INFO - log start in Debug
+2014-06-05 16:04:01,385 - mylogger - INFO - log start in Debug
+2014-06-05 16:04:08,849 - mylogger - INFO - log start in Debug
+2014-06-05 16:04:13,096 - mylogger - INFO - log start in Debug
+2014-06-05 16:04:34,714 - mylogger - INFO - log start in Debug
+2014-06-05 16:04:51,926 - mylogger - INFO - log start in Debug
+2014-06-05 16:05:04,822 - mylogger - INFO - log start in Debug
+2014-06-05 16:05:17,766 - mylogger - INFO - log start in Debug
+2014-06-05 16:05:34,960 - mylogger - INFO - log start in Debug
+2014-06-05 16:05:39,278 - mylogger - INFO - log start in Debug
+2014-06-05 16:05:46,474 - mylogger - ERROR - 发货唐人游会员失败,错误代码:ERROR
+2014-06-05 16:05:59,082 - mylogger - ERROR - 发货唐人游会员失败,错误代码:ERROR
+2014-06-05 16:06:35,720 - mylogger - INFO - log start in Debug
+2014-06-05 16:07:49,499 - mylogger - INFO - log start in Debug
+2014-06-05 16:07:50,839 - mylogger - INFO - log start in Debug
+2014-06-05 16:07:59,456 - mylogger - ERROR - 发货唐人游会员失败,错误代码:ERROR
+2014-06-05 16:08:02,497 - mylogger - INFO - log start in Debug
+2014-06-05 16:08:51,872 - mylogger - INFO - log start in Debug
+2014-06-05 16:09:01,497 - mylogger - INFO - log start in Debug
+2014-06-05 16:09:06,871 - mylogger - INFO - log start in Debug
+2014-06-05 16:09:18,553 - mylogger - INFO - log start in Debug
+2014-06-05 16:09:21,730 - mylogger - ERROR - 发货唐人游会员失败,错误代码:ERROR
+2014-06-05 16:09:24,921 - mylogger - INFO - log start in Debug
+2014-06-05 16:10:27,226 - mylogger - INFO - log start in Debug
+2014-06-05 16:10:31,365 - mylogger - ERROR - 发货唐人游会员失败,错误代码:ERROR
+2014-06-05 16:10:34,713 - mylogger - INFO - log start in Debug
+2014-06-05 16:10:57,220 - mylogger - INFO - log start in Debug
+2014-06-05 16:10:57,631 - mylogger - ERROR - 发货唐人游会员失败,错误代码:ERROR
+2014-06-05 16:11:00,395 - mylogger - INFO - log start in Debug
+2014-06-05 16:12:32,474 - mylogger - ERROR - 对不起您的积分不够
+2014-06-05 16:12:48,082 - mylogger - ERROR - 发货唐人游会员失败,错误代码:ERROR
+2014-06-05 16:12:52,977 - mylogger - INFO - log start in Debug
+2014-06-05 16:13:26,407 - mylogger - INFO - log start in Debug
+2014-06-05 16:19:42,157 - mylogger - INFO - log start in Debug
+2014-06-05 16:20:45,664 - mylogger - ERROR - 未找到商品,或商品已下架
+2014-06-05 16:20:51,346 - mylogger - INFO - log start in Debug
+2014-06-05 16:21:45,259 - mylogger - ERROR - 未找到商品,或商品已下架
+2014-06-05 16:22:10,375 - mylogger - INFO - log start in Debug
+2014-06-05 16:31:17,437 - mylogger - INFO - log start in Debug
+2014-06-05 16:33:50,030 - mylogger - INFO - log start in Debug
+2014-06-05 16:34:20,392 - mylogger - INFO - log start in Debug
+2014-06-05 16:34:58,331 - mylogger - INFO - log start in Debug
+2014-06-05 16:35:01,507 - mylogger - INFO - log start in Debug
+2014-06-05 16:35:13,395 - mylogger - INFO - log start in Debug
+2014-06-05 16:35:27,242 - mylogger - INFO - log start in Debug
+2014-06-05 16:35:50,937 - mylogger - INFO - log start in Debug
+2014-06-05 16:35:52,007 - mylogger - ERROR - 发货游戏币失败,错误代码:
+2014-06-05 16:35:55,128 - mylogger - INFO - log start in Debug
+2014-06-05 16:36:26,302 - mylogger - INFO - log start in Debug
+2014-06-05 16:36:27,403 - mylogger - ERROR - 发货游戏币失败,错误代码:
+2014-06-05 16:36:31,724 - mylogger - INFO - log start in Debug
+2014-06-05 16:36:59,678 - mylogger - INFO - log start in Debug
+2014-06-05 16:37:40,836 - mylogger - INFO - log start in Debug
+2014-06-05 16:37:45,148 - mylogger - INFO - log start in Debug
+2014-06-05 16:37:49,424 - mylogger - INFO - log start in Debug
+2014-06-05 16:44:55,138 - mylogger - INFO - log start in Debug
+2014-06-05 16:45:21,940 - mylogger - INFO - log start in Debug
+2014-06-05 16:46:07,312 - mylogger - INFO - log start in Debug
+2014-06-05 16:46:53,730 - mylogger - INFO - log start in Debug
+2014-06-05 16:47:07,704 - mylogger - INFO - log start in Debug
+2014-06-05 16:48:01,372 - mylogger - INFO - log start in Debug
+2014-06-05 16:48:03,753 - mylogger - ERROR - 您已经兑换过此礼包卡
