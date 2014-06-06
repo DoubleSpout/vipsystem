@@ -1,3 +1,73 @@
-<!doctype html>
-<title>Hello from Flask GOODS_INDEX</title>
-<h1>Hello from GOODS_INDEX {{ uid }}!{{ uname }}</h1>
+{% include 'inc/head.html' %}
+<!--网站顶部开始-->
+<body>
+{% include 'inc/nav.html' %}
+<!--网站顶部结束-->
+<!--VIP内容结束-->
+<div class="wrap">
+	<div class="vip_cont">
+    	
+		{% include 'inc/user_vip.html' %}
+
+        <!--幻灯片开始-->
+        <div class="banner_box" id="shop_pic_box">
+        	<div id="imgBox">
+            </div>
+            <div id="picBtn">
+            </div>
+        </div>
+        <!--幻灯片结束-->
+        <!--赚取积分开始-->
+        <div class="money_box">
+        	<h2>赚取积分</h2>
+            <div class="mon_cont">
+            	<div class="mon_img"><a href="https://pay.6998.com" target="_blank"><img align="游戏充值" src="/static/images/yxb.jpg"></a></div>
+                <div class="mon_font">
+                	<span>游戏充值</span>
+                    <span class="h">一元等于一积分</span>
+                    <a class="icon go_money" href="https://pay.6998.com" target="_blank" title="去赚积分">去赚积分</a>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="mon_cont">
+            	<div class="mon_img"><a href="https://pay.6998.com" target="_blank"><img align="升级VIP" src="/static/images/vip.jpg"></a></div>
+                <div class="mon_font">
+                	<span>升级VIP</span>
+                    <span class="h">一元等于一积分</span>
+                    <a class="icon go_money" href="https://pay.6998.com" target="_blank" title="升级VIP">升级VIP</a>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+        <!--赚取积分结束-->
+        <!---常见问题开始-->
+       		{% include 'inc/qa_left.html' %}
+        <!--常见问题结束--->
+        <!--虚拟商品开始-->
+        <div class="comm_box">
+        	<h2>虚拟商品<a class="icon more" href="/goods/list">更多</a></h2>
+        <div class="comm_cont" id="goods_index_box">
+            	<div class="vip_gift">
+                	<ul id="shop_index_box_1">
+                    	
+                    </ul>
+           		 </div>
+          		<div class="comm_contlist">
+                	<ul id="shop_index_box_2">
+
+                    </ul>
+        		</div>
+                <div class="clear"></div>
+            </div>
+        </div>
+        <!--虚拟商品结束-->
+        <div class="clear"></div>
+    </div>
+</div>
+<!--VIP内容结束-->
+
+{% include 'inc/foot.html' %}
+
+
+</body>
+</html>

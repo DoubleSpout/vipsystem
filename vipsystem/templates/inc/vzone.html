@@ -1,0 +1,29 @@
+<script src="http://www.6998.com/vipvirtuals"  type="text/javascript"></script>
+<!---虚拟专区开始-->
+<div class="vitual_box">
+<h2>虚拟专区</h2>
+<div class="vitual_cont">
+<ul id="vipvirtuals_box">
+    
+    <li><a href="#"><img src="images/img_2.jpg" width="230" height="70"></a></li>
+    <li><a href="#"><img src="images/img_3.jpg" width="230" height="70"></a></li>
+</ul>
+</div>
+</div>
+
+<script type="text/javascript">
+$(function(){
+	var zoneTemplate = '<li><a href="{link}" target="_blank"><img src="http://cms.6998.com{picture}" width="230" height="70"></a></li>'
+	var zoneStr = ''
+	var len = vipvirtuals.length;
+	for(var i=0;i<len;i++){
+		if(vipvirtuals[i]==0) continue;
+		var tmpstr = zoneTemplate
+		tmpstr = tmpstr.replace('{link}',vipvirtuals[i]['url'])
+						.replace('{picture}',vipvirtuals[i]['picture'])
+		zoneStr += tmpstr
+	}
+	$('#vipvirtuals_box').html(zoneStr)
+})
+</script>
+<!--虚拟专区结束--->

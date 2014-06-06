@@ -13,17 +13,22 @@ from vipsystem.models import LogscoreModel
 from sqlalchemy import *
 from flask.ext.sqlalchemy import SQLAlchemy
 
+import sys
+reload(sys)
+sys.setdefaultencoding('utf-8')
+
 #数据库访问
 db = SQLAlchemy(app)
 
 #vip对应等级可以补签的次数
 vipPatchTimes = (1,2,3,5,8,10)
+weekToCH = (u"日",u"一",u"二",u"三",u"四",u"五",u"六")
 
 #定义用户业务层
 class UsersBl(object):
 
     def __init__(self,uid):
-        self.uid = uid
+        self.uid = int(uid)
     
     #初始化用户
     def initUser(self):
@@ -38,6 +43,18 @@ class UsersBl(object):
         db.session.commit()
         pass
     
+    def getUserSignDayCount(self):
+        uid = self.uid
+        dayDict = {}
+        now = datetime.now()
+        #获得当前日期格式
+        dayDict['signDate'] = now.strftime('%m-%d')
+        dayDict['signWeek'] = u'周{0}'.format(weekToCH[int(now.strftime('%w'))])
+        #获得当月签到次数
+        curMonthTime = datetime(now.year,now.month,1,0,0,0)
+        dayDict['signCount'] = LogscoreModel.Log_Score.query.filter_by(Way='day',UserId=self.uid).filter(LogscoreModel.Log_Score.Writetime >= curMonthTime).count()
+        return dayDict
+        
     def sendRequest(self,method,url,paramDict,host=''):
         #请求coreservice接口，获取用户vip信息
         #如果没有传递host参数
@@ -112,7 +129,14 @@ class UsersBl(object):
     #public获取用户vip状态
     def getUserVipStatus(self):
         #请求coreservice接口，获取用户vip信息
-        dataDict = self.sendRequest('POST','/VIPCenter/UserVIPDetail',{'UserID':self.uid})       
+        dataDict = self.sendRequest('POST','/VIPCenter/UserVIPDetail',{'UserID':self.uid})
+        #获取签名次数
+        tempDict = self.getUserSignDayCount()
+        #更新到字典
+        dataDict.update(tempDict)
+        if dataDict['error'] != 1:
+            dataDict['data']['amountNext'] = dataDict['data']['amountNearly'] + dataDict['data']['amountNeed']
+            dataDict['data']['amountRate'] = int(dataDict['data']['amountNearly']/dataDict['data']['amountNext'])
         return dataDict
         
     #public用户领取工资

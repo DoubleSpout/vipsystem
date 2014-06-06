@@ -1,0 +1,33 @@
+<!--用户VIP信息内容开始-->
+<div class="vip_infobox">
+    <div class="vip_info">
+        <div class="vip_infoimg"><img src="https://passport.6998.com/api/GetAvatarByUserName?username={{ uname }}" width="80" height="80"></div>
+        <div class="vip_font">
+            <ol>
+                <li class="vip_user">{{ uname }}</li>
+                <li><span class="icon v1"></span></li>
+                <li>积分：{{ user['data']['score'] }}</li>
+            </ol>
+        </div> 
+    </div>
+     <div class="level">
+            <span class="level_{{ user['data']['level'] }}">￥{{ user['data']['amountNearly'] }}/￥{{ user['data']['amountNext'] }}</span><font>V{{ user['data']['level'] }}</font>
+     </div>
+     <!--签到开始-->
+     <div class="sign_inbox">
+        <span>{{ user['signDate'] }}<br>{{ user['signWeek'] }}</span>
+        <a class="icon sign_in" title="签到有奖" href="#">签到有奖</a>
+        <span>签到<br>{{ user['signCount'] }} 次</span>
+     </div>
+     <!--签到结束-->
+     <!--游戏服务器开始-->
+     <div class="vipser_list">
+        <ul>
+            <li><span><a title="海天盛宴" href="#">海天盛宴</a>-双线2区</span><a class="icon my_game" href="#">我的游戏</a></li>
+            <li><span><a title="海天盛宴" href="#">海天盛宴</a>-双线2区</span><a class="icon my_game" href="#">我的游戏</a></li>
+            <li><span><a title="海天盛宴" href="#">海天盛宴</a>-双线2区</span><a class="icon hot_game" href="#">火爆游戏</a></li>
+        </ul>
+     </div>
+     <!--游戏服务器结束-->
+</div>
+<!--用户VIP信息内容结束-->

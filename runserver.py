@@ -47,7 +47,6 @@ def mkdir(path):
         print path+' is exist'
         return False
 
-
 #计算路径，然后创建文件夹
 curPath = os.path.split(os.path.realpath(__file__))[0]
 logsPath = curPath + os.sep + 'vipsystem' + os.sep + 'logs'

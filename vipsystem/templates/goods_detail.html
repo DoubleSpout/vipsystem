@@ -1,3 +1,96 @@
-<!doctype html>
-<title>Hello from Flask GOOSD_DETAIL</title>
-<h1>Hello from GOOSD_DETAIL {{ uid }}!{{ uname }}</h1>
+{% include 'inc/head.html' %}
+<body>
+{% include 'inc/nav.html' %}
+<!--VIP内容结束-->
+<div class="wrap">
+	<div class="vip_cont">
+    	<!--商品列表页左边内容开始-->
+        <div class="viplist_l">
+			{% include 'inc/user_vip.html' %}
+            {% include 'inc/vzone.html' %}
+            {% include 'inc/qa_left.html' %}	
+        </div>
+        <!--商品列表页左边内容结束-->
+        <!--商品列表页右边内容开始-->
+        <div class="viplist_r">
+        	<h2>积分商城><span>商品兑换</span></h2>
+            <div class="comm_contbox">
+            	<!---商品内容开始-->
+            	<div class="comm_detbox">
+                	<div class="comm_det_img"><a href="#"><img src="images/hj.jpg" width="155" height="155"></a></div>
+                    <div class="comm_det_font">
+                        <h3>三星手机一部</h3>
+                        <span class="h">所需积分价格：<font class="cho_red">100000</font></span>
+                        <span class="h">库存：100</span>
+                        <span class="h">已兑换人数：50</span>
+                        <a class="icon go_money_1" href="#" title="立即兑换">立即兑换</a>
+                    </div>
+                </div>
+                <!--商品内容结束-->
+                <!--商品文字信息开始-->
+                	<h3 class="com_det_ftit">商品信息</h3>
+                    <div class="det_font">
+                    	<p>
+                        	<strong>商品名称</strong>：经典系列<br>
+                            <strong>规格</strong>：锻纱镀铬基础版<br>
+                                      终生质量保证<br>
+                                      环保礼盒包装<br>
+                                      建议使用zippo专用打火机油锻纱镀铬基础版<br>
+                                      终生质量保证<br>
+                                      环保礼盒包装<br>
+                                      建议使用zippo专用打火机油<br>
+                            <strong>提示</strong>：新的zippo打火机是未注入油的，需要加油才能正常使用
+                        </p>
+                    </div>
+                    <h4 class="det_pro">
+                    	<span>注意事项：<br></span>
+                        请您在购买时认真填写您的联系方式，我们的工作人员会在20个工作日内发货，国家法定假期除外！
+                    </h4>
+                <!--商品文字信息结束-->
+            </div>
+            <!---玩家在玩的游戏开始-->
+            <div class="vip_gamebox">
+                <h2>兑换此商品的用户正在玩</h2>
+                <div class="vip_gamelist">
+                	<ul>
+                    	<li>
+                        <a href="#"><img src="images/game_1.png" width="93" height="93"></a>
+                        <h4 class="game_font"><a href="#">武易传奇</a></h4>
+                        </li>
+                        <li>
+                        <a href="#"><img src="images/game_1.png" width="93" height="93"></a>
+                        <h4 class="game_font"><a href="#">武易传奇</a></h4>
+                        </li>
+                        <li>
+                        <a href="#"><img src="images/game_1.png" width="93" height="93"></a>
+                        <h4 class="game_font"><a href="#">武易传奇</a></h4>
+                        </li>
+                        <li>
+                        <a href="#"><img src="images/game_1.png" width="93" height="93"></a>
+                        <h4 class="game_font"><a href="#">武易传奇</a></h4>
+                        </li>
+                        <li>
+                        <a href="#"><img src="images/game_1.png" width="93" height="93"></a>
+                        <h4 class="game_font"><a href="#">武易传奇</a></h4>
+                        </li>
+                        <li>
+                        <a href="#"><img src="images/game_1.png" width="93" height="93"></a>
+                        <h4 class="game_font"><a href="#">武易传奇</a></h4>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!--玩家在玩的游戏结束-->
+        </div>
+        
+        <!--商品列表页右边内容结束-->
+        <div class="clear"></div>
+    </div>
+</div>
+<!--VIP内容结束-->
+<!--网站页脚开始-->
+{% include 'inc/foot.html' %}
+
+
+</body>
+</html>

@@ -1,0 +1,52 @@
+{% include 'inc/head.html' %}
+<body>
+{% include 'inc/nav.html' %}
+<!--VIP内容结束-->
+<div class="wrap">
+    <div class="vip_cont">
+        <!--商品列表页左边内容开始-->
+        <div class="viplist_l">
+            <!--用户VIP信息内容开始-->
+            {% include 'inc/user_vip.html' %}
+            {% include 'inc/vzone.html' %}
+            {% include 'inc/qa_left.html' %}
+        <!--常见问题结束--->      
+        </div>
+        <!--商品列表页左边内容结束-->
+        <!--商品列表页右边内容开始-->
+        <div class="viplist_r">
+            <h2>商品</h2>
+            <div class="choose_commfont">
+                <dl>
+                    <dt><strong>商品分类</strong></dt>
+                    <dd><a href="javascript:;">全部</a></dd>
+                     <!--
+                        <dd><a href="javascript:;">虚拟商品</a></dd>
+                        <dd><a href="#">实物商品</a></dd>
+                    -->
+                </dl>
+                <dl>
+                    <dt><strong>积分分类</strong></dt>
+                    <dd><a name="scoreFilter" href="javascript:;" min="0" max="100">0-100</a></dd>
+                    <dd><a name="scoreFilter" href="javascript:;" min="101" max="1000">101-1000</a></dd>
+                    <dd><a name="scoreFilter" href="javascript:;" min="1001" max="5000">1001-5000</a></dd>
+                    <dd><a name="scoreFilter" href="javascript:;" min="5001" max="10000">5001-10000</a></dd>
+                    <dd><a name="scoreFilter" href="javascript:;" min="10001" max="20000">10001-20000</a></dd>
+                </dl>
+            </div>
+            <!--商品内容开始-->
+            <div class="comm_list">
+                    <ul id="goods_list_box"></ul>
+              </div>
+            <!--商品内容结束-->
+        </div>
+        
+        <!--商品列表页右边内容结束-->
+        <div class="clear"></div>
+    </div>
+</div>
+<!--VIP内容结束-->
+{% include 'inc/foot.html' %}
+
+</body>
+</html>

@@ -1,3 +1,306 @@
-<!doctype html>
-<title>Hello from Flask INDEX</title>
-<h1>Hello from INDEX {{ uid }}!{{ uname }}</h1>
+{% include 'inc/head.html' %}
+<body>
+<!--网站顶部开始-->
+{% include 'inc/nav.html' %}
+<!--网站顶部结束-->
+<!--VIP内容结束-->
+<div class="wrap">
+	<div class="vip_cont">
+    	<!--VIP用户左边内容开始-->
+        {% include 'inc/user_vip.html' %}
+        <!--VIP用户左边内容结束-->
+        <!---VIP幻灯开始-->
+        <div class="vip_banner" id="vip_pic_box">
+        	<div id="imgBox_2">
+				
+            </div>
+            <div id="picBtn_2">
+            </div>
+        </div>
+        <!--VIP幻灯结束-->
+        <!--Vip中心内容开始-->
+        <div class="vipcen_cont">
+        	<div class="vipcen_labtit">
+            	<ul>
+                	<li class="vipcen_titover">VIP特权</li>
+                    <li>VIP成长中心</li>
+                    <li>VIP领取工资</li>
+                </ul>
+            </div>
+            <div class="clear"></div>
+            <div class="vipcen_contbox">
+            	<!--VIP特权开始-->
+            	<div class="vip_ct">
+                	<div class="vip_tab1box">
+                    	<table class="vip_tab1" width="100%" border="0" cellpadding="0" cellspacing="0">
+                          <tr>
+                            <td colspan="2" rowspan="2"><img src="/static/images/tab_img1.jpg"></td>
+                            <td width="151" class="tab_red">Vip0</td>
+                            <td width="55" class="tab_red">Vip1</td>
+                            <td width="56" class="tab_red">Vip2</td>
+                            <td width="56" class="tab_red">Vip3</td>
+                            <td width="56" class="tab_red">Vip4</td>
+                            <td width="65" class="tab_red">Vip5</td>
+                          </tr>
+                          <tr>
+                            <td>&nbsp;</td>
+                            <td>100</td>
+                            <td>1000</td>
+                            <td>10000</td>
+                            <td>50000</td>
+                            <td>100000</td>
+                          </tr>
+                           <tr>
+                            <td width="81" class="tab_red">充值	</td>
+                            <td width="99" class="tab_red">每月领工资系数</td>
+                            <td>0</td>
+                            <td>1%</td>
+                            <td>2%</td>
+                            <td>3%</td>
+                            <td>4%</td>
+                            <td>5%</td>
+                          </tr>
+                          <tr>
+                            <td width="81" class="tab_red">&nbsp;</td>
+                            <td width="99" class="tab_red">充值就返利</td>
+                            <td>0</td>
+                            <td>√</td>
+                            <td>√</td>
+                            <td>√</td>
+                            <td>√</td>
+                            <td>√</td>
+                          </tr>
+                          <tr>
+                            <td width="81" class="tab_red">游戏</td>
+                            <td width="99" class="tab_red">赠送积分</td>
+                            <td>—</td>
+                            <td>20</td>
+                            <td>500</td>
+                            <td>6998</td>
+                            <td>16998</td>
+                            <td>26998</td>
+                          </tr>
+                          <tr>
+                            <td width="81" class="tab_red">&nbsp;</td>
+                            <td width="99" class="tab_red">贴心秘书</td>
+                            <td> — </td>
+                            <td> — </td>
+                            <td> — </td>
+                            <td> — </td>
+                            <td>√</td>
+                            <td>√</td>
+                          </tr>
+                          <tr>
+                            <td width="81" class="tab_red">&nbsp;</td>
+                            <td width="99" class="tab_red">节日祝福</td>
+                            <td>0</td>
+                            <td>√</td>
+                            <td>√</td>
+                            <td>√</td>
+                            <td>√</td>
+                            <td>√</td>
+                          </tr>
+                          <tr>
+                            <td width="81" class="tab_red">&nbsp;</td>
+                            <td width="99" class="tab_red">生日特权</td>
+                            <td>0</td>
+                            <td>√</td>
+                            <td>√</td>
+                            <td>√</td>
+                            <td>√</td>
+                            <td>√</td>
+                          </tr>
+                          <tr>
+                            <td width="81" class="tab_red">签到</td>
+                            <td width="99" class="tab_red">每月补签</td>
+                            <td>0次</td>
+                            <td>1次</td>
+                            <td>3次</td>
+                            <td>5次</td>
+                            <td>8次</td>
+                            <td>10次</td>
+                          </tr>
+                        </table>
+                    </div>
+                    <div class="vip_tqfont">
+                    	<h3><span>1</span>每月领工资</h3>
+                        <p>
+                        	<span class="tab_black">工资发放形式：</span>每月1号，工资以唐人币的形式发放，发放的唐人币您可以充值任意游戏，人民币1元=1唐人币；工资不能提现。<br>
+                            <span class="tab_black">工资额度：</span>免费领取工资额度=上月充值金额 x 免费领工资系数（上月底）<br>
+                                               vip等级越高，免费领工资系数越大，工资金额就越高，见工资与vip等级表<br>
+                            <span class="tab_black">温馨提示：</span>工资只能当月领取，下月清零不累加！<br>
+                            <span class="tab_black">领工资对应vip系数：</span>
+                        </p>
+                         <table class="tab_2" width="100%" cellpadding="0"  cellspacing="0" border="0">
+                              <tr>
+                                <td>Vip0</td>
+                                <td>Vip1</td>
+                                <td>Vip2</td>
+                                <td>Vip3</td>
+                                <td>Vip4</td>
+                                <td>Vip5</td>
+                              </tr>
+                              <tr>
+                                <td>0</td>
+                                <td>1%</td>
+                                <td>2%</td>
+                                <td>3%</td>
+                                <td>4%</td>
+                                <td>5%</td>
+                              </tr>
+                            </table><br><br>
+                            <h3><span>2</span>充值就返利</h3>
+                        <p>
+                        	<span class="tab_black">返利说明：</span>玩家通过网银、支付宝、财付通一次性为6998游戏社区的游戏充值，达到一定金额即可获得相应的返利。返利将以银子的形式进行发放。<br>
+                            <span class="tab_black">返利规则：</span><br>
+                            <font style="padding-left:70px; display:block">
+                                   单笔充值满100元~299元， 赠送1唐人币<br>
+                                   单笔充值满300元~499元， 赠送3唐人币<br>
+                                   单笔充值满500元~999元， 赠送5唐人币<br>
+                                   单笔充值满1000元~4999元， 赠送11唐人币<br>
+                                   单笔充值满5000元~9999元， 赠送55唐人币<br>
+                            </font>
+                        </p>
+                        <h3><span>3</span>积分赠送</h3>
+                        <p>成为vip会员，系统会赠送相应的积分</p>
+                        <h3><span>4</span>贴心秘书</h3>
+                        <p>
+                        	贴心秘书，即专属客服是6998游戏社区vip专享的专属服务！vip等级达到3级及以上的vip用户，我们为您配备vip专属客服，让您享受更全方位的最尊贵服务！拥有了vip专属客服，您可以享受以下专属服务：<br>
+                            <span class="tab_black">优先解答</span><br>
+                            您反馈的问题我们优先处理，优先为您解疑答惑，让您享受优质、高效的服务。<br>
+                            <span class="tab_black">专人跟进</span><br>
+                            您的所有意见和建议都由您的vip专属客服为您反馈，问题全程专人专项跟进，并第一时间给予您回复。
+                        </p>
+                         <h3><span>5</span>生日/节日祝福</h3>
+                        <p>6998游戏平台所有玩家在生日/节日期间都将在消息中收到6998游戏平台送出的温馨祝福。</p>
+                         <h3><span>6</span>签到特权</h3>
+                        <p>6998游戏平台的所有vip会员将享受补签功能，vip等级越高，补签次数就越多。</p>
+                    </div>
+                </div>
+                <!--VIP特权结束-->
+                <!--VIP成长中心开始-->
+                <div class="vip_ct" style=" display:none">
+                	<div class="vip_tqfont while_bg">
+                    	 <h3><span>1</span>VIP说明</h3>
+                        <p>6998vip分为vip1~vip5五个等级。一旦成为6998vip会员，就可以享受到更加专业的贵宾级服务，随着vip等级的提升，还可以逐步享受丰富贴心的专属服务和精彩活动等内容。</p>
+                    </div>
+                    <div class="vip_tqfont">
+                    	 <h3><span>2</span>VIP等级划分</h3>
+                        <p>6998用户充值满100元即可成为VIP会员，VIP等级越高，享受到的VIP服务和特权就越多。<br>
+                        	<img src="/static/images/vip_img10.jpg">
+                        </p>
+                    </div>
+                    <div class="vip_tqfont while_bg">
+                    	 <h3><span>3</span>VIP升级规则</h3>
+                        <p>1. 连续3个月内的以用户累计消费为判断条件<br>
+							2. 在享受某等级vip服务时，当用户在3个月内达到升级标准后，将立即享受对于更高级的vip服务
+                        </p>
+                    </div>
+                    <div class="vip_tqfont">
+                    	 <h3><span>4</span>VIP升级/降级规则</h3>
+                         <div class="vip_tab1box">
+                    	<table class="vip_tab1 tab_3" width="100%" border="0" cellpadding="0" cellspacing="0">
+                          <tr>
+                            <th>Vip等级</th>
+                            <th>升级标准</th>
+                            <th>保底标准</th>
+                          </tr>
+                          <tr>
+                            <td>普通用户</td>
+                            <td>＜100元</td>
+                            <td>无需保底</td>
+                          </tr>
+                          <tr>
+                            <td>Vip1</td>
+                            <td>≥100元＜1000元</td>
+                            <td>连续3个月充值数≥50</td>
+                          </tr>
+                          <tr>
+                            <td>Vip2</td>
+                            <td>≥1000元＜10000元</td>
+                            <td>连续3个月充值数≥500</td>
+                          </tr>
+                          <tr>
+                            <td>Vip3</td>
+                            <td>≥10000元＜50000元</td>
+                            <td>连续3个月充值数≥5000</td>
+                          </tr>
+                          <tr>
+                            <td>Vip4</td>
+                            <td>≥50000元＜100000元	</td>
+                            <td>连续3个月充值数≥10000</td>
+                          </tr>
+                          <tr>
+                            <td>Vip5</td>
+                            <td>≥100000万</td>
+                            <td>连续3个月充值数≥50000</td>
+                          </tr>
+                        </table>
+                    </div>
+                        <p><span class="tab_black">温馨提示：</span>充值从2014年6月开始<br>
+                        1. VIP1-VIP5用户的会员等级具有缓慢降级及迅速升级的特性，升级后若连续3个月未达到指定保底数额，将被下降一个等级，等级连续逐级缓慢下降；降级后一旦达到降级前相应等级的保底标准，等级将直接恢复到降级前的对应等级。<br>
+                        2.举例说明：VIP3用户，3个月累计充值金额未达到5000元，将被降级为VIP2，再过3个月累计充值未达到500元，将被降级为VIP1；降为VIP1后，之后3个月累计充值金额未达到50元，将被降级为普通会员。该用户一旦达到了VIP3的保级标准，将 直接升级为VIP3。<br>
+                        3.在不充值情况下，一旦获得某级别VIP，用户将至少享受该等级服务3个月。在享受某星级服务时，当用户在3个月内达到了升级标准后，将立即享受对应的更高级的VIP服务。<br>
+                        4.VIP特权服务3个月未一个周期。<br>
+                        	
+                        </p>
+                    </div>
+                </div>
+                <!--VIP成长中心结束-->
+                <!--VIP领工资开始-->
+                <div class="vip_ct" style=" display:none">
+                    <div class="vip_wagebox">
+                    {% if user['data']['isSalary'] %}                     	
+                        	<h5>本月可领取工资 {{ user['data']['amountNearly'] }} 元 </h5>
+                            <h6>本月可免费领工资=您上月充值金额X免费领工资系数（上月底）</h6>
+                            <a class="icon vip_wagebut" href="#">领取工资</a>
+                    {% else %}                       
+                           <h5>您本月没有可领取的工资</h5>                      
+                    {%endif %}
+                    </div>
+                      <div class="vip_tqfont">
+                    	 <h3><span>1</span>每月领工资</h3>
+                        <p>
+                        	<span class="tab_black">工资发放形式：</span>每月1号，工资以唐人币的形式发放，发放的唐人币您可以充值任意游戏，人民币1元=1唐人币；工资不能提现。<br>
+                            <span class="tab_black">工资额度：</span>免费领取工资额度=上月充值金额 x 免费领工资系数（上月底）<br>
+                   vip等级越高，免费领工资系数越大，工资金额就越高，见工资与vip等级表<br>
+                            <span class="tab_black">温馨提示：</span>工资只能当月领取，下月清零不累加！<br>
+                            <span class="tab_black">领工资对应vip系数：</span>
+                        </p>
+                         <table class="tab_2" width="100%" cellpadding="0"  cellspacing="0" border="0">
+                              <tr>
+                                <td>Vip0</td>
+                                <td>Vip1</td>
+                                <td>Vip2</td>
+                                <td>Vip3</td>
+                                <td>Vip4</td>
+                                <td>Vip5</td>
+                              </tr>
+                              <tr>
+                                <td>0</td>
+                                <td>1%</td>
+                                <td>2%</td>
+                                <td>3%</td>
+                                <td>4%</td>
+                                <td>5%</td>
+                              </tr>
+                            </table><br><br>
+                    </div>
+                </div>
+                <!--VIP领工资结束-->
+            </div>
+        </div>
+        <!--Vip中心内容结束-->
+        
+        <div class="clear"></div>
+        <div class="vip_upgradebox"><a class="icon vip_upgradebut" href="#">升级VIP</a></div>
+    </div>
+</div>
+<!--VIP内容结束-->
+<!--网站页脚开始-->
+{% include 'inc/foot.html' %}
+
+
+
+</body>
+</html>

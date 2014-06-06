@@ -1,3 +1,73 @@
-<!doctype html>
-<title>Hello from Flask QA_INDEX</title>
-<h1>Hello from QA_INDEX  {{ uid }}!{{ uname }}</h1>
+{% include 'inc/head.html' %}
+
+<body>
+<!--网站顶部开始-->
+{% include 'inc/nav.html' %}
+<!--网站顶部结束-->
+<!--VIP内容结束-->
+<div class="wrap">
+	<div class="vip_cont">
+    	<!--商品列表页左边内容开始-->
+        <div class="viplist_l">
+         	{% include 'inc/user_vip.html' %}
+            {% include 'inc/vzone.html' %}
+         	{% include 'inc/qa_left.html' %}    	
+        </div>
+        <!--商品列表页左边内容结束-->
+        <!--商品列表页右边内容开始-->
+        <div class="viplist_r">
+        	<h2>常见问题</h2>
+            <!--常见问题内容开始-->
+            <div class="prob_cont" id="qa_box">
+                    	<h2 id="pos1">1.什么是积分</h2>
+                        <div class="open_font">
+                        	6998游戏积分是6998游戏平台针对新老用户的一项回馈服务。6998游戏用户可通过完善个人资料，充值，登录签到等行为获得积分。
+                        </div>
+                    	<h2 id="pos2">2.积分如何使用</h2>
+                        <div class="open_font" >
+                        	积分可以在6998游戏兑换中心兑换到游戏超值礼包或实物礼品。还可参加各种积分抽奖活动，体验平台不断推出的各种新服务内容。
+                        </div>
+                    	<h2 id="pos3">3.如何查询我的积分</h2>
+                        <div class="open_font" >
+                        	登录vip中心可直接查看
+                        </div>
+                        <h2 id="pos4">4.积分可以交易吗</h2>
+                        <div class="open_font" >
+                            积分不可交易，也不可赠送；用户因帐号被盗而损失的积分无法补偿。
+                        </div>
+                        <h2 id="pos5">5.积分是否长期有效</h2>
+                        <div class="open_font" >
+                            积分有效期为自6998积分获得之日至次年年底。未在有效期内使用的积分将自动作废。例：2014年5月获得的6998积分可使用到2015年12月31日。
+                        </div>
+                        <h2 id="pos6">6.如何获得积分</h2>
+                        <div class="open_font" >
+                            积分获得途径主要来自：完成任务、充值奖励vip赠送以及积分抽奖
+                        </div>
+                        <h2 id="pos7">7.我兑换的礼品是否提供发票</h2>
+                        <div class="open_font" >
+                            积分兑换礼品并非现金买卖礼品，而是6998游戏为答谢用户所提供的回馈服务，不提供发票。
+                        </div>
+                        <h2 id="pos8">8.礼品缺货时是否可进行兑换</h2>
+                        <div class="open_font" >
+                            目前在礼品缺货时不提供礼品兑换。礼品数量将不定时更新，请以实际数量为准。
+                        </div>
+                        <h2 id="pos9">9.我兑换的礼品如何获取</h2>
+                        <div class="open_font" >
+                            对于在兑换中心兑换的礼品，我们将提供快递送货上门的配送服务。
+                        </div>
+                        <h2 id="pos10">10.礼品售后维修凭证是什么</h2>
+                        <div class="open_font" >
+                            如需要保修服务，可凭礼品附带的保修卡到指定维修点保修礼品，如无保修卡，则恕不提供保修服务。
+                        </div>
+            </div>
+            <!--常见问题内容结束-->
+        </div>
+        <!--商品列表页右边内容结束-->
+        <div class="clear"></div>
+    </div>
+</div>
+<!--VIP内容结束-->
+{% include 'inc/foot.html' %}
+
+</body>
+</html>

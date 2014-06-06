@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+#coding=utf-8
 from vipsystem import app
 import flask
 import json
@@ -10,6 +11,10 @@ from vipsystem import config
 import httplib
 import urllib
 from xml.dom.minidom import parse, parseString
+
+import sys
+reload(sys)
+sys.setdefaultencoding('utf-8')
 
 #实现登录跳转
 @app.route('/login')
@@ -72,19 +77,16 @@ def sign_sign():
     if not flask.session.has_key('userid') or flask.session['userid'] == 0:
         return json.dumps({'error':1,data:'请先登录'})
     
-    timestamp = request.args.get('ts')
-    if not timestamp:
-        return Response(json.dumps({'error':1,'data':'ts 为空'}),mimetype='application/json')
-    try:
-        timestamp = int(timestamp);
-    except ValueError:
-        return Response(json.dumps({'error':1,'data':'ts 参数非法'}),mimetype='application/json')
+    #判断timestamp的合法性
+    timestamp = request.args.get('ts') or ''
+    if not timestamp.isdigit():
+        return Response(json.dumps({'error':1,'data':'ts 参数非法'}),mimetype='application/json')        
     
     uid = flask.session['userid']
     userbl = UsersBl.UsersBl(uid)
     
     #执行签到的操作
-    r = userbl.daySign(timestamp)
+    r = userbl.daySign(int(timestamp))
     
     #如果出错，记录日志
     if r['error'] == 1:
@@ -152,9 +154,10 @@ def index():
     if r['error'] == 1:
         LoggerBl.log.error(r['data'])
         #出错跳转到6998主页
-        #return redirect('http://www.6998.com', code=302)
-        
-    return render_template('index.html', data=r['data'],uid=uid,uname=uname) 
+        return redirect('http://www.6998.com', code=302)
+    
+    
+    return render_template('index.html', data=r['data'],uid=uid,uname=uname,user=r) 
 
 
 #每日签到页面
@@ -174,7 +177,7 @@ def sign_index():
     if r['error'] == 1:
         LoggerBl.log.error(r['data'])
         #出错跳转到6998主页
-        #return redirect('http://www.6998.com', code=302)
+        return redirect('http://www.6998.com', code=302)
     
     r2 = userbl.getCurMonthSign()
     
@@ -200,6 +203,6 @@ def qa_index():
         #出错跳转到6998主页
         #return redirect('http://www.6998.com', code=302)
         
-    return render_template('qa_index.html', data=r['data'],uid=uid,uname=uname) 
+    return render_template('qa_index.html', data=r['data'],uid=uid,uname=uname,user=r) 
 
 
