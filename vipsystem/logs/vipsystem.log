@@ -400,3 +400,4 @@
 2014-06-09 16:15:52,525 - mylogger - INFO - log start in Debug
 2014-06-09 16:15:59,005 - mylogger - ERROR - method:POST,host:core.6998apitest.com,url:/api/VIPCenter/UserVIPSalaryGet,param:{"IPAddress": "127.0.0.1", "UserID": 577}, coreservice服务异常,状态:500,响应:{"responseStatus":{"errorCode":"MySqlException","message":"Column 'Code1' cannot be null","errors":[]}}
 2014-06-09 16:22:22,220 - mylogger - INFO - log start in Debug
+2014-06-09 17:20:22,497 - mylogger - ERROR - 对不起您的积分不够

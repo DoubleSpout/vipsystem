@@ -192,6 +192,7 @@ $(function(){
                        '<a class="icon go_money"href="/goods/info?ename='+_gooslist[k].EName+'" title="兑换">兑 换</a></div></li>'
 		}
 		$('#shop_index_box_2').html(si_str2)
+		fix()
 	}
 
 	if($('#goods_list_box').length>0){
@@ -386,7 +387,7 @@ $(function(){
 						goshow(num)
 				});
 		}()
-		
+
 		//幻灯2
 	var pic2 = function(){	
 	var picBtna = $('#picBtn_2').find('a'),
