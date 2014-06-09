@@ -11,6 +11,7 @@ from vipsystem import config
 import httplib
 import urllib
 from xml.dom.minidom import parse, parseString
+from datetime import datetime
 
 import sys
 reload(sys)
@@ -104,9 +105,10 @@ def salary_get():
     
     uid = flask.session['userid']
     userbl = UsersBl.UsersBl(uid)
+    uip = request.remote_addr
     
     #执行操作
-    r = userbl.getSalary()
+    r = userbl.getSalary(uip)
     
     #如果出错，记录日志
     if r['error'] == 1:
@@ -181,7 +183,9 @@ def sign_index():
     
     r2 = userbl.getCurMonthSign()
     
-    return render_template('day_sign.html', data=r['data'],uid=uid,uname=uname,signArray = json.dumps(r2['data']))
+    today = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+    
+    return render_template('day_sign.html', data=r['data'],uid=uid,uname=uname,signArray = json.dumps(r2['data']),today=today)
 
 
 #常见问题
@@ -201,8 +205,7 @@ def qa_index():
     if r['error'] == 1:
         LoggerBl.log.error(r['data'])
         #出错跳转到6998主页
-        #return redirect('http://www.6998.com', code=302)
-        
+        #return redirect('http://www.6998.com', code=302)    
     return render_template('qa_index.html', data=r['data'],uid=uid,uname=uname,user=r) 
 
 

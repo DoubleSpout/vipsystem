@@ -41,18 +41,34 @@ class GoodsBl(object):
         return {'error':0,'data':goodsArray}
         
     #获取指定商品的详细信息
-    def getGoodsDetail(self,ename):
-        goodsDict = GoodsModel.Goods.query.filter_by(IsShow=1, EName=ename).first()
-        if goodsDict:
-            goodsDict = GoodsModel.Goods.parseToList([goodsDict])[0]
-        else:
-            goodsDict = {}
+    def getGoodsDetail(self,ename):           
+        goodslist = GoodsModel.Goods.query.filter_by(IsShow=1, EName=ename).all()
+        if len(goodslist) == 0:
+            return {'error':0,'data':{}}
+        goodsDict = goodslist[0]
+        goodsId = goodsDict.Id
+        
+        #如果礼品类型是card，并且改用户已经兑换过了
+        goodsContent = '0'
+        if goodsDict.Type == 'gameCard':
+            logDict = LogscoreModel.Log_Score.query.filter_by(Way='exchange',UserId=self.uid, ScoreCode2=goodsId).all()
+            if len(logDict) >0:
+                goodsContent = logDict[0].ScoreCode3
+                print('*********')        
+                print(goodsContent)
+        
+        goodsDict = GoodsModel.Goods.parseToList([goodsDict])[0]
+        goodsCount = LogscoreModel.Log_Score.query.filter_by(Way='exchange', ScoreCode2=goodsId).count()
+        goodsDict['countall'] = goodsCount
+        goodsDict['content'] = goodsContent
         return {'error':0,'data':goodsDict}
     
     def exchangeGoods(self,ename):
         #积分获取和消费的url
         scoreLogUrl = '/VIPCenter/UserVIPScoreUpdate'
         uid = self.uid
+        goodsCode = '0'
+        goodsType = ''
         
         #获取goods字典
         goodsDict = GoodsModel.Goods.query.filter_by(IsShow=1, EName=ename).first()
@@ -88,6 +104,7 @@ class GoodsBl(object):
         
         if goodsDict['Type'] == 'tryMember':
             #去获取唐人游会员
+            goodsType = 'tryMember'
             r = self.sendRequest('POST','/member/UseMember',{
                     'UserID':uid,
                     'VIPType':int(goodsDict['Code1']),
@@ -98,7 +115,8 @@ class GoodsBl(object):
                 return {'error':1,'data':'发货唐人游会员失败,错误代码:{0}'.format(r['result'])}
 
         elif goodsDict['Type'] == 'tryGift':
-            #去获取唐人游会员
+            #去赠送礼品
+            goodsType = 'tryGift'
             r = self.sendRequest('POST','/money/UpdateCash',{
                     'UserID':uid,
                     'WantedAmount':goodsDict['Code2'],
@@ -115,7 +133,7 @@ class GoodsBl(object):
             logScoreDict['Code3'] = goodsDict['Code2']
             
         elif goodsDict['Type'] == 'tryCoin':
-           
+            goodsType = 'tryCoin'
             r = self.sendRequest('POST','/bean/UpdateCash',{
                     'UserID':uid,
                     'WantedAmount':goodsDict['Code2'],
@@ -130,13 +148,14 @@ class GoodsBl(object):
                 return {'error':1,'data':'发货游戏币失败,错误代码:'.format(r['result'])}
             
             logScoreDict['Code3'] = goodsDict['Code1']
-            
+        #6998 VIP会员
         elif goodsDict['Type'] == '6998Vip':
+            goodsType = '6998Vip'
             logScoreDict['Code3'] = goodsDict['Code1']
             logScoreDict['Code4'] = int(time.time()) + int(goodsDict['Code2'])
             
         elif goodsDict['Type'] == 'gameCard':
-            
+            goodsType = 'gameCard'
             #检查此游戏推广卡是否已经被领取过了
             goodsId = goodsDict['Id']
             hasExchangeArray = LogscoreModel.Log_Score.query.filter_by(UserId=uid, Way='exchange',ScoreCode1='gameCard',ScoreCode2=goodsId).all()
@@ -151,8 +170,8 @@ class GoodsBl(object):
             
             if r['Result'] != True:
                 return {'error':1,'data':'发货游戏币失败,错误代码:'.format(r['Message'])}
-            
-            logScoreDict['Code3'] = r['Message']
+             
+            goodsCode = logScoreDict['Code3'] = r['Message']
         else:
             return {'error':1, 'data':'未知商品类型: {0}'.format(goodsDict['Type'])}
              
@@ -167,8 +186,11 @@ class GoodsBl(object):
         
         if dbResult != 1:
             return {'error':1, 'data':'更新库存失败'}
-        
-        return {'error':0, 'data':''}
+        tempDict = {
+            'code':goodsCode,
+            'type':goodsType,
+        }
+        return {'error':0, 'data':tempDict}
     
 
 

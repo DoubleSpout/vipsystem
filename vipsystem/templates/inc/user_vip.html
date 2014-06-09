@@ -5,22 +5,35 @@
         <div class="vip_font">
             <ol>
                 <li class="vip_user">{{ uname }}</li>
-                <li><span class="icon v1"></span></li>
+                <li><span class="icon v{{ user['data']['level'] }}"></span></li>
                 <li>积分：{{ user['data']['score'] }}</li>
             </ol>
         </div> 
     </div>
-     <div class="level">
-            <span class="level_{{ user['data']['level'] }}">￥{{ user['data']['amountNearly'] }}/￥{{ user['data']['amountNext'] }}</span><font>V{{ user['data']['level'] }}</font>
-     </div>
+    <div class="level">
+                    <div class="level_1" style="width:{{ user['data']['amountRate1'] }}%;"></div><div class="level_next" style="width:{{ user['data']['amountRate2'] }}%;"></div><font>V{{ user['data']['level'] }}</font>
+                     {% if user['data']['amountRate1'] > 40 %} 
+                         <i class="level_pfont" style="color:#fff">￥{{ user['data']['amountNearly'] }}/￥{{ user['data']['amountNext'] }}</i>
+                     {% else %}
+                         <i class="level_pfont" >￥{{ user['data']['amountNearly'] }}/￥{{ user['data']['amountNext'] }}</i>
+                     {%endif %}
+             </div>
      <!--签到开始-->
      <div class="sign_inbox">
         <span>{{ user['signDate'] }}<br>{{ user['signWeek'] }}</span>
-        <a class="icon sign_in" title="签到有奖" href="#">签到有奖</a>
+        <a class="icon sign_in" id="sign_in" title="签到有奖" href="javascript:;">签到有奖</a>
         <span>签到<br>{{ user['signCount'] }} 次</span>
      </div>
      <!--签到结束-->
-     <!--游戏服务器开始-->
+     <div class="vip_userbox">
+                <ul>
+                    <li><a class="icon vip_mm" href="http://account.6998.com/?open=password">修改密码</a></li>
+                    <li><a class="icon vip_sj" href="http://account.6998.com/?open=mobile">绑定手机</a></li>
+                    <li><a class="icon vip_zx" href="http://account.6998.com/">个人中心</a></li>
+                    <li><a class="icon vip_tc" href="https://passport.6998.com/Logout?service=http://www.6998.com/">退出登录</a></li>
+                </ul>
+             </div>
+     <!--游戏服务器开始
      <div class="vipser_list">
         <ul>
             <li><span><a title="海天盛宴" href="#">海天盛宴</a>-双线2区</span><a class="icon my_game" href="#">我的游戏</a></li>
@@ -28,6 +41,6 @@
             <li><span><a title="海天盛宴" href="#">海天盛宴</a>-双线2区</span><a class="icon hot_game" href="#">火爆游戏</a></li>
         </ul>
      </div>
-     <!--游戏服务器结束-->
+     游戏服务器结束-->
 </div>
 <!--用户VIP信息内容结束-->

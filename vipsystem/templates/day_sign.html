@@ -1,4 +1,216 @@
-<!doctype html>
-<title>Hello from Flask DAY_SIGN</title>
-<h1>Hello from DAY_SIGN {{ uid }}!{{ uname }} </h1>
-<h1>signArray:{{ signArray }}</h1>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>VIP签到-唐人游戏平台</title>
+<link href="/static/css/sign_css.css" rel="stylesheet" type="text/css">
+<script src="http://sg.6998cdn.com/skin2013v2/js/jquery.1.7.1.min.js"  type="text/javascript"></script>
+<script src="http://www.6998cdn.com/moment/moment.js"  type="text/javascript"></script>
+
+</head>
+
+<body>
+<div class="vip_signbox">	
+    <div class="vip_sigcont">
+    	<div class="vip_signmonth" id="day_month"></div>
+        <div class="sign_icon vip_week"><span>周日</span><span>&nbsp;周一</span><span>周二</span><span>周三</span><span>&nbsp;周四</span><span>周五</span><span>周六</span></div>
+        <div class="vip_date">
+        	<ul style="width:450px;" id="day_list">
+            	<li class="last_month">21</li>
+                <li class="last_month">22</li>
+                <li class="last_month">23</li>
+                <li class="last_month">24<i class="retroa"></i></li>
+                <li class="last_month">25</li>
+                <li class="last_month">25</li>
+                <li class="last_month">25<i class="retroa"></i></li>
+                <li class="last_month">25</li>
+                <li class="last_month">25</li>
+                <li class="last_month">25</li>
+                <li>25<i class="signed"></i></li>
+                <li>25<i class="signed"></i></li>
+                <li>25<i class="signed"></i></li>
+                <li>25<i class="signed"></i></li>
+                <li>25</li>
+                <li>25</li>
+                <li>25</li>
+                <li>25</li>
+                <li>25<i class="signed"></i></li>
+                <li>25</li>
+                <li>25</li>
+                <li>25</li>
+                <li class="now_date">25</li>
+                <li>25</li>
+                <li>25<i class="signed"></i></li>
+                <li>25</li>
+                <li>25</li>
+                <li>25</li>
+                <li>25</li>
+                <li>25</li>
+                <li>25</li>
+            </ul>
+        </div>
+        <div class="clear"></div>
+        <!---连续签到开始-->
+        <div class="vip_signedfont">
+        	<span>您已累计签到：<font id="day_count"></font>次，连续签到：<font id="day_contiune"></font>天</span>
+            <a class="sign_icon signed_but" href="javascript:;" id="start_sign">立即签到</a>
+        </div>
+        <div class="conti_sign" id="day_continue_controller">
+        	<font>连续签到</font>
+        	<span c='2' s='5' class="sign_icon conti_two">2<i style="display:none;"></i></span>
+        	<span c='5' s='15' class="sign_icon conti_five">5<i style="display:none;"></i></span>
+        	<span c='10' s='30' class="sign_icon conti_ten">10<i style="display:none;"></i></span>
+        	<span c='17' s='50' class="sign_icon conti_seventeen">17<i style="display:none;"></i></span>
+        	<span c='26' s='100' class="sign_icon conti_thirty">26<i style="display:none;"></i></span>
+        </div>
+        <div class="sign_icon conti_gift" id="day_continue_tips"></div>
+        <!---连续签到结束-->
+    </div>
+    <!--提示文字开始-->
+    <div class="sign_rule">
+    	<h2>签到规则</h2>
+        <ol>
+        	<li>1. VIP3每次签到奖励3积</li>
+            <li>2. 连续签到有额外积分奖励。</li>
+            <li>3. VIP用户可以补签，VIP等级越高，补签的次数越多。</li>
+        </ol>
+    </div>
+    <!--提示文字结束-->
+</div>
+
+  <!--[if IE 6]>     
+    <script src="http://shop.uc55.com//Scripts/DD_belatedPNG_0.0.8a-min.js" type="text/javascript"></script>
+    <script  type="text/javascript">     
+        DD_belatedPNG.fix('.sign_icon,..vip_date ul li i,.vip_week,.vip_date ul li,.conti_sign span i,.vip_signtit i.close,.err_ic_right,.err_ic_wrong,img'); 
+    </script> 
+    <![endif]-->
+<script type="text/javascript">
+$('.sign_icon span:last').css('margin-right','0px')
+
+
+/*start day sign*/
+{% autoescape false %}
+	window['mySign'] = {{ signArray }};
+{% endautoescape %}	
+	today = '{{ today }}'
+
+var initTable = function(){
+	var now = moment(today);
+	var nowZero = moment({y: now.year(), M: now.month(), d: now.date(), h: 0, m: 0, s: 0, ms: 0});
+	var now_month = now.format('YYYY年 - M月')
+	$('#day_month').html(now_month);
+
+	var mySignLen = window['mySign'].length
+	$('#day_count').html(mySignLen)
+	$('#day_contiune').html(window['mySign'][0].ScoreCode2 || 0)
+
+	if(nowZero.format('X') <= parseInt(window['mySign'][0].ScoreCode1)){ //如果今天已经签过到
+		$('#start_sign').hide();
+	}
+
+	
+	var monthFirst = moment({y: now.year(), M: now.month(), d: 1, h: 0, m: 0, s: 0, ms: 0});
+	var monthLast = moment().endOf('month');
+	var monthDayCount = monthLast.date();
+
+	var weekDay = monthFirst.day();
+	var lastMonthDate = [];
+	var curMonthDate = [];
+
+	if(weekDay != 0){
+		//上个月
+		lastMonth = moment({y: now.year(), M: now.month(), d: 1});
+		lastMonthLastDay =lastMonth.endOf('month');
+
+		for(var i=0;i<weekDay;i++){
+			var temp = lastMonthLastDay.day(-1*i)
+			lastMonthDate.unshift({
+				timestamp:temp.format('X'),
+				date:temp.date(),
+				lastMonth:1,
+				momentObj:temp
+			})
+		}
+	}
+
+	for(var j=0;j<monthDayCount;j++){
+		var temp = moment({y: now.year(), M: now.month(), d: j+1});
+		curMonthDate.push({
+				timestamp:temp.format('X'),
+				date:temp.date(),
+				lastMonth:0,
+				momentObj:temp
+			})
+	}
+
+	allMonthDate = lastMonthDate.concat(curMonthDate)
+
+	tempLiStr= ''
+	for(var k=0;k<allMonthDate.length;k++){
+		var tempTs = allMonthDate[k].timestamp;
+		var tempLastMonth = ''
+		var tempHasSign = ''
+		var tempToday = ''
+		if(allMonthDate[k].timestamp == 1){
+			tempLastMonth = 'last_month'
+		}
+		if(allMonthDate[k].date == now.date()){
+			tempToday = 'now_date'
+		}
+
+		for(var l=0;l<window['mySign'].length;l++){
+
+			if(tempTs == window['mySign'][l]['ScoreCode1']){
+				console.log(tempTs,  window['mySign'][l]['ScoreCode1'])
+				tempHasSign = window['mySign'][l]['ScoreCode3'] == 1 ? '<i class="retroa"></i>' : '<i class="signed"></i>'
+			}
+		}
+
+		tempLastMonth = tempLastMonth +' '+tempToday
+		tempLiStr += '<li class="'+tempLastMonth+'" ts="'+tempTs+'">'+allMonthDate[k].date+tempHasSign+'</li>';	
+	}
+
+	$('#day_list').html(tempLiStr)
+
+	$('#start_sign').click(function(){
+
+		$.get('/sign/sign',{ts:nowZero.format('X')},function(d){
+				if(d.error == 1){
+					return alert(d.data)
+				}
+				else{
+					alert('签到成功');
+					setTimeout(function(){
+						location.href = location.href
+					},500)
+				}
+		},'json')
+
+	})
+
+	console.log(allMonthDate)
+
+}
+
+
+	$(function(){
+		
+		initTable()
+
+		var day_i = $('#day_continue_controller').find('i')
+		$('#day_continue_controller').find('span').mouseenter(function(){
+			var that = $(this)
+			day_i.hide();
+			var s = that.attr('s')
+			var c = that.attr('c')
+			that.find('i').show()
+			$('#day_continue_tips').html('连续签到'+c+'天额外奖励'+s+'积分')
+		}).eq(0).trigger('mouseenter')
+
+	})
+	
+</script>
+
+
+</body>
+</html>

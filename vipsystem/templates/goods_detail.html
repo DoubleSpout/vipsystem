@@ -13,17 +13,22 @@
         <!--商品列表页左边内容结束-->
         <!--商品列表页右边内容开始-->
         <div class="viplist_r">
-        	<h2>积分商城><span>商品兑换</span></h2>
+        	<h2><a href="/goods/list">积分商城</a>><span>商品兑换</span></h2>
             <div class="comm_contbox">
             	<!---商品内容开始-->
             	<div class="comm_detbox">
-                	<div class="comm_det_img"><a href="#"><img src="images/hj.jpg" width="155" height="155"></a></div>
+                	<div class="comm_det_img"><img id="goods_detail_picture" src="" width="155" height="155"></div>
                     <div class="comm_det_font">
-                        <h3>三星手机一部</h3>
-                        <span class="h">所需积分价格：<font class="cho_red">100000</font></span>
-                        <span class="h">库存：100</span>
-                        <span class="h">已兑换人数：50</span>
-                        <a class="icon go_money_1" href="#" title="立即兑换">立即兑换</a>
+                        <h3 id="goods_detail_title"></h3>
+                        <span class="h">所需积分价格：<font class="cho_red" id="goods_detail_price"></font> 积分</span>
+                        <span class="h">库存：<font id="goods_detail_inventory">{{ goods['Inventory'] }}</font></span>
+                        <span class="h">已兑换人数：<font id="goods_detail_has_exchange">{{ goods['countall'] }}</font></span>
+                        {% if goods['content'] != '0' %}
+                            <span class="h">您的礼品卡号：<font id="" class="cho_red">{{ goods['content'] }}</font></span>
+                        {% else %}
+                            <a class="icon go_money_1 no_inventory" href="javascript:;" title="库存不足" id="no_inventory" style="display:none;">库存不足</a>
+                            <a class="icon go_money_1" href="javascript:;" title="立即兑换" id="sub_exchange" style="display:none;">立即兑换</a>
+                        {% endif %}
                     </div>
                 </div>
                 <!--商品内容结束-->
@@ -31,15 +36,9 @@
                 	<h3 class="com_det_ftit">商品信息</h3>
                     <div class="det_font">
                     	<p>
-                        	<strong>商品名称</strong>：经典系列<br>
-                            <strong>规格</strong>：锻纱镀铬基础版<br>
-                                      终生质量保证<br>
-                                      环保礼盒包装<br>
-                                      建议使用zippo专用打火机油锻纱镀铬基础版<br>
-                                      终生质量保证<br>
-                                      环保礼盒包装<br>
-                                      建议使用zippo专用打火机油<br>
-                            <strong>提示</strong>：新的zippo打火机是未注入油的，需要加油才能正常使用
+                        	<strong>商品名称</strong>：<font id="goods_detail_title2"></font><br>
+                            <strong>规格</strong>：<p id="goods_detail_specification"></p>
+                            <strong>提示</strong>：<p id="goods_detail_tips"></p>
                         </p>
                     </div>
                     <h4 class="det_pro">
@@ -49,37 +48,7 @@
                 <!--商品文字信息结束-->
             </div>
             <!---玩家在玩的游戏开始-->
-            <div class="vip_gamebox">
-                <h2>兑换此商品的用户正在玩</h2>
-                <div class="vip_gamelist">
-                	<ul>
-                    	<li>
-                        <a href="#"><img src="images/game_1.png" width="93" height="93"></a>
-                        <h4 class="game_font"><a href="#">武易传奇</a></h4>
-                        </li>
-                        <li>
-                        <a href="#"><img src="images/game_1.png" width="93" height="93"></a>
-                        <h4 class="game_font"><a href="#">武易传奇</a></h4>
-                        </li>
-                        <li>
-                        <a href="#"><img src="images/game_1.png" width="93" height="93"></a>
-                        <h4 class="game_font"><a href="#">武易传奇</a></h4>
-                        </li>
-                        <li>
-                        <a href="#"><img src="images/game_1.png" width="93" height="93"></a>
-                        <h4 class="game_font"><a href="#">武易传奇</a></h4>
-                        </li>
-                        <li>
-                        <a href="#"><img src="images/game_1.png" width="93" height="93"></a>
-                        <h4 class="game_font"><a href="#">武易传奇</a></h4>
-                        </li>
-                        <li>
-                        <a href="#"><img src="images/game_1.png" width="93" height="93"></a>
-                        <h4 class="game_font"><a href="#">武易传奇</a></h4>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+            {% include 'inc/new_games.html' %}
             <!--玩家在玩的游戏结束-->
         </div>
         

@@ -90,7 +90,8 @@ def goods_exchange():
         return Response(json.dumps({'error':1,'data':'请先登录'}),mimetype='application/json')
     
     #判断参数ename
-    ename = request.args.get('ename') or ''
+    ename = request.form["ename"] or ''
+    #print(ename)
     if not ename.isalnum():
         return Response(json.dumps({'error':1,'data':'参数ename有误'}),mimetype='application/json')
     
@@ -168,6 +169,7 @@ def goods_info():
     uid = flask.session['userid']
     uname = flask.session['username']
     userbl = UsersBl.UsersBl(uid)
+    uip = request.remote_addr
     
     #执行操作
     r = userbl.getUserVipStatus()
@@ -177,5 +179,10 @@ def goods_info():
         LoggerBl.log.error(r['data'])
         #出错跳转到6998主页
         return redirect('http://www.6998.com', code=302)
+    
+    goodsbl = GoodsBl.GoodsBl(uid,uname,uip)
+    goodsDetail = goodsbl.getGoodsDetail(ename)['data']
+    if 'Id' not in goodsDetail:
+        return 'not found goods.',404
          
-    return render_template('goods_detail.html', data=r['data'],uid=uid,uname=uname,ename=ename,user=r) 
+    return render_template('goods_detail.html', data=r['data'],uid=uid,uname=uname,ename=ename,user=r,goods=goodsDetail) 

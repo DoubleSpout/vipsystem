@@ -251,9 +251,10 @@
                 <div class="vip_ct" style=" display:none">
                     <div class="vip_wagebox">
                     {% if user['data']['isSalary'] %}                     	
-                        	<h5>本月可领取工资 {{ user['data']['amountNearly'] }} 元 </h5>
+                        	<h5>本月可领取工资 {{ user['data']['salary'] }} 元 </h5>
                             <h6>本月可免费领工资=您上月充值金额X免费领工资系数（上月底）</h6>
-                            <a class="icon vip_wagebut" href="#">领取工资</a>
+                            <a class="icon vip_wagebut" href="javascript:;" id="get_salary">领取工资</a>
+                            <h6><br/><a class="" href="https://pay.6998.com">前往充值中心提现工资</a><h6>
                     {% else %}                       
                            <h5>您本月没有可领取的工资</h5>                      
                     {%endif %}

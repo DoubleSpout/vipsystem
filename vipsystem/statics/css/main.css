@@ -29,9 +29,16 @@ a:hover,.cho_red{ color:#ff5355}
 .vip_font{ width:125px; padding:10px 0 0 20px; float:left;}
 .vip_user{ font-size:18px; color:#000}
 .vip_font ol li{ height:22px;}
-.v1{ width:22px; height:18px; background-position:0 -115px; display:block; margin-top:6px}
-.level{ margin-top:10px; width:230px; float:left}
-.level_1{ width:60px; height:14px; padding-left:5px; background:#ff5355; border-right:140px solid #ffc8c9; display:inline-table; line-height:14px; color:#fff;float:left;}
+.v1,.v2,.v3,.v4,.v5{ width:22px; height:18px;  display:block; margin-top:6px}
+.v1{background-position:0 -115px;}
+.v2{background-position:0 -153px;}
+.v3{background-position:0 -192px;}
+.v4{background-position:0 -234px;}
+.v5{background-position:-295px -162px;}
+.level{ margin:14px 0 0 14px;_margin:17px 0 0 7px; width:210px; float:left; position: relative;}
+.level i.level_pfont{ position: absolute;; top:0px; left: 5px;font-style:normal;line-height: 14px;color: #2E2E2E;}
+.level_1{ width:25%; height:14px; padding-left:5px; background:#ff5355;display:inline-table; line-height:14px; color:#fff;float:left;}
+.level_next{width:60%; background:#ffc8c9; float:left; height:14px; overflow:hidden}
 .level font{color:#ff5355; margin-left:5px; display:inline-table; float:left; line-height:14px; }
 .sign_inbox{width:218px; height:35px; border:1px solid #ffc8c9; float:left; padding:8px 5px 5px 5px; margin-top:10px;line-height:16px; overflow: hidden}
 .sign_in{ width:106px; height:30px; background-position:0 -348px; color:#fff; line-height:30px; text-align:center; float:left;}
@@ -154,7 +161,7 @@ a:hover.go_money_1{background-position:0 -619px;}
 .tab_3{ width:530px}
 .tab_3 th{ background:#bebdbd;  font-weight:200; color:#fff;}
 .tab_3 th,.tab_3 td{ padding:5px 5px 5px 30px; text-align:left}
-.vip_wagebox{ height:250px; width:958px;_width:955px; margin:0 auto 0 auto; padding-top:30px}
+.vip_wagebox{ height:auto !important;height:90px; min-height:90px; width:958px;_width:955px; margin:0 auto 0 auto; padding-top:30px}
 .vip_ct .vip_wagebox h5{ color:#ff5355; font-size:24px; text-align:center; padding:10px 0}
 .vip_ct .vip_wagebox h6{ font-size:14px; text-align:center; font-weight:200px; }
 .vip_ct .vip_wagebox a.vip_wagebut{ display:block; width:260px; height:50px; background-position:0 -765px; margin:30px auto 0 auto; font-size:24px; color:#fff; text-align:center; line-height:45px;}
@@ -162,9 +169,28 @@ a:hover.go_money_1{background-position:0 -619px;}
 .vip_upgradebox{ height:200px; padding:30px 0;  width:958px;_width:955px;}
 .vip_upgradebox a.vip_upgradebut{ width:300px; height:51px; margin:0 auto; background-position:0 -896px; display:block; text-align:center; line-height:51px; font-size:30px; color:#fff;}
 .vip_upgradebox a:hover.vip_upgradebut{background-position:0 -962px;color:#fff;}
+.vip_infobutbox{ width:210px;float:left; height:24px; margin:17px 0 0 14px;_margin:17px 0 0 7px}
+.vip_infobutbox a.vip_sjbut,.vip_infobutbox a.vip_lqbut{width:86px; height:24px; float:left;background-position:-184px -581px; line-height:24px; text-align:center; color:#fff}
+.vip_infobutbox a.vip_lqbut{ float:right; margin-right:27px}
+.vip_infobutbox a:hover.vip_sjbut,.vip_infobutbox a:hover.vip_lqbut{ background-position:-184px -581px}
+.vip_userbox{width:228px;_width:224px; height:75px; padding-top:5px; float:left; margin-top: 7px; border:1px solid #d8d8d8}
+.vip_userbox ul li{height:20px; float:left; width:95px; margin:10px 0px 0 15px;_margin:10px 0px 0 10px}
+.vip_userbox ul li a{padding-left:25px}
+.vip_mm{ background-position:-302px 0;}
+.vip_sj{ background-position:-302px -39px;}
+.vip_zx{ background-position:-302px -81px;}
+.vip_tc{ background-position:-302px -120px;}
 
 /**************Bottom*****************/
 .bottom{ background:#eeeeee; height:110px; padding:30px 0}
 .bot_h{ font-size:14px; font-weight:200;text-align:center;color:#686868}
 .bot_h a{ color:#686868; margin:0px 10px; }
 .bot_p{ line-height:25px;text-align:center;color:#686868; padding-top:8px}
+
+
+/***/
+.no_inventory{
+	background: none;
+	background-color: #777;
+}
+

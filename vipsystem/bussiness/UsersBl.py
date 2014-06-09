@@ -136,12 +136,16 @@ class UsersBl(object):
         dataDict.update(tempDict)
         if dataDict['error'] != 1:
             dataDict['data']['amountNext'] = dataDict['data']['amountNearly'] + dataDict['data']['amountNeed']
-            dataDict['data']['amountRate'] = int(dataDict['data']['amountNearly']/dataDict['data']['amountNext'])
+            #print(dataDict['data']['amountNearly']/dataDict['data']['amountNext'])
+            if dataDict['data']['amountNearly'] > dataDict['data']['amountNext']:
+                dataDict['data']['amountNearly'] = dataDict['data']['amountNext']
+            dataDict['data']['amountRate1'] = int(dataDict['data']['amountNearly']/dataDict['data']['amountNext']) *0.85*100
+            dataDict['data']['amountRate2'] = (1 - int(dataDict['data']['amountNearly']/dataDict['data']['amountNext']))*0.85*100
         return dataDict
         
     #public用户领取工资
-    def getSalary(self):
-        dataDict = self.sendRequest('POST','/VIPCenter/UserVIPSalaryGet',{'UserID':self.uid})       
+    def getSalary(self,ip='127.0.0.1'):
+        dataDict = self.sendRequest('POST','/VIPCenter/UserVIPSalaryGet',{'UserID':self.uid,'IPAddress':ip})       
         return dataDict
     
     #public获取当月的签到状态列表

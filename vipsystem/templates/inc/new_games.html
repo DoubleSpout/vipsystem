@@ -1,0 +1,24 @@
+<div class="vip_gamebox">
+                <h2>兑换此商品的用户正在玩</h2>
+                <div class="vip_gamelist">
+                	<ul id="vip_gamelist">
+                 
+                    </ul>
+                </div>
+            </div>
+
+
+<script src="http://www.6998.com/allgame"  type="text/javascript"></script>
+<script type="text/javascript">
+$(function(){
+	var str = ''
+	for(var i=0;i<6;i++){
+		str += '<li><a href="'+gamelist2[i].homeUrl+'" target="_blank">'+
+			   '<img src="http://www.6998.com'+gamelist2[i].iconUrl+'" width="93" height="93"></a>'+
+               '<h4 class="game_font"><a href=href="'+gamelist2[i].homeUrl+'"  target="_blank">'+gamelist2[i].title+'</a></h4></li>'
+	}
+	$('#vip_gamelist').html(str)
+
+
+})
+</script>

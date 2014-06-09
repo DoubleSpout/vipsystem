@@ -97,6 +97,16 @@ function fix(){
 }
 
 
+function initDiv(){
+	$('#err_ic_wrong').hide()
+	$('#err_ic_right').hide()
+	$('#confirm_exchange').hide()
+	$('#confirm').hide()
+	$('#goods_result').empty()
+
+}
+
+
 $(function(){
 
 	//vip商城的轮播html
@@ -216,6 +226,91 @@ $(function(){
 	
 	}
 
+	$('#sign_in').click(function(){
+		$('#day_frame').attr('src', '/sign/index')
+		$(window).scrollTop(0);
+			$('#day_box').dialog({
+				width:580,
+				height:550,
+				modal:true,
+				close:function(){
+					$('#day_frame').attr('src','')
+				}
+		})
+	})
+
+
+	if($('#goods_detail_title').length>0){
+
+		 $('#goods_detail_title').html(curGoods.name);
+		 $('#goods_detail_title2').html(curGoods.name);
+		 $('#goods_detail_picture').attr('src', 'http://www.6998.com'+curGoods.picture)
+		 $('#goods_detail_price').html(curGoods.Price);
+		 $('#goods_detail_inventory').html(curGoods.Inventory);
+		 $('#goods_detail_specification').html(curGoods.specification);
+		 $('#goods_detail_tips').html(curGoods.tips);
+
+		 if(curGoods.Inventory <= 0){
+		 	$('#no_inventory').show()
+		 }
+		 else{
+		 	$('#sub_exchange').show()
+		 }
+
+		 $('#sub_exchange').click(function(){
+			$(window).scrollTop(0);
+			$('#goods_box').dialog({
+					width:580,
+					height:350,
+					modal:true,
+					close:function(){
+						if(window.mustRefresh){
+							location.href = location.href
+							return false;
+						}
+					}
+				})
+
+			initDiv();
+			var tempStr = '<p>您选择兑换礼品为：<b>'+curGoods.name+'</b></p><p>扣除积分：<b>'+curGoods.Price+'</b> 分</p>'
+			if(curGoods.Type == 'gameCard'){
+				tempStr+='<p><span>该礼包每帐号限用一次</span></p>'
+			}
+			
+			$('#goods_result').html(tempStr)
+			$('#confirm_exchange').show()
+	        return false;
+		})
+
+		window.exchanging = false;
+		$('#confirm_exchange').click(function(){
+			if(window.exchanging) return false;
+			window.exchanging = true
+			$.post('/goods/exchange',{ename:curGoods.EName},function(d){
+				$('#confirm_exchange').hide()
+				if(d.error == 1){
+					$('#err_ic_wrong').show()
+					$('#goods_result').html('<p><span>操作失败</span></p><p>'+d.data+'</p>')
+				}
+				else{
+					$('#err_ic_right').show()
+					var codeStr = ''
+					if(d.data && d.data.type == 'gameCard'){
+						codeStr = '<p><b>您的礼品卡号为：'+d.data.code+'</b></p>' 
+					}
+					$('#goods_result').html('<p><b>恭喜您兑换成功</b></p>'+codeStr)
+					
+					$('#confirm').click(function(){
+						location.href = location.href 
+					})
+					$('#confirm').show()
+					window.mustRefresh = true
+				}
+				window.exchanging = false
+			},'json')
+		})
+
+	}
 
 
 
@@ -251,34 +346,80 @@ $(function(){
 		}
 	}
 
+	$('#get_salary').click(function(){
+
+		$.post('/salary/get',{t:Math.random()},function(d){
+			if(d.error){
+				return alert(d.data)
+			}
+			alert('操作成功,请到充值中心体现')
+			setTimeout(function(){
+				location.href = location.href
+			},500)
+		},'json')
+
+	})
+
+
+	var pic1 = function(){		//幻灯1
+				var picBtna = $('#picBtn').find('a'),
+					imgobj = $('#imgBox a'),
+					len = $('#imgBox a').length,
+					st,
+					snum = 0,
+					goshow = function(num){
+						var n = num;
+						if(n>=len) n=0;
+						else if(n<0) n=0;
+						imgobj.hide().eq(n).show();
+						picBtna.removeClass('sel').eq(n).addClass('sel');
+						snum=n;
+						loopgo();
+					},
+					loopgo=function(){
+						st = setTimeout(function(){goshow(snum+1);},5000)
+						return arguments.callee;			
+						}();
+					picBtna.click(function(){
+						var num = $(this).index();	
+						clearTimeout(st);
+						goshow(num)
+				});
+		}()
+		
+		//幻灯2
+	var pic2 = function(){	
+	var picBtna = $('#picBtn_2').find('a'),
+			imgobj = $('#imgBox_2 a'),
+				len = $('#imgBox_2 a').length,
+				st,
+				snum = 0,
+				goshow = function(num){
+					var n = num;
+					if(n>=len) n=0;
+					else if(n<0) n=0;
+					imgobj.hide().eq(n).show();
+					picBtna.removeClass('sel_2').eq(n).addClass('sel_2');
+					snum=n;
+					loopgo();
+				},
+				loopgo=function(){
+					st = setTimeout(function(){goshow(snum+1);},5000)
+					return arguments.callee;			
+					}();
+				picBtna.click(function(){
+					var num = $(this).index();	
+					clearTimeout(st);
+					goshow(num)
+			});
+		}()
 
 });
 	
 	
-	//幻灯2
-	var picBtna = $('#picBtn_2').find('a'),
-			imgobj = $('#imgBox_2 a'),
-			len = $('#imgBox_2 a').length,
-			st,
-			snum = 0,
-			goshow = function(num){
-				var n = num;
-				if(n>=len) n=0;
-				else if(n<0) n=0;
-				imgobj.hide().eq(n).show();
-				picBtna.removeClass('sel_2').eq(n).addClass('sel_2');
-				snum=n;
-				loopgo();
-			},
-			loopgo=function(){
-				st = setTimeout(function(){goshow(snum+1);},5000)
-				return arguments.callee;			
-				}();
-			picBtna.click(function(){
-				var num = $(this).index();	
-				clearTimeout(st);
-				goshow(num)
-		});
+
+
+
 
 
 
