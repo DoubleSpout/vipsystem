@@ -19,6 +19,8 @@ if __scritpEnv == "Production" :
 else:
     app.config.from_object(config.Debug())
 
+print('running env: {0}'.format(app.config['ENV']))
+
 #session支持
 app.secret_key = app.config['SESSION_KEY']
 

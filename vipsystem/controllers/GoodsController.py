@@ -15,13 +15,11 @@ from xml.dom.minidom import parse, parseString
 
 
 #获取虚拟商品列表
-@app.route('/goods/listajax', methods=['GET'])
+@app.route(app.config['SELF_PREFIX']+'/goods/listajax', methods=['GET'])
+@UsersBl.checkLoginJson
 def goods_listajax():
-    if not flask.session.has_key('userid') or flask.session['userid'] == 0:
-        return json.dumps({'error':1,'data':'请先登录'})
-    
     uid = flask.session['userid']
-    uname = flask.session['userid']
+    uname = flask.session['username']
     uip = request.remote_addr
     goodsbl = GoodsBl.GoodsBl(uid,uname,uip)
         
@@ -36,13 +34,11 @@ def goods_listajax():
     return json.dumps(r)
 
 #获取虚拟商品列表
-@app.route('/goods/listjs', methods=['GET'])
-def goods_listjs():
-    if not flask.session.has_key('userid') or flask.session['userid'] == 0:
-        return json.dumps({'error':1,'data':'请先登录'})
-    
-    uid = flask.session['userid']
-    uname = flask.session['userid']
+@app.route(app.config['SELF_PREFIX']+'/goods/listjs', methods=['GET'])
+@UsersBl.getUserStatus
+def goods_listjs(udict):
+    uid = udict['uid']
+    uname = udict['uname']
     uip = request.remote_addr
     goodsbl = GoodsBl.GoodsBl(uid,uname,uip)
         
@@ -57,10 +53,9 @@ def goods_listjs():
     return 'window["_gooslist"]={0}'.format(json.dumps(r))
 
 #获取特定虚拟商品
-@app.route('/goods/infoajax', methods=['GET'])
+@app.route(app.config['SELF_PREFIX']+'/goods/infoajax', methods=['GET'])
+@UsersBl.checkLoginJson
 def goods_infoajax():
-    if not flask.session.has_key('userid') or flask.session['userid'] == 0:
-        return Response(json.dumps({'error':1,'data':'请先登录'}),mimetype='application/json')
     
    #判断参数ename
     ename = request.args.get('ename') or ''
@@ -68,7 +63,7 @@ def goods_infoajax():
         return Response(json.dumps({'error':1,'data':'参数ename有误'}),mimetype='application/json')
         
     uid = flask.session['userid']
-    uname = flask.session['userid']
+    uname = flask.session['username']
     uip = request.remote_addr
     goodsbl = GoodsBl.GoodsBl(uid,uname,uip)
         
@@ -84,10 +79,9 @@ def goods_infoajax():
 
 
 #换取虚拟物品
-@app.route('/goods/exchange', methods=['GET','POST'])
+@app.route(app.config['SELF_PREFIX']+'/goods/exchange', methods=['GET','POST'])
+@UsersBl.checkLoginJson
 def goods_exchange():
-    if not flask.session.has_key('userid') or flask.session['userid'] == 0:
-        return Response(json.dumps({'error':1,'data':'请先登录'}),mimetype='application/json')
     
     #判断参数ename
     ename = request.form["ename"] or ''
@@ -115,74 +109,32 @@ def goods_exchange():
 
 #以下是页面控制器
 #兑换首页
-@app.route('/goods/index', methods=['GET'])
-def goods_index():
-    if not flask.session.has_key('userid') or flask.session['userid'] == 0:
-        return redirect('/login', code=302)
+@app.route(app.config['SELF_PREFIX']+'/goods/index', methods=['GET'])
+@UsersBl.getUserStatus
+def goods_index(udict):
         
-    uid = flask.session['userid']
-    uname = flask.session['username']
-    userbl = UsersBl.UsersBl(uid)
-    
-    #执行操作
-    r = userbl.getUserVipStatus()
-    
-    #如果出错，记录日志
-    if r['error'] == 1:
-        LoggerBl.log.error(r['data'])
-        #出错跳转到6998主页
-        return redirect('http://www.6998.com', code=302)
-        
-    return render_template('goods_index.html', data=r['data'],uid=uid,uname=uname,user=r)
+    return render_template('goods_index.html',data=udict['user']['data'],uid=udict['uid'],uname=udict['uname'],user=udict['user'])
 
-@app.route('/goods/list', methods=['GET'])
-def goods_list():
-    if not flask.session.has_key('userid') or flask.session['userid'] == 0:
-        return redirect('/login', code=302)
-        
-    uid = flask.session['userid']
-    uname = flask.session['username']
-    userbl = UsersBl.UsersBl(uid)
+@app.route('/vip/goods/list', methods=['GET'])
+@UsersBl.getUserStatus
+def goods_list(udict):
     
-    #执行操作
-    r = userbl.getUserVipStatus()
-    
-    #如果出错，记录日志
-    if r['error'] == 1:
-        LoggerBl.log.error(r['data'])
-        #出错跳转到6998主页
-        return redirect('http://www.6998.com', code=302)
-        
-    return render_template('goods_list.html', data=r['data'],uid=uid,uname=uname,user=r)
+    return render_template('goods_list.html', data=udict['user']['data'],uid=udict['uid'],uname=udict['uname'],user=udict['user'])
 
 #物品详细页面
-@app.route('/goods/info', methods=['GET'])
-def goods_info():
-    if not flask.session.has_key('userid') or flask.session['userid'] == 0:
-        return redirect('/login', code=302)
-
+@app.route(app.config['SELF_PREFIX']+'/goods/info', methods=['GET'])
+@UsersBl.getUserStatus
+def goods_info(udict):
     #判断参数ename
     ename = request.args.get('ename') or ''
     if not ename.isalnum():
         return 'ename参数有误'
     
-    uid = flask.session['userid']
-    uname = flask.session['username']
-    userbl = UsersBl.UsersBl(uid)
-    uip = request.remote_addr
-    
-    #执行操作
-    r = userbl.getUserVipStatus()
-    
-    #如果出错，记录日志
-    if r['error'] == 1:
-        LoggerBl.log.error(r['data'])
-        #出错跳转到6998主页
-        return redirect('http://www.6998.com', code=302)
-    
-    goodsbl = GoodsBl.GoodsBl(uid,uname,uip)
+    uip = request.remote_addr   
+    #执行操作    
+    goodsbl = GoodsBl.GoodsBl(udict['uid'],udict['uname'],uip)
     goodsDetail = goodsbl.getGoodsDetail(ename)['data']
     if 'Id' not in goodsDetail:
         return 'not found goods.',404
          
-    return render_template('goods_detail.html', data=r['data'],uid=uid,uname=uname,ename=ename,user=r,goods=goodsDetail) 
+    return render_template('goods_detail.html', data=udict['user']['data'],uid=udict['uid'],uname=udict['uname'],user=udict['user'],goods=goodsDetail,ename=ename,) 

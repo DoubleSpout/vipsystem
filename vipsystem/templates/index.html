@@ -125,7 +125,7 @@
                     <div class="vip_tqfont">
                     	<h3><span>1</span>每月领工资</h3>
                         <p>
-                        	<span class="tab_black">工资发放形式：</span>每月1号，工资以唐人币的形式发放，发放的唐人币您可以充值任意游戏，人民币1元=1唐人币；工资不能提现。<br>
+                        	<span class="tab_black">工资发放形式：</span>每月1号，工资以唐人游银子的形式发放，发放的唐人游银子您可以充值任意游戏，人民币1元=1万唐人游银子；工资不能提现。<br>
                             <span class="tab_black">工资额度：</span>免费领取工资额度=上月充值金额 x 免费领工资系数（上月底）<br>
                                                vip等级越高，免费领工资系数越大，工资金额就越高，见工资与vip等级表<br>
                             <span class="tab_black">温馨提示：</span>工资只能当月领取，下月清零不累加！<br>
@@ -154,11 +154,11 @@
                         	<span class="tab_black">返利说明：</span>玩家通过网银、支付宝、财付通一次性为6998游戏社区的游戏充值，达到一定金额即可获得相应的返利。返利将以银子的形式进行发放。<br>
                             <span class="tab_black">返利规则：</span><br>
                             <font style="padding-left:70px; display:block">
-                                   单笔充值满100元~299元， 赠送1唐人币<br>
-                                   单笔充值满300元~499元， 赠送3唐人币<br>
-                                   单笔充值满500元~999元， 赠送5唐人币<br>
-                                   单笔充值满1000元~4999元， 赠送11唐人币<br>
-                                   单笔充值满5000元~9999元， 赠送55唐人币<br>
+                                   单笔充值满100元~299元， 赠送1万唐人游银子<br>
+                                   单笔充值满300元~499元， 赠送3万唐人游银子<br>
+                                   单笔充值满500元~999元， 赠送5万唐人游银子<br>
+                                   单笔充值满1000元~4999元， 赠送11万唐人游银子<br>
+                                   单笔充值满5000元~9999元， 赠送55万唐人游银子<br>
                             </font>
                         </p>
                         <h3><span>3</span>积分赠送</h3>
@@ -193,7 +193,7 @@
                     <div class="vip_tqfont while_bg">
                     	 <h3><span>3</span>VIP升级规则</h3>
                         <p>1. 连续3个月内的以用户累计消费为判断条件<br>
-							2. 在享受某等级vip服务时，当用户在3个月内达到升级标准后，将立即享受对于更高级的vip服务
+							2. 在享受某等级vip服务时，当用户在3个月内达到升级标准后，将立即享受对应更高级的vip服务
                         </p>
                     </div>
                     <div class="vip_tqfont">
@@ -241,7 +241,7 @@
                         1. VIP1-VIP5用户的会员等级具有缓慢降级及迅速升级的特性，升级后若连续3个月未达到指定保底数额，将被下降一个等级，等级连续逐级缓慢下降；降级后一旦达到降级前相应等级的保底标准，等级将直接恢复到降级前的对应等级。<br>
                         2.举例说明：VIP3用户，3个月累计充值金额未达到5000元，将被降级为VIP2，再过3个月累计充值未达到500元，将被降级为VIP1；降为VIP1后，之后3个月累计充值金额未达到50元，将被降级为普通会员。该用户一旦达到了VIP3的保级标准，将 直接升级为VIP3。<br>
                         3.在不充值情况下，一旦获得某级别VIP，用户将至少享受该等级服务3个月。在享受某星级服务时，当用户在3个月内达到了升级标准后，将立即享受对应的更高级的VIP服务。<br>
-                        4.VIP特权服务3个月未一个周期。<br>
+                        4.VIP特权服务3个月为一个周期。<br>
                         	
                         </p>
                     </div>
@@ -250,19 +250,24 @@
                 <!--VIP领工资开始-->
                 <div class="vip_ct" style=" display:none">
                     <div class="vip_wagebox">
-                    {% if user['data']['isSalary'] %}                     	
-                        	<h5>本月可领取工资 {{ user['data']['salary'] }} 元 </h5>
-                            <h6>本月可免费领工资=您上月充值金额X免费领工资系数（上月底）</h6>
-                            <a class="icon vip_wagebut" href="javascript:;" id="get_salary">领取工资</a>
-                            <h6><br/><a class="" href="https://pay.6998.com">前往充值中心提现工资</a><h6>
-                    {% else %}                       
-                           <h5>您本月没有可领取的工资</h5>                      
-                    {%endif %}
+			{% if uid != 0 %}	
+				{% if user['data']['isSalary'] %}                     	
+					    <h5>本月可领取工资 {{ user['data']['salary'] }} 元 </h5>
+					<h6>本月可免费领工资=您上月充值金额X免费领工资系数（上月底）</h6>
+					<a class="icon vip_wagebut" href="javascript:;" id="get_salary">领取工资</a>
+					<h7><a class="" href="https://pay.6998.com">前往充值中心提现工资</a></h7>
+				{% else %}                       
+				       <h5>您本月没有可领取的工资</h5>                      
+				{%endif %}
+			{% else%}
+				<a href="javascript:;" name="minilogin">立即登录</a>
+			{% endif%}
+		    
                     </div>
                       <div class="vip_tqfont">
                     	 <h3><span>1</span>每月领工资</h3>
                         <p>
-                        	<span class="tab_black">工资发放形式：</span>每月1号，工资以唐人币的形式发放，发放的唐人币您可以充值任意游戏，人民币1元=1唐人币；工资不能提现。<br>
+                        	<span class="tab_black">工资发放形式：</span>每月1号，工资以唐人游银子的形式发放，发放的唐人游银子您可以充值任意游戏，人民币1元=1万唐人游银子；工资不能提现。<br>
                             <span class="tab_black">工资额度：</span>免费领取工资额度=上月充值金额 x 免费领工资系数（上月底）<br>
                    vip等级越高，免费领工资系数越大，工资金额就越高，见工资与vip等级表<br>
                             <span class="tab_black">温馨提示：</span>工资只能当月领取，下月清零不累加！<br>
@@ -294,7 +299,7 @@
         <!--Vip中心内容结束-->
         
         <div class="clear"></div>
-        <div class="vip_upgradebox"><a class="icon vip_upgradebut" href="#">升级VIP</a></div>
+        <div class="vip_upgradebox"><a class="icon vip_upgradebut" href="https://pay.6998.com/" target="_blank">升级VIP</a></div>
     </div>
 </div>
 <!--VIP内容结束-->

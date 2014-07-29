@@ -95,5 +95,3 @@ code2 表示页游渠道号
     EName = db.Column(db.String(255))
 英文名，唯一字段，和cms关联字段
 
-
-

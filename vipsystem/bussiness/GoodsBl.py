@@ -54,8 +54,8 @@ class GoodsBl(object):
             logDict = LogscoreModel.Log_Score.query.filter_by(Way='exchange',UserId=self.uid, ScoreCode2=goodsId).all()
             if len(logDict) >0:
                 goodsContent = logDict[0].ScoreCode3
-                print('*********')        
-                print(goodsContent)
+                #print('*********')        
+                #print(goodsContent)
         
         goodsDict = GoodsModel.Goods.parseToList([goodsDict])[0]
         goodsCount = LogscoreModel.Log_Score.query.filter_by(Way='exchange', ScoreCode2=goodsId).count()
@@ -169,7 +169,7 @@ class GoodsBl(object):
                 },app.config['GAMEAPP_HOST'])
             
             if r['Result'] != True:
-                return {'error':1,'data':'发货游戏币失败,错误代码:'.format(r['Message'])}
+                return {'error':1,'data':'发货新手卡失败,错误代码:'.format(r['Message'])}
              
             goodsCode = logScoreDict['Code3'] = r['Message']
         else:

@@ -1,0 +1,2 @@
+python runserver.py #Debug
+python runserver.py -e Production #Production

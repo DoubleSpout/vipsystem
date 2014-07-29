@@ -1,403 +1,170 @@
-2014-06-05 15:15:49,617 - mylogger - INFO - log start in Debug
-2014-06-05 15:15:50,951 - mylogger - INFO - log start in Debug
-2014-06-05 15:17:05,043 - mylogger - ERROR - method:POST,host:core.6998apitest.com,url:/api/VIPCenter/UserVIPDetail,param:UserID=577, coreservice服务异常
-2014-06-05 15:19:09,543 - mylogger - INFO - log start in Debug
-2014-06-05 15:19:33,374 - mylogger - ERROR - method:POST,host:core.6998apitest.com,url:/api/VIPCenter/UserVIPDetail,param:UserID=577, coreservice服务异常
-2014-06-05 15:19:35,371 - mylogger - ERROR - method:POST,host:core.6998apitest.com,url:/api/VIPCenter/UserVIPDetail,param:UserID=577, coreservice服务异常
-2014-06-05 15:19:36,028 - mylogger - ERROR - method:POST,host:core.6998apitest.com,url:/api/VIPCenter/UserVIPDetail,param:UserID=577, coreservice服务异常
-2014-06-05 15:19:36,292 - mylogger - ERROR - method:POST,host:core.6998apitest.com,url:/api/VIPCenter/UserVIPDetail,param:UserID=577, coreservice服务异常
-2014-06-05 15:19:36,526 - mylogger - ERROR - method:POST,host:core.6998apitest.com,url:/api/VIPCenter/UserVIPDetail,param:UserID=577, coreservice服务异常
-2014-06-05 15:20:04,582 - mylogger - INFO - log start in Debug
-2014-06-05 15:20:13,256 - mylogger - INFO - log start in Debug
-2014-06-05 15:20:21,884 - mylogger - INFO - log start in Debug
-2014-06-05 15:20:24,625 - mylogger - ERROR - method:POST,host:core.6998apitest.com,url:/api/VIPCenter/UserVIPDetail,param:UserID=577, coreservice服务异常,响应: 
-2014-06-05 15:20:28,019 - mylogger - ERROR - method:POST,host:core.6998apitest.com,url:/api/VIPCenter/UserVIPDetail,param:UserID=577, coreservice服务异常,响应: 
-2014-06-05 15:20:28,240 - mylogger - ERROR - method:POST,host:core.6998apitest.com,url:/api/VIPCenter/UserVIPDetail,param:UserID=577, coreservice服务异常,响应: 
-2014-06-05 15:20:28,421 - mylogger - ERROR - method:POST,host:core.6998apitest.com,url:/api/VIPCenter/UserVIPDetail,param:UserID=577, coreservice服务异常,响应: 
-2014-06-05 15:20:28,585 - mylogger - ERROR - method:POST,host:core.6998apitest.com,url:/api/VIPCenter/UserVIPDetail,param:UserID=577, coreservice服务异常,响应: 
-2014-06-05 15:20:28,717 - mylogger - ERROR - method:POST,host:core.6998apitest.com,url:/api/VIPCenter/UserVIPDetail,param:UserID=577, coreservice服务异常,响应: 
-2014-06-05 15:20:28,871 - mylogger - ERROR - method:POST,host:core.6998apitest.com,url:/api/VIPCenter/UserVIPDetail,param:UserID=577, coreservice服务异常,响应: 
-2014-06-05 15:21:22,427 - mylogger - INFO - log start in Debug
-2014-06-05 15:21:25,898 - mylogger - ERROR - method:POST,host:core.6998apitest.com,url:/api/VIPCenter/UserVIPDetail,param:UserID=577, coreservice服务异常,状态:500,响应:
-2014-06-05 15:21:27,933 - mylogger - ERROR - method:POST,host:core.6998apitest.com,url:/api/VIPCenter/UserVIPDetail,param:UserID=577, coreservice服务异常,状态:500,响应:
-2014-06-05 15:21:35,601 - mylogger - ERROR - method:POST,host:core.6998apitest.com,url:/api/VIPCenter/UserVIPDetail,param:UserID=577, coreservice服务异常,状态:500,响应:
-2014-06-05 15:21:39,604 - mylogger - INFO - log start in Debug
-2014-06-05 15:21:40,088 - mylogger - ERROR - method:POST,host:core.6998apitest.com,url:/api/VIPCenter/UserVIPDetail,param:UserID=577, coreservice服务异常,状态:500,响应:
-2014-06-05 15:21:40,585 - mylogger - ERROR - method:POST,host:core.6998apitest.com,url:/api/VIPCenter/UserVIPDetail,param:UserID=577, coreservice服务异常,状态:500,响应:
-2014-06-05 15:21:40,757 - mylogger - ERROR - method:POST,host:core.6998apitest.com,url:/api/VIPCenter/UserVIPDetail,param:UserID=577, coreservice服务异常,状态:500,响应:
-2014-06-05 15:21:40,878 - mylogger - ERROR - method:POST,host:core.6998apitest.com,url:/api/VIPCenter/UserVIPDetail,param:UserID=577, coreservice服务异常,状态:500,响应:
-2014-06-05 15:21:41,042 - mylogger - ERROR - method:POST,host:core.6998apitest.com,url:/api/VIPCenter/UserVIPDetail,param:UserID=577, coreservice服务异常,状态:500,响应:
-2014-06-05 15:23:41,441 - mylogger - ERROR - method:POST,host:core.6998apitest.com,url:/api/VIPCenter/UserVIPDetail,param:UserID=577, coreservice服务异常,状态:500,响应:
-2014-06-05 15:23:42,319 - mylogger - ERROR - method:POST,host:core.6998apitest.com,url:/api/VIPCenter/UserVIPDetail,param:UserID=577, coreservice服务异常,状态:500,响应:
-2014-06-05 15:24:01,187 - mylogger - INFO - log start in Debug
-2014-06-05 15:24:24,812 - mylogger - INFO - log start in Debug
-2014-06-05 15:24:29,197 - mylogger - INFO - log start in Debug
-2014-06-05 15:24:30,148 - mylogger - ERROR - method:POST,host:core.6998apitest.com,url:/api/VIPCenter/UserVIPDetail,param:UserID=577, coreservice服务异常,状态:500,响应:
-2014-06-05 15:24:30,700 - mylogger - ERROR - method:POST,host:core.6998apitest.com,url:/api/VIPCenter/UserVIPDetail,param:UserID=577, coreservice服务异常,状态:500,响应:
-2014-06-05 15:24:30,874 - mylogger - ERROR - method:POST,host:core.6998apitest.com,url:/api/VIPCenter/UserVIPDetail,param:UserID=577, coreservice服务异常,状态:500,响应:
-2014-06-05 15:27:01,562 - mylogger - ERROR - method:POST,host:core.6998apitest.com,url:/api/VIPCenter/UserVIPDetail,param:UserID=577, coreservice服务异常,状态:500,响应:
-2014-06-05 15:31:43,664 - mylogger - INFO - log start in Debug
-2014-06-05 15:31:45,048 - mylogger - INFO - log start in Debug
-2014-06-05 15:31:57,831 - mylogger - ERROR - method:POST,host:core.6998apitest.com,url:/api/VIPCenter/UserVIPDetail,param:UserID=577, coreservice服务异常,状态:500,响应:
-2014-06-05 15:32:07,385 - mylogger - ERROR - method:POST,host:core.6998apitest.com,url:/api/VIPCenter/UserVIPDetail,param:UserID=577, coreservice服务异常,状态:500,响应:
-2014-06-05 15:32:07,569 - mylogger - ERROR - method:POST,host:core.6998apitest.com,url:/api/VIPCenter/UserVIPDetail,param:UserID=577, coreservice服务异常,状态:500,响应:
-2014-06-05 15:32:07,750 - mylogger - ERROR - method:POST,host:core.6998apitest.com,url:/api/VIPCenter/UserVIPDetail,param:UserID=577, coreservice服务异常,状态:500,响应:
-2014-06-05 15:32:07,920 - mylogger - ERROR - method:POST,host:core.6998apitest.com,url:/api/VIPCenter/UserVIPDetail,param:UserID=577, coreservice服务异常,状态:500,响应:
-2014-06-05 15:32:08,101 - mylogger - ERROR - method:POST,host:core.6998apitest.com,url:/api/VIPCenter/UserVIPDetail,param:UserID=577, coreservice服务异常,状态:500,响应:
-2014-06-05 15:32:08,285 - mylogger - ERROR - method:POST,host:core.6998apitest.com,url:/api/VIPCenter/UserVIPDetail,param:UserID=577, coreservice服务异常,状态:500,响应:
-2014-06-05 15:32:08,450 - mylogger - ERROR - method:POST,host:core.6998apitest.com,url:/api/VIPCenter/UserVIPDetail,param:UserID=577, coreservice服务异常,状态:500,响应:
-2014-06-05 15:32:08,614 - mylogger - ERROR - method:POST,host:core.6998apitest.com,url:/api/VIPCenter/UserVIPDetail,param:UserID=577, coreservice服务异常,状态:500,响应:
-2014-06-05 15:33:12,509 - mylogger - INFO - log start in Debug
-2014-06-05 15:33:13,007 - mylogger - ERROR - method:POST,host:core.6998apitest.com,url:/api/VIPCenter/UserVIPDetail,param:UserID=577, coreservice服务异常,状态:500,响应:
-2014-06-05 15:33:15,740 - mylogger - INFO - log start in Debug
-2014-06-05 15:33:31,799 - mylogger - INFO - log start in Debug
-2014-06-05 15:33:34,523 - mylogger - ERROR - method:POST,host:core.6998apitest.com,url:/api/VIPCenter/UserVIPDetail,param:UserID=577,No JSON object could be decoded
-2014-06-05 15:33:42,569 - mylogger - INFO - log start in Debug
-2014-06-05 15:33:50,094 - mylogger - INFO - log start in Debug
-2014-06-05 15:33:51,282 - mylogger - ERROR - method:POST,host:core.6998apitest.com,url:/api/VIPCenter/UserVIPDetail,param:UserID=577,No JSON object could be decoded
-2014-06-05 15:34:13,905 - mylogger - INFO - log start in Debug
-2014-06-05 15:34:14,065 - mylogger - ERROR - json decode error,method:POST,host:core.6998apitest.com,url:/api/VIPCenter/UserVIPDetail,param:UserID=577,No JSON object could be decoded
-2014-06-05 15:34:34,398 - mylogger - INFO - log start in Debug
-2014-06-05 15:34:34,677 - mylogger - ERROR - json decode error,method:POST,host:core.6998apitest.com,url:/api/VIPCenter/UserVIPDetail,param:UserID=577,No JSON object could be decoded
-2014-06-05 15:34:37,568 - mylogger - INFO - log start in Debug
-2014-06-05 15:34:52,569 - mylogger - INFO - log start in Debug
-2014-06-05 15:34:55,763 - mylogger - INFO - log start in Debug
-2014-06-05 15:34:55,951 - mylogger - ERROR - json decode error,method:POST,host:core.6998apitest.com,url:/api/VIPCenter/UserVIPDetail,param:UserID=577,No JSON object could be decoded
-2014-06-05 15:34:58,934 - mylogger - INFO - log start in Debug
-2014-06-05 15:34:59,158 - mylogger - ERROR - json decode error,method:POST,host:core.6998apitest.com,url:/api/VIPCenter/UserVIPDetail,param:UserID=577,No JSON object could be decoded
-2014-06-05 15:36:01,519 - mylogger - INFO - log start in Debug
-2014-06-05 15:36:10,127 - mylogger - INFO - log start in Debug
-2014-06-05 15:36:29,338 - mylogger - INFO - log start in Debug
-2014-06-05 15:36:30,674 - mylogger - INFO - log start in Debug
-2014-06-05 15:36:52,151 - mylogger - INFO - log start in Debug
-2014-06-05 15:37:56,801 - mylogger - INFO - log start in Debug
-2014-06-05 15:38:23,796 - mylogger - INFO - log start in Debug
-2014-06-05 15:38:25,984 - mylogger - INFO - log start in Debug
-2014-06-05 15:38:42,265 - mylogger - INFO - log start in Debug
-2014-06-05 15:38:48,670 - mylogger - INFO - log start in Debug
-2014-06-05 15:38:50,838 - mylogger - INFO - log start in Debug
-2014-06-05 15:38:50,970 - mylogger - ERROR - method:POST,host:core.6998apitest.com,url:/api/VIPCenter/UserVIPSalaryGet,param:UserID=577,
-2014-06-05 15:39:13,352 - mylogger - INFO - log start in Debug
-2014-06-05 15:39:13,471 - mylogger - ERROR - 
-2014-06-05 15:39:25,349 - mylogger - INFO - log start in Debug
-2014-06-05 15:39:34,967 - mylogger - INFO - log start in Debug
-2014-06-05 15:39:35,484 - mylogger - ERROR - 
-2014-06-05 15:40:21,303 - mylogger - ERROR - 不能补签过期日期或未达到日期
-2014-06-05 15:42:05,632 - mylogger - INFO - log start in Debug
-2014-06-05 15:43:30,822 - mylogger - INFO - log start in Debug
-2014-06-05 15:43:58,918 - mylogger - INFO - log start in Debug
-2014-06-05 15:49:45,913 - mylogger - ERROR - 对不起您的积分不够
-2014-06-05 15:52:10,535 - mylogger - INFO - log start in Debug
-2014-06-05 15:56:05,075 - mylogger - ERROR - 发货唐人游会员失败,错误代码:ERROR
-2014-06-05 15:56:59,982 - mylogger - INFO - log start in Debug
-2014-06-05 15:57:00,256 - mylogger - ERROR - 发货唐人游会员失败,错误代码:ERROR
-2014-06-05 15:57:03,221 - mylogger - INFO - log start in Debug
-2014-06-05 15:57:35,684 - mylogger - INFO - log start in Debug
-2014-06-05 15:57:42,039 - mylogger - INFO - log start in Debug
-2014-06-05 15:57:44,141 - mylogger - INFO - log start in Debug
-2014-06-05 15:57:57,010 - mylogger - INFO - log start in Debug
-2014-06-05 16:00:11,226 - mylogger - INFO - log start in Debug
-2014-06-05 16:02:19,059 - mylogger - INFO - log start in Debug
-2014-06-05 16:02:23,282 - mylogger - INFO - log start in Debug
-2014-06-05 16:02:56,667 - mylogger - INFO - log start in Debug
-2014-06-05 16:03:13,910 - mylogger - INFO - log start in Debug
-2014-06-05 16:03:58,161 - mylogger - INFO - log start in Debug
-2014-06-05 16:04:01,385 - mylogger - INFO - log start in Debug
-2014-06-05 16:04:08,849 - mylogger - INFO - log start in Debug
-2014-06-05 16:04:13,096 - mylogger - INFO - log start in Debug
-2014-06-05 16:04:34,714 - mylogger - INFO - log start in Debug
-2014-06-05 16:04:51,926 - mylogger - INFO - log start in Debug
-2014-06-05 16:05:04,822 - mylogger - INFO - log start in Debug
-2014-06-05 16:05:17,766 - mylogger - INFO - log start in Debug
-2014-06-05 16:05:34,960 - mylogger - INFO - log start in Debug
-2014-06-05 16:05:39,278 - mylogger - INFO - log start in Debug
-2014-06-05 16:05:46,474 - mylogger - ERROR - 发货唐人游会员失败,错误代码:ERROR
-2014-06-05 16:05:59,082 - mylogger - ERROR - 发货唐人游会员失败,错误代码:ERROR
-2014-06-05 16:06:35,720 - mylogger - INFO - log start in Debug
-2014-06-05 16:07:49,499 - mylogger - INFO - log start in Debug
-2014-06-05 16:07:50,839 - mylogger - INFO - log start in Debug
-2014-06-05 16:07:59,456 - mylogger - ERROR - 发货唐人游会员失败,错误代码:ERROR
-2014-06-05 16:08:02,497 - mylogger - INFO - log start in Debug
-2014-06-05 16:08:51,872 - mylogger - INFO - log start in Debug
-2014-06-05 16:09:01,497 - mylogger - INFO - log start in Debug
-2014-06-05 16:09:06,871 - mylogger - INFO - log start in Debug
-2014-06-05 16:09:18,553 - mylogger - INFO - log start in Debug
-2014-06-05 16:09:21,730 - mylogger - ERROR - 发货唐人游会员失败,错误代码:ERROR
-2014-06-05 16:09:24,921 - mylogger - INFO - log start in Debug
-2014-06-05 16:10:27,226 - mylogger - INFO - log start in Debug
-2014-06-05 16:10:31,365 - mylogger - ERROR - 发货唐人游会员失败,错误代码:ERROR
-2014-06-05 16:10:34,713 - mylogger - INFO - log start in Debug
-2014-06-05 16:10:57,220 - mylogger - INFO - log start in Debug
-2014-06-05 16:10:57,631 - mylogger - ERROR - 发货唐人游会员失败,错误代码:ERROR
-2014-06-05 16:11:00,395 - mylogger - INFO - log start in Debug
-2014-06-05 16:12:32,474 - mylogger - ERROR - 对不起您的积分不够
-2014-06-05 16:12:48,082 - mylogger - ERROR - 发货唐人游会员失败,错误代码:ERROR
-2014-06-05 16:12:52,977 - mylogger - INFO - log start in Debug
-2014-06-05 16:13:26,407 - mylogger - INFO - log start in Debug
-2014-06-05 16:19:42,157 - mylogger - INFO - log start in Debug
-2014-06-05 16:20:45,664 - mylogger - ERROR - 未找到商品,或商品已下架
-2014-06-05 16:20:51,346 - mylogger - INFO - log start in Debug
-2014-06-05 16:21:45,259 - mylogger - ERROR - 未找到商品,或商品已下架
-2014-06-05 16:22:10,375 - mylogger - INFO - log start in Debug
-2014-06-05 16:31:17,437 - mylogger - INFO - log start in Debug
-2014-06-05 16:33:50,030 - mylogger - INFO - log start in Debug
-2014-06-05 16:34:20,392 - mylogger - INFO - log start in Debug
-2014-06-05 16:34:58,331 - mylogger - INFO - log start in Debug
-2014-06-05 16:35:01,507 - mylogger - INFO - log start in Debug
-2014-06-05 16:35:13,395 - mylogger - INFO - log start in Debug
-2014-06-05 16:35:27,242 - mylogger - INFO - log start in Debug
-2014-06-05 16:35:50,937 - mylogger - INFO - log start in Debug
-2014-06-05 16:35:52,007 - mylogger - ERROR - 发货游戏币失败,错误代码:
-2014-06-05 16:35:55,128 - mylogger - INFO - log start in Debug
-2014-06-05 16:36:26,302 - mylogger - INFO - log start in Debug
-2014-06-05 16:36:27,403 - mylogger - ERROR - 发货游戏币失败,错误代码:
-2014-06-05 16:36:31,724 - mylogger - INFO - log start in Debug
-2014-06-05 16:36:59,678 - mylogger - INFO - log start in Debug
-2014-06-05 16:37:40,836 - mylogger - INFO - log start in Debug
-2014-06-05 16:37:45,148 - mylogger - INFO - log start in Debug
-2014-06-05 16:37:49,424 - mylogger - INFO - log start in Debug
-2014-06-05 16:44:55,138 - mylogger - INFO - log start in Debug
-2014-06-05 16:45:21,940 - mylogger - INFO - log start in Debug
-2014-06-05 16:46:07,312 - mylogger - INFO - log start in Debug
-2014-06-05 16:46:53,730 - mylogger - INFO - log start in Debug
-2014-06-05 16:47:07,704 - mylogger - INFO - log start in Debug
-2014-06-05 16:48:01,372 - mylogger - INFO - log start in Debug
-2014-06-05 16:48:03,753 - mylogger - ERROR - 您已经兑换过此礼包卡
-2014-06-05 16:49:50,073 - mylogger - ERROR - 您已经兑换过此礼包卡
-2014-06-06 09:10:22,828 - mylogger - INFO - log start in Debug
-2014-06-06 09:10:57,392 - mylogger - INFO - log start in Debug
-2014-06-06 09:11:40,032 - mylogger - INFO - log start in Debug
-2014-06-06 09:13:58,497 - mylogger - INFO - log start in Debug
-2014-06-06 09:14:01,664 - mylogger - INFO - log start in Debug
-2014-06-06 09:14:24,167 - mylogger - INFO - log start in Debug
-2014-06-06 09:14:26,280 - mylogger - INFO - log start in Debug
-2014-06-06 09:36:23,141 - mylogger - INFO - log start in Debug
-2014-06-06 09:36:24,505 - mylogger - INFO - log start in Debug
-2014-06-06 10:15:43,289 - mylogger - ERROR - 您已经兑换过此礼包卡
-2014-06-06 10:18:12,111 - mylogger - INFO - log start in Debug
-2014-06-06 10:19:13,987 - mylogger - INFO - log start in Debug
-2014-06-06 10:20:00,433 - mylogger - INFO - log start in Debug
-2014-06-06 10:22:06,994 - mylogger - INFO - log start in Debug
-2014-06-06 10:22:33,895 - mylogger - INFO - log start in Debug
-2014-06-06 10:22:37,040 - mylogger - ERROR - 您已经兑换过此礼包卡
-2014-06-06 10:22:41,331 - mylogger - INFO - log start in Debug
-2014-06-06 10:22:43,401 - mylogger - INFO - log start in Debug
-2014-06-06 10:22:48,703 - mylogger - INFO - log start in Debug
-2014-06-06 10:23:35,038 - mylogger - INFO - log start in Debug
-2014-06-06 10:25:11,556 - mylogger - INFO - log start in Debug
-2014-06-06 10:25:12,884 - mylogger - INFO - log start in Debug
-2014-06-06 10:25:31,099 - mylogger - INFO - log start in Debug
-2014-06-06 10:25:54,857 - mylogger - INFO - log start in Debug
-2014-06-06 10:26:00,144 - mylogger - INFO - log start in Debug
-2014-06-06 10:27:37,020 - mylogger - INFO - log start in Debug
-2014-06-06 10:28:11,499 - mylogger - INFO - log start in Debug
-2014-06-06 10:28:16,798 - mylogger - INFO - log start in Debug
-2014-06-06 10:28:35,102 - mylogger - INFO - log start in Debug
-2014-06-06 10:28:41,582 - mylogger - INFO - log start in Debug
-2014-06-06 10:28:54,437 - mylogger - INFO - log start in Debug
-2014-06-06 10:28:57,677 - mylogger - INFO - log start in Debug
-2014-06-06 10:31:02,681 - mylogger - INFO - log start in Debug
-2014-06-06 10:31:16,605 - mylogger - INFO - log start in Debug
-2014-06-06 10:31:53,184 - mylogger - INFO - log start in Debug
-2014-06-06 10:32:01,733 - mylogger - INFO - log start in Debug
-2014-06-06 10:32:09,165 - mylogger - INFO - log start in Debug
-2014-06-06 10:32:37,298 - mylogger - INFO - log start in Debug
-2014-06-06 10:32:46,993 - mylogger - INFO - log start in Debug
-2014-06-06 10:32:58,793 - mylogger - INFO - log start in Debug
-2014-06-06 10:33:26,017 - mylogger - INFO - log start in Debug
-2014-06-06 10:33:32,430 - mylogger - INFO - log start in Debug
-2014-06-06 10:35:18,930 - mylogger - INFO - log start in Debug
-2014-06-06 10:36:00,996 - mylogger - INFO - log start in Debug
-2014-06-06 10:36:03,061 - mylogger - INFO - log start in Debug
-2014-06-06 10:37:05,010 - mylogger - INFO - log start in Debug
-2014-06-06 10:37:06,349 - mylogger - INFO - log start in Debug
-2014-06-06 10:37:14,914 - mylogger - INFO - log start in Debug
-2014-06-06 10:37:21,316 - mylogger - INFO - log start in Debug
-2014-06-06 10:37:38,431 - mylogger - INFO - log start in Debug
-2014-06-06 10:37:41,592 - mylogger - INFO - log start in Debug
-2014-06-06 10:46:45,572 - mylogger - INFO - log start in Debug
-2014-06-06 10:46:49,872 - mylogger - INFO - log start in Debug
-2014-06-06 10:47:28,519 - mylogger - INFO - log start in Debug
-2014-06-06 10:47:40,312 - mylogger - INFO - log start in Debug
-2014-06-06 10:57:53,605 - mylogger - INFO - log start in Debug
-2014-06-06 10:58:21,420 - mylogger - INFO - log start in Debug
-2014-06-06 10:59:12,911 - mylogger - INFO - log start in Debug
-2014-06-06 10:59:39,734 - mylogger - INFO - log start in Debug
-2014-06-06 10:59:46,375 - mylogger - INFO - log start in Debug
-2014-06-06 11:00:28,413 - mylogger - INFO - log start in Debug
-2014-06-06 11:00:53,042 - mylogger - INFO - log start in Debug
-2014-06-06 11:15:05,844 - mylogger - INFO - log start in Debug
-2014-06-06 11:15:07,177 - mylogger - INFO - log start in Debug
-2014-06-06 11:18:53,418 - mylogger - INFO - log start in Debug
-2014-06-06 11:19:28,783 - mylogger - INFO - log start in Debug
-2014-06-06 11:19:51,246 - mylogger - INFO - log start in Debug
-2014-06-06 11:20:04,207 - mylogger - INFO - log start in Debug
-2014-06-06 11:21:00,450 - mylogger - INFO - log start in Debug
-2014-06-06 11:21:04,703 - mylogger - INFO - log start in Debug
-2014-06-06 11:21:39,459 - mylogger - INFO - log start in Debug
-2014-06-06 11:21:57,878 - mylogger - INFO - log start in Debug
-2014-06-06 11:22:01,039 - mylogger - INFO - log start in Debug
-2014-06-06 11:22:05,391 - mylogger - INFO - log start in Debug
-2014-06-06 11:22:22,405 - mylogger - INFO - log start in Debug
-2014-06-06 11:22:25,762 - mylogger - INFO - log start in Debug
-2014-06-06 11:23:07,697 - mylogger - INFO - log start in Debug
-2014-06-06 11:23:11,989 - mylogger - INFO - log start in Debug
-2014-06-06 11:23:15,263 - mylogger - INFO - log start in Debug
-2014-06-06 11:23:45,648 - mylogger - INFO - log start in Debug
-2014-06-06 11:23:50,990 - mylogger - INFO - log start in Debug
-2014-06-06 11:23:56,391 - mylogger - INFO - log start in Debug
-2014-06-06 11:24:07,173 - mylogger - INFO - log start in Debug
-2014-06-06 11:24:27,614 - mylogger - INFO - log start in Debug
-2014-06-06 11:25:46,197 - mylogger - INFO - log start in Debug
-2014-06-06 11:27:57,398 - mylogger - INFO - log start in Debug
-2014-06-06 11:28:12,474 - mylogger - INFO - log start in Debug
-2014-06-06 11:28:28,776 - mylogger - INFO - log start in Debug
-2014-06-06 11:28:38,500 - mylogger - INFO - log start in Debug
-2014-06-06 11:29:56,381 - mylogger - INFO - log start in Debug
-2014-06-06 12:21:24,463 - mylogger - INFO - log start in Debug
-2014-06-06 12:21:33,855 - mylogger - INFO - log start in Debug
-2014-06-06 12:21:46,371 - mylogger - INFO - log start in Debug
-2014-06-06 12:21:52,095 - mylogger - INFO - log start in Debug
-2014-06-06 12:21:57,721 - mylogger - INFO - log start in Debug
-2014-06-06 12:22:03,351 - mylogger - INFO - log start in Debug
-2014-06-06 12:23:15,371 - mylogger - INFO - log start in Debug
-2014-06-06 12:23:19,694 - mylogger - INFO - log start in Debug
-2014-06-06 12:29:31,711 - mylogger - INFO - log start in Debug
-2014-06-06 12:29:34,990 - mylogger - INFO - log start in Debug
-2014-06-06 12:30:12,571 - mylogger - INFO - log start in Debug
-2014-06-06 12:35:24,332 - mylogger - INFO - log start in Debug
-2014-06-06 12:35:25,732 - mylogger - INFO - log start in Debug
-2014-06-06 12:36:04,519 - mylogger - INFO - log start in Debug
-2014-06-06 12:36:44,921 - mylogger - INFO - log start in Debug
-2014-06-06 13:14:33,703 - mylogger - INFO - log start in Debug
-2014-06-06 13:15:10,016 - mylogger - INFO - log start in Debug
-2014-06-06 13:22:37,602 - mylogger - INFO - log start in Debug
-2014-06-06 13:24:36,219 - mylogger - INFO - log start in Debug
-2014-06-06 13:24:40,444 - mylogger - INFO - log start in Debug
-2014-06-06 13:24:42,668 - mylogger - INFO - log start in Debug
-2014-06-06 13:24:44,792 - mylogger - INFO - log start in Debug
-2014-06-06 13:24:46,888 - mylogger - INFO - log start in Debug
-2014-06-06 13:24:51,174 - mylogger - INFO - log start in Debug
-2014-06-06 14:45:48,259 - mylogger - INFO - log start in Debug
-2014-06-06 14:46:01,124 - mylogger - INFO - log start in Debug
-2014-06-06 14:47:25,779 - mylogger - INFO - log start in Debug
-2014-06-06 14:47:27,173 - mylogger - INFO - log start in Debug
-2014-06-06 15:05:42,400 - mylogger - INFO - log start in Debug
-2014-06-06 15:13:23,877 - mylogger - INFO - log start in Debug
-2014-06-06 15:13:25,323 - mylogger - INFO - log start in Debug
-2014-06-06 15:30:50,947 - mylogger - INFO - log start in Debug
-2014-06-09 09:20:36,178 - mylogger - INFO - log start in Debug
-2014-06-09 09:20:37,884 - mylogger - INFO - log start in Debug
-2014-06-09 09:40:58,816 - mylogger - INFO - log start in Debug
-2014-06-09 09:42:39,312 - mylogger - INFO - log start in Debug
-2014-06-09 09:42:52,147 - mylogger - INFO - log start in Debug
-2014-06-09 09:43:44,891 - mylogger - INFO - log start in Debug
-2014-06-09 09:44:08,563 - mylogger - INFO - log start in Debug
-2014-06-09 09:44:40,019 - mylogger - INFO - log start in Debug
-2014-06-09 09:44:44,196 - mylogger - INFO - log start in Debug
-2014-06-09 09:44:46,344 - mylogger - INFO - log start in Debug
-2014-06-09 09:44:55,989 - mylogger - INFO - log start in Debug
-2014-06-09 09:46:06,500 - mylogger - INFO - log start in Debug
-2014-06-09 09:46:30,270 - mylogger - INFO - log start in Debug
-2014-06-09 09:46:35,543 - mylogger - INFO - log start in Debug
-2014-06-09 09:46:49,384 - mylogger - INFO - log start in Debug
-2014-06-09 09:47:05,506 - mylogger - INFO - log start in Debug
-2014-06-09 09:47:56,049 - mylogger - INFO - log start in Debug
-2014-06-09 09:48:01,359 - mylogger - INFO - log start in Debug
-2014-06-09 09:48:18,503 - mylogger - INFO - log start in Debug
-2014-06-09 09:48:30,345 - mylogger - INFO - log start in Debug
-2014-06-09 09:48:33,538 - mylogger - INFO - log start in Debug
-2014-06-09 09:48:39,923 - mylogger - INFO - log start in Debug
-2014-06-09 09:48:47,369 - mylogger - INFO - log start in Debug
-2014-06-09 09:48:51,654 - mylogger - INFO - log start in Debug
-2014-06-09 09:48:53,763 - mylogger - INFO - log start in Debug
-2014-06-09 09:49:05,460 - mylogger - INFO - log start in Debug
-2014-06-09 09:49:33,555 - mylogger - INFO - log start in Debug
-2014-06-09 09:52:32,611 - mylogger - INFO - log start in Debug
-2014-06-09 09:53:02,710 - mylogger - INFO - log start in Debug
-2014-06-09 09:53:15,467 - mylogger - INFO - log start in Debug
-2014-06-09 09:55:03,762 - mylogger - INFO - log start in Debug
-2014-06-09 09:55:20,686 - mylogger - INFO - log start in Debug
-2014-06-09 09:55:22,082 - mylogger - INFO - log start in Debug
-2014-06-09 12:46:51,171 - mylogger - INFO - log start in Debug
-2014-06-09 12:46:54,467 - mylogger - INFO - log start in Debug
-2014-06-09 12:47:19,265 - mylogger - INFO - log start in Debug
-2014-06-09 12:48:02,039 - mylogger - INFO - log start in Debug
-2014-06-09 12:49:39,770 - mylogger - INFO - log start in Debug
-2014-06-09 12:49:41,197 - mylogger - INFO - log start in Debug
-2014-06-09 13:09:12,259 - mylogger - INFO - log start in Debug
-2014-06-09 13:09:30,503 - mylogger - INFO - log start in Debug
-2014-06-09 13:10:02,868 - mylogger - INFO - log start in Debug
-2014-06-09 13:10:48,526 - mylogger - INFO - log start in Debug
-2014-06-09 13:11:20,038 - mylogger - INFO - log start in Debug
-2014-06-09 13:11:23,292 - mylogger - INFO - log start in Debug
-2014-06-09 13:11:39,523 - mylogger - INFO - log start in Debug
-2014-06-09 13:11:45,937 - mylogger - INFO - log start in Debug
-2014-06-09 13:11:58,878 - mylogger - INFO - log start in Debug
-2014-06-09 13:12:15,260 - mylogger - INFO - log start in Debug
-2014-06-09 13:27:18,854 - mylogger - INFO - log start in Debug
-2014-06-09 14:06:37,216 - mylogger - INFO - log start in Debug
-2014-06-09 14:06:42,009 - mylogger - INFO - log start in Debug
-2014-06-09 14:08:17,742 - mylogger - INFO - log start in Debug
-2014-06-09 15:02:40,811 - mylogger - ERROR - 不能补签过期日期或未达到日期
-2014-06-09 15:04:17,278 - mylogger - ERROR - 已经签到过了
-2014-06-09 15:04:21,167 - mylogger - ERROR - 已经签到过了
-2014-06-09 15:05:07,980 - mylogger - INFO - log start in Debug
-2014-06-09 15:16:52,266 - mylogger - INFO - log start in Debug
-2014-06-09 15:17:30,109 - mylogger - INFO - log start in Debug
-2014-06-09 15:17:38,595 - mylogger - INFO - log start in Debug
-2014-06-09 15:17:56,907 - mylogger - INFO - log start in Debug
-2014-06-09 15:18:11,903 - mylogger - INFO - log start in Debug
-2014-06-09 15:18:48,437 - mylogger - INFO - log start in Debug
-2014-06-09 15:18:54,854 - mylogger - INFO - log start in Debug
-2014-06-09 15:18:56,936 - mylogger - INFO - log start in Debug
-2014-06-09 15:22:27,000 - mylogger - INFO - log start in Debug
-2014-06-09 15:22:35,546 - mylogger - INFO - log start in Debug
-2014-06-09 15:22:53,821 - mylogger - INFO - log start in Debug
-2014-06-09 15:24:51,411 - mylogger - INFO - log start in Debug
-2014-06-09 15:24:55,665 - mylogger - INFO - log start in Debug
-2014-06-09 15:25:09,526 - mylogger - INFO - log start in Debug
-2014-06-09 15:25:11,641 - mylogger - INFO - log start in Debug
-2014-06-09 15:25:23,588 - mylogger - INFO - log start in Debug
-2014-06-09 15:26:40,693 - mylogger - INFO - log start in Debug
-2014-06-09 15:26:49,244 - mylogger - INFO - log start in Debug
-2014-06-09 15:28:24,654 - mylogger - INFO - log start in Debug
-2014-06-09 15:30:22,243 - mylogger - INFO - log start in Debug
-2014-06-09 15:30:32,911 - mylogger - INFO - log start in Debug
-2014-06-09 15:30:39,253 - mylogger - INFO - log start in Debug
-2014-06-09 15:30:52,232 - mylogger - INFO - log start in Debug
-2014-06-09 15:31:09,437 - mylogger - INFO - log start in Debug
-2014-06-09 15:31:31,911 - mylogger - INFO - log start in Debug
-2014-06-09 15:31:38,348 - mylogger - INFO - log start in Debug
-2014-06-09 15:32:14,953 - mylogger - INFO - log start in Debug
-2014-06-09 15:32:22,749 - mylogger - ERROR - 对不起您的积分不够
-2014-06-09 15:35:17,795 - mylogger - INFO - log start in Debug
-2014-06-09 15:39:27,210 - mylogger - INFO - log start in Debug
-2014-06-09 15:39:34,815 - mylogger - INFO - log start in Debug
-2014-06-09 15:39:40,171 - mylogger - INFO - log start in Debug
-2014-06-09 15:39:42,279 - mylogger - INFO - log start in Debug
-2014-06-09 15:53:39,249 - mylogger - INFO - log start in Debug
-2014-06-09 15:54:00,496 - mylogger - INFO - log start in Debug
-2014-06-09 15:54:01,859 - mylogger - INFO - log start in Debug
-2014-06-09 15:54:10,387 - mylogger - INFO - log start in Debug
-2014-06-09 16:02:28,385 - mylogger - INFO - log start in Debug
-2014-06-09 16:02:40,395 - mylogger - INFO - log start in Debug
-2014-06-09 16:11:37,507 - mylogger - INFO - log start in Debug
-2014-06-09 16:11:57,983 - mylogger - INFO - log start in Debug
-2014-06-09 16:12:11,230 - mylogger - ERROR - method:POST,host:core.6998apitest.com,url:/api/VIPCenter/UserVIPSalaryGet,param:{"UserID": 577}, coreservice服务异常,状态:500,响应:{"responseStatus":{"errorCode":"MySqlException","message":"Column 'Code1' cannot be null","errors":[]}}
-2014-06-09 16:12:21,857 - mylogger - INFO - log start in Debug
-2014-06-09 16:12:36,220 - mylogger - ERROR - method:POST,host:core.6998apitest.com,url:/api/VIPCenter/UserVIPSalaryGet,param:{"UserID": 577}, coreservice服务异常,状态:500,响应:{"responseStatus":{"errorCode":"MySqlException","message":"Column 'Code1' cannot be null","errors":[]}}
-2014-06-09 16:12:39,188 - mylogger - INFO - log start in Debug
-2014-06-09 16:13:10,928 - mylogger - ERROR - method:POST,host:core.6998apitest.com,url:/api/VIPCenter/UserVIPSalaryGet,param:{"UserID": 577}, coreservice服务异常,状态:500,响应:{"responseStatus":{"errorCode":"MySqlException","message":"Column 'Code1' cannot be null","errors":[]}}
-2014-06-09 16:14:11,266 - mylogger - INFO - log start in Debug
-2014-06-09 16:14:14,440 - mylogger - INFO - log start in Debug
-2014-06-09 16:14:29,451 - mylogger - INFO - log start in Debug
-2014-06-09 16:14:36,957 - mylogger - INFO - log start in Debug
-2014-06-09 16:15:04,000 - mylogger - INFO - log start in Debug
-2014-06-09 16:15:10,404 - mylogger - INFO - log start in Debug
-2014-06-09 16:15:21,171 - mylogger - INFO - log start in Debug
-2014-06-09 16:15:48,173 - mylogger - INFO - log start in Debug
-2014-06-09 16:15:52,525 - mylogger - INFO - log start in Debug
-2014-06-09 16:15:59,005 - mylogger - ERROR - method:POST,host:core.6998apitest.com,url:/api/VIPCenter/UserVIPSalaryGet,param:{"IPAddress": "127.0.0.1", "UserID": 577}, coreservice服务异常,状态:500,响应:{"responseStatus":{"errorCode":"MySqlException","message":"Column 'Code1' cannot be null","errors":[]}}
-2014-06-09 16:22:22,220 - mylogger - INFO - log start in Debug
-2014-06-09 17:20:22,497 - mylogger - ERROR - 对不起您的积分不够
+﻿2014-06-17 14:19:29,217 - mylogger - INFO - log start in Debug
+2014-06-17 14:19:31,051 - mylogger - INFO - log start in Debug
+2014-06-17 17:02:10,369 - mylogger - INFO - log start in Production
+2014-06-17 17:02:42,690 - mylogger - INFO - log start in Production
+2014-06-17 17:03:12,315 - mylogger - INFO - log start in Production
+2014-06-17 17:03:38,109 - mylogger - INFO - log start in Production
+2014-06-17 17:03:39,763 - mylogger - INFO - log start in Production
+2014-06-17 17:05:08,829 - mylogger - ERROR - 请求 core.6998api.com/VIPCenter/UserVIPDoPay出错,参数 {"IPAddress": "127.0.0.1", "RechargeID": 0, "UserID": 22527072}, 错误信息method:POST,host:core.6998api.com,url:/api/VIPCenter/UserVIPDoPay,param:{"IPAddress": "127.0.0.1", "RechargeID": 0, "UserID": 22527072},[Errno 10060] 
+2014-06-17 17:05:29,898 - mylogger - ERROR - method:POST,host:core.6998api.com,url:/api/VIPCenter/UserVIPDetail,param:{"UserID": 22527072},[Errno 10060] 
+2014-06-17 17:11:15,400 - mylogger - INFO - log start in Debug
+2014-06-17 17:11:17,687 - mylogger - INFO - log start in Debug
+2014-06-17 17:11:43,134 - mylogger - INFO - log start in Debug
+2014-06-18 08:28:59,272 - mylogger - INFO - log start in Debug
+2014-06-18 08:29:01,921 - mylogger - INFO - log start in Debug
+2014-06-18 08:43:39,823 - mylogger - INFO - log start in Debug
+2014-06-18 08:53:12,028 - mylogger - INFO - log start in Debug
+2014-06-18 08:54:22,387 - mylogger - INFO - log start in Debug
+2014-06-18 08:55:45,096 - mylogger - INFO - log start in Debug
+2014-06-18 08:56:00,318 - mylogger - INFO - log start in Debug
+2014-06-18 08:58:04,970 - mylogger - INFO - log start in Debug
+2014-06-18 08:59:58,229 - mylogger - INFO - log start in Debug
+2014-06-18 09:00:08,956 - mylogger - INFO - log start in Debug
+2014-06-18 09:00:46,872 - mylogger - INFO - log start in Debug
+2014-06-18 09:00:58,773 - mylogger - INFO - log start in Debug
+2014-06-18 09:01:02,009 - mylogger - INFO - log start in Debug
+2014-06-18 09:01:23,517 - mylogger - INFO - log start in Debug
+2014-06-18 09:01:26,828 - mylogger - INFO - log start in Debug
+2014-06-18 09:01:51,503 - mylogger - INFO - log start in Debug
+2014-06-18 09:01:54,779 - mylogger - INFO - log start in Debug
+2014-06-18 09:02:32,290 - mylogger - INFO - log start in Debug
+2014-06-18 09:03:23,255 - mylogger - INFO - log start in Debug
+2014-06-18 09:03:41,719 - mylogger - INFO - log start in Debug
+2014-06-18 09:21:36,628 - mylogger - INFO - log start in Debug
+2014-06-18 09:21:38,025 - mylogger - INFO - log start in Debug
+2014-06-18 09:23:00,023 - mylogger - INFO - log start in Debug
+2014-06-18 09:23:13,111 - mylogger - INFO - log start in Debug
+2014-06-18 09:23:48,644 - mylogger - INFO - log start in Debug
+2014-06-18 09:23:53,549 - mylogger - ERROR - 已经签到过了
+2014-06-18 09:24:02,660 - mylogger - INFO - log start in Debug
+2014-06-19 09:13:18,079 - mylogger - INFO - log start in Debug
+2014-06-19 09:13:20,288 - mylogger - INFO - log start in Debug
+2014-06-19 09:22:43,742 - mylogger - INFO - log start in Debug
+2014-06-19 09:24:17,447 - mylogger - INFO - log start in Debug
+2014-06-19 09:24:20,734 - mylogger - INFO - log start in Debug
+2014-06-19 13:43:01,806 - mylogger - INFO - log start in Debug
+2014-06-19 13:43:03,877 - mylogger - INFO - log start in Debug
+2014-06-19 13:43:58,378 - mylogger - INFO - log start in Debug
+2014-06-19 13:44:24,091 - mylogger - INFO - log start in Debug
+2014-06-19 13:44:28,322 - mylogger - INFO - log start in Debug
+2014-06-19 13:44:35,845 - mylogger - INFO - log start in Debug
+2014-06-19 13:44:41,091 - mylogger - INFO - log start in Debug
+2014-06-19 13:44:45,325 - mylogger - INFO - log start in Debug
+2014-06-19 13:44:50,588 - mylogger - INFO - log start in Debug
+2014-06-19 13:44:55,842 - mylogger - INFO - log start in Debug
+2014-06-19 13:44:57,973 - mylogger - INFO - log start in Debug
+2014-06-19 13:45:22,539 - mylogger - INFO - log start in Debug
+2014-06-19 13:45:31,072 - mylogger - INFO - log start in Debug
+2014-06-19 13:45:44,961 - mylogger - INFO - log start in Debug
+2014-06-19 13:45:52,367 - mylogger - INFO - log start in Debug
+2014-06-19 13:46:04,005 - mylogger - INFO - log start in Debug
+2014-06-19 13:46:33,092 - mylogger - INFO - log start in Debug
+2014-06-19 13:46:35,187 - mylogger - INFO - log start in Debug
+2014-06-19 13:47:26,960 - mylogger - INFO - log start in Debug
+2014-06-19 13:47:44,040 - mylogger - INFO - log start in Debug
+2014-06-19 13:55:11,822 - mylogger - INFO - log start in Debug
+2014-06-19 13:56:12,992 - mylogger - INFO - log start in Debug
+2014-06-19 13:59:17,414 - mylogger - INFO - log start in Debug
+2014-06-19 14:00:14,392 - mylogger - INFO - log start in Debug
+2014-06-19 16:09:02,177 - mylogger - INFO - log start in Debug
+2014-06-19 16:09:04,051 - mylogger - INFO - log start in Debug
+2014-06-20 09:31:08,430 - mylogger - INFO - log start in Debug
+2014-06-20 09:31:10,155 - mylogger - INFO - log start in Debug
+2014-06-25 09:52:18,822 - mylogger - INFO - log start in Debug
+2014-06-25 09:52:20,789 - mylogger - INFO - log start in Debug
+2014-06-25 09:54:55,427 - mylogger - ERROR - userbl.initUser()错误,userid:20350120,错误:(OperationalError) (2003, "Can't connect to MySQL server on '192.168.150.3' (10061)") None None
+2014-06-25 09:55:12,631 - mylogger - INFO - log start in Debug
+2014-06-25 09:58:27,246 - mylogger - INFO - log start in Debug
+2014-06-25 09:58:28,665 - mylogger - INFO - log start in Debug
+2014-06-25 09:58:39,378 - mylogger - ERROR - userbl.initUser()错误,userid:20350120,错误:(OperationalError) (2003, "Can't connect to MySQL server on '192.168.150.3' (10061)") None None
+2014-06-25 10:01:42,539 - mylogger - ERROR - userbl.initUser()错误,userid:20350120,错误:(OperationalError) (1130, "Host '192.168.11.51' is not allowed to connect to this MySQL server") None None
+2014-06-25 10:02:08,144 - mylogger - ERROR - userbl.initUser()错误,userid:20350120,错误:(OperationalError) (1130, "Host '192.168.11.51' is not allowed to connect to this MySQL server") None None
+2014-06-25 10:07:53,499 - mylogger - ERROR - userbl.initUser()错误,userid:20350120,错误:(OperationalError) (1045, "Access denied for user 'root'@'192.168.11.51' (using password: YES)") None None
+2014-06-25 10:08:30,950 - mylogger - INFO - log start in Debug
+2014-06-25 10:08:42,769 - mylogger - ERROR - userbl.initUser()错误,userid:20350120,错误:(OperationalError) (1049, "Unknown database '6998_VIPCenter'") None None
+2014-06-25 10:10:41,841 - mylogger - ERROR - method:POST,host:core.6998apitest.com,url:/api/VIPCenter/UserVIPDetail,param:{"UserID": 20350120}, coreservice服务异常,状态:500,响应:{"responseStatus":{"errorCode":"MySqlException","message":"Access denied for user 'root'@'pay.6998test.com' (using password: YES)","errors":[]}}
+2014-06-25 10:10:54,868 - mylogger - INFO - log start in Debug
+2014-06-25 10:12:17,779 - mylogger - INFO - log start in Debug
+2014-06-25 10:12:23,302 - mylogger - ERROR - [{u'url': u'http://account.6998.com/mygame_login_ermj-10-0.html', u'gameName': u'\u4e8c\u4eba\u9ebb\u5c06', u'zoneName': u'\u4e00\u670d'}, {u'url': u'http://account.6998.com/mygame_login_wg-9-0.html', u'gameName': u'\u6355\u9c7c\u51a0\u519b', u'zoneName': u'\u4e00\u670d'}, {u'url': u'http://account.6998.com/mygame_login_xici-8-0.html', u'gameName': u'\u7f51\u9875\u68cb\u724c', u'zoneName': u'\u4e00\u670d'}, {u'url': u'http://account.6998.com/mygame_login_xy-4-0.html', u'gameName': u'\u897f\u6e38WEB', u'zoneName': u'\u53cc\u7ebf1\u533a'}, {u'url': u'http://account.6998.com/mygame_login_astd-3-0.html', u'gameName': u'\u50b2\u89c6\u5929\u5730', u'zoneName': u'\u53cc\u7ebf1\u533a'}, {u'url': u'http://account.6998.com/mygame_login_fzd-2-0.html', u'gameName': u'\u98ce\u4e4b\u5c9b', u'zoneName': u'\u4e03\u5f69\u68ee\u6797'}, {u'url': u'http://account.6998.com/mygame_login_sxd-1-0.html', u'gameName': u'\u795e\u4ed9\u9053', u'zoneName': u'\u5f00\u5929\u8f9f\u5730'}]
+2014-06-25 10:12:26,437 - mylogger - INFO - log start in Debug
+2014-06-25 10:12:46,823 - mylogger - INFO - log start in Debug
+2014-06-25 10:12:53,349 - mylogger - INFO - log start in Debug
+2014-06-25 10:12:55,500 - mylogger - INFO - log start in Debug
+2014-06-25 10:13:00,421 - mylogger - ERROR - [{u'url': u'http://account.6998.com/mygame_login_ermj-10-0.html', u'gameName': u'\u4e8c\u4eba\u9ebb\u5c06', u'zoneName': u'\u4e00\u670d'}, {u'url': u'http://account.6998.com/mygame_login_wg-9-0.html', u'gameName': u'\u6355\u9c7c\u51a0\u519b', u'zoneName': u'\u4e00\u670d'}, {u'url': u'http://account.6998.com/mygame_login_xici-8-0.html', u'gameName': u'\u7f51\u9875\u68cb\u724c', u'zoneName': u'\u4e00\u670d'}, {u'url': u'http://account.6998.com/mygame_login_xy-4-0.html', u'gameName': u'\u897f\u6e38WEB', u'zoneName': u'\u53cc\u7ebf1\u533a'}, {u'url': u'http://account.6998.com/mygame_login_astd-3-0.html', u'gameName': u'\u50b2\u89c6\u5929\u5730', u'zoneName': u'\u53cc\u7ebf1\u533a'}, {u'url': u'http://account.6998.com/mygame_login_fzd-2-0.html', u'gameName': u'\u98ce\u4e4b\u5c9b', u'zoneName': u'\u4e03\u5f69\u68ee\u6797'}, {u'url': u'http://account.6998.com/mygame_login_sxd-1-0.html', u'gameName': u'\u795e\u4ed9\u9053', u'zoneName': u'\u5f00\u5929\u8f9f\u5730'}]
+2014-06-25 10:13:04,078 - mylogger - INFO - log start in Debug
+2014-06-25 10:13:25,621 - mylogger - INFO - log start in Debug
+2014-06-25 10:13:30,707 - mylogger - ERROR - method:POST,host:core.6998apitest.com,url:/api/VIPCenter/UserVIPDetail,param:{"UserID": 20350120}, coreservice服务异常,状态:500,响应:{"responseStatus":{"errorCode":"MySqlException","message":"Access denied for user 'root'@'pay.6998test.com' (using password: YES)","errors":[]}}
+2014-06-25 10:13:33,236 - mylogger - INFO - log start in Debug
+2014-06-25 10:20:34,665 - mylogger - INFO - log start in Debug
+2014-06-25 10:20:44,378 - mylogger - INFO - log start in Debug
+2014-06-25 10:20:47,592 - mylogger - ERROR - method:POST,host:core.6998apitest.com,url:/api/VIPCenter/UserVIPDetail,param:{"UserID": 20350120}, coreservice服务异常,状态:500,响应:{"responseStatus":{"errorCode":"MySqlException","message":"Access denied for user 'root'@'pay.6998test.com' (using password: YES)","errors":[]}}
+2014-06-25 10:21:03,940 - mylogger - INFO - log start in Debug
+2014-06-25 10:21:08,776 - mylogger - ERROR - method:POST,host:core.6998apitest.com,url:/api/VIPCenter/UserVIPDetail,param:{"UserID": 20350120}, coreservice服务异常,状态:500,响应:{"responseStatus":{"errorCode":"MySqlException","message":"Access denied for user 'root'@'pay.6998test.com' (using password: YES)","errors":[]}}
+2014-06-25 10:21:10,526 - mylogger - INFO - log start in Debug
+2014-06-25 10:21:39,671 - mylogger - INFO - log start in Debug
+2014-06-25 10:21:44,805 - mylogger - ERROR - method:POST,host:core.6998apitest.com,url:/api/VIPCenter/UserVIPDetail,param:{"UserID": 20350120}, coreservice服务异常,状态:500,响应:{"responseStatus":{"errorCode":"MySqlException","message":"Access denied for user 'root'@'pay.6998test.com' (using password: YES)","errors":[]}}
+2014-06-25 10:21:46,085 - mylogger - INFO - log start in Debug
+2014-06-25 10:22:02,250 - mylogger - INFO - log start in Debug
+2014-06-25 10:22:10,891 - mylogger - INFO - log start in Debug
+2014-06-25 10:22:17,384 - mylogger - INFO - log start in Debug
+2014-06-25 10:31:05,026 - mylogger - INFO - log start in Debug
+2014-06-25 10:31:43,515 - mylogger - INFO - log start in Debug
+2014-06-25 10:32:55,094 - mylogger - INFO - log start in Debug
+2014-06-25 10:32:56,474 - mylogger - INFO - log start in Debug
+2014-06-25 10:33:31,980 - mylogger - INFO - log start in Debug
+2014-06-25 10:34:24,986 - mylogger - INFO - log start in Debug
+2014-06-25 10:34:42,186 - mylogger - INFO - log start in Debug
+2014-06-25 10:35:13,269 - mylogger - INFO - log start in Debug
+2014-06-25 10:35:38,084 - mylogger - INFO - log start in Debug
+2014-06-25 10:35:41,295 - mylogger - INFO - log start in Debug
+2014-06-25 10:35:56,221 - mylogger - INFO - log start in Debug
+2014-06-25 10:36:15,523 - mylogger - INFO - log start in Debug
+2014-06-25 10:36:19,821 - mylogger - INFO - log start in Debug
+2014-06-25 10:43:06,243 - mylogger - INFO - log start in Debug
+2014-06-25 10:43:36,470 - mylogger - INFO - log start in Debug
+2014-06-25 10:45:08,250 - mylogger - INFO - log start in Debug
+2014-06-25 10:45:13,545 - mylogger - INFO - log start in Debug
+2014-06-25 10:45:28,494 - mylogger - INFO - log start in Debug
+2014-06-25 10:46:39,164 - mylogger - INFO - log start in Debug
+2014-06-25 10:46:50,937 - mylogger - INFO - log start in Debug
+2014-06-25 10:49:27,292 - mylogger - INFO - log start in Debug
+2014-06-25 10:49:39,164 - mylogger - INFO - log start in Debug
+2014-06-25 10:52:30,937 - mylogger - INFO - log start in Debug
+2014-06-25 10:52:59,947 - mylogger - INFO - log start in Debug
+2014-06-25 10:53:11,756 - mylogger - INFO - log start in Debug
+2014-06-25 10:53:48,980 - mylogger - INFO - log start in Debug
+2014-06-25 10:54:04,882 - mylogger - INFO - log start in Debug
+2014-06-25 10:54:49,176 - mylogger - INFO - log start in Debug
+2014-06-25 10:54:57,694 - mylogger - INFO - log start in Debug
+2014-06-25 10:55:21,135 - mylogger - INFO - log start in Debug
+2014-06-25 10:55:32,796 - mylogger - INFO - log start in Debug
+2014-06-25 10:59:26,726 - mylogger - INFO - log start in Debug
+2014-06-25 11:00:06,556 - mylogger - INFO - log start in Debug
+2014-06-25 11:00:14,092 - mylogger - INFO - log start in Debug
+2014-06-25 11:18:16,546 - mylogger - INFO - log start in Debug
+2014-06-25 11:18:23,049 - mylogger - INFO - log start in Debug
+2014-06-25 11:18:40,193 - mylogger - INFO - log start in Debug
+2014-06-25 11:24:04,684 - mylogger - INFO - log start in Debug
+2014-06-25 11:24:14,385 - mylogger - INFO - log start in Debug
+2014-06-25 11:24:32,596 - mylogger - INFO - log start in Debug
+2014-06-25 11:24:39,000 - mylogger - INFO - log start in Debug
+2014-06-25 11:24:45,377 - mylogger - INFO - log start in Debug
+2014-06-25 11:25:17,773 - mylogger - INFO - log start in Debug
+2014-06-25 11:25:25,457 - mylogger - INFO - log start in Debug
+2014-06-25 11:25:38,505 - mylogger - INFO - log start in Debug
+2014-06-25 11:25:59,969 - mylogger - INFO - log start in Debug
+2014-06-25 11:26:56,243 - mylogger - INFO - log start in Debug
+2014-06-25 11:27:23,141 - mylogger - INFO - log start in Debug
+2014-06-25 11:28:07,289 - mylogger - INFO - log start in Debug
+2014-06-25 11:28:19,125 - mylogger - INFO - log start in Debug
+2014-06-25 11:28:26,657 - mylogger - INFO - log start in Debug
+2014-06-25 11:28:28,815 - mylogger - INFO - log start in Debug
+2014-06-25 11:28:32,042 - mylogger - INFO - log start in Debug
+2014-06-25 11:28:48,260 - mylogger - INFO - log start in Debug
+2014-06-25 11:29:31,316 - mylogger - INFO - log start in Debug
+2014-06-25 11:30:31,042 - mylogger - INFO - log start in Debug
+2014-06-25 11:36:30,391 - mylogger - INFO - log start in Debug
+2014-06-26 10:42:38,924 - mylogger - INFO - log start in Debug
+2014-06-26 10:42:41,013 - mylogger - INFO - log start in Debug
+2014-06-26 10:47:52,428 - mylogger - INFO - log start in Debug
+2014-06-26 10:48:00,496 - mylogger - INFO - log start in Debug

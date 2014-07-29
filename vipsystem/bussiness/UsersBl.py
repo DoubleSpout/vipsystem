@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+from functools import wraps
+import flask
 import hashlib
 import time
 import httplib
@@ -10,6 +12,8 @@ from vipsystem import app
 from vipsystem import config
 from vipsystem.models import UsersModel
 from vipsystem.models import LogscoreModel
+from vipsystem.bussiness import LoggerBl
+from flask import render_template, request, redirect, url_for, sessions, Response, session
 from sqlalchemy import *
 from flask.ext.sqlalchemy import SQLAlchemy
 
@@ -21,7 +25,7 @@ sys.setdefaultencoding('utf-8')
 db = SQLAlchemy(app)
 
 #vip对应等级可以补签的次数
-vipPatchTimes = (1,2,3,5,8,10)
+vipPatchTimes = (0,2,3,5,8,10)
 weekToCH = (u"日",u"一",u"二",u"三",u"四",u"五",u"六")
 
 #定义用户业务层
@@ -31,9 +35,9 @@ class UsersBl(object):
         self.uid = int(uid)
     
     #初始化用户
-    def initUser(self):
+    def initUser(self,uip):
         userDict = UsersModel.VIP_User.query.filter_by(UserId=self.uid).all()
-               
+        uip = uip or '127.0.0.1'
         if len(userDict) > 0 :
             return
         
@@ -41,6 +45,13 @@ class UsersBl(object):
         me = UsersModel.VIP_User(int(self.uid))
         db.session.add(me)
         db.session.commit()
+        #插入完成之后,请求coreservice 更新用户vip等级
+        updateDict = {'UserID':self.uid, 'IPAddress':uip, 'RechargeID':0}
+        updateResult = self.sendRequest('POST','/VIPCenter/UserVIPDoPay',updateDict)
+
+        if updateResult['error'] == 1:
+            host=app.config['CORESERVICE_HOST']
+            LoggerBl.log.error('请求 {0}/VIPCenter/UserVIPDoPay出错,参数 {1}, 错误信息{2}'.format(host, json.dumps(updateDict), updateResult['data']))
         pass
     
     def getUserSignDayCount(self):
@@ -125,6 +136,12 @@ class UsersBl(object):
         #接口处理成功
         return {'error':0,'data':dataDict}
         
+    def getUserLastGame(self):
+        dataDict = self.sendRequest('POST','/passport/GameLoadByUser',{'userid':self.uid})
+        userGame = []
+        if dataDict['result'] == 'SUCCESS':
+            userGame = dataDict['list']
+        return userGame
     
     #public获取用户vip状态
     def getUserVipStatus(self):
@@ -137,10 +154,20 @@ class UsersBl(object):
         if dataDict['error'] != 1:
             dataDict['data']['amountNext'] = dataDict['data']['amountNearly'] + dataDict['data']['amountNeed']
             #print(dataDict['data']['amountNearly']/dataDict['data']['amountNext'])
-            if dataDict['data']['amountNearly'] > dataDict['data']['amountNext']:
-                dataDict['data']['amountNearly'] = dataDict['data']['amountNext']
-            dataDict['data']['amountRate1'] = int(dataDict['data']['amountNearly']/dataDict['data']['amountNext']) *0.85*100
-            dataDict['data']['amountRate2'] = (1 - int(dataDict['data']['amountNearly']/dataDict['data']['amountNext']))*0.85*100
+            if dataDict['data']['amountNeed'] == 0:
+                 dataDict['data']['amountRate1'] = 85
+                 dataDict['data']['amountRate2'] = 0
+            else:                
+                #dataDict['data']['amountNearly'] = dataDict['data']['amountNext']
+                dataDict['data']['amountRate1'] = int((float(dataDict['data']['amountNearly'])/float(dataDict['data']['amountNext'])) *0.85*100)
+                dataDict['data']['amountRate2'] = int((1 - float(dataDict['data']['amountNearly'])/float(dataDict['data']['amountNext']))*0.85*100)
+                if dataDict['data']['amountRate1']>= 85:
+                    dataDict['data']['amountRate1'] = 85
+                    dataDict['data']['amountRate2'] = 0
+        
+        userGame = self.getUserLastGame()
+        dataDict['userGame'] = userGame
+        print(dataDict)
         return dataDict
         
     #public用户领取工资
@@ -164,14 +191,16 @@ class UsersBl(object):
         scoreLogUrl = '/VIPCenter/UserVIPScoreUpdate'
         
         uid = self.uid
+        
+        
         #转换signTime类型
         now = datetime.now()
         signDateDict = datetime.fromtimestamp(signTime)
         
         #转时间戳
-        signTime = signDateDict.timetuple()
-        signTime = int(time.mktime(signTime))
-                    
+        signTime = datetime(signDateDict.year, signDateDict.month, signDateDict.day,0,0,0)
+        signTime = int(time.mktime(signTime.timetuple()))
+        
         #设置当天时间    
         todayZeroTime = datetime(now.year,now.month,now.day,0,0,0)
         todayZeroTs = todayZeroTime.timetuple()
@@ -221,25 +250,27 @@ class UsersBl(object):
         hasBreak = false #已经断了,没连续
         signLen = len(signArray)
         
+        #判断补签不是已经超过次数了
+        for item in signArray:
+            if item['ScoreCode3'] != '0':
+                    hasPathCount += 1                     
+        if isPatch == 1 and hasPathCount>=0 and hasPathCount >= vipPatchTimes[vipLevel]:
+                return {'error':1,'data':'补签次数不足,升级vip可增加补签次数'}     
+        
         if signLen > 0: #以下全是本月第二次签到需要的判断
             #判断今天是否已经签过到
             hasSign = false
             for item in signArray:
                 signArray[0]['ScoreCode1'] = int(signArray[0]['ScoreCode1'])
-                
-                if item['ScoreCode1'] == signTime: 
+                if int(item['ScoreCode1']) == signTime: 
                     hasSign = true
                 if item['ScoreCode3'] != '0':
                         hasPathCount += 1
-
-            #判断是不是超过最大补签次数
+   
+            #判断当天是否已经签过到了
             if hasSign == true:
                 return {'error':1,'data':'已经签到过了'}
-            if isPatch == 1 and hasPathCount>0 and hasPathCount >= vipPatchTimes[vipLevel]:
-                return {'error':1,'data':'补签次数过多'}                
-            #判断当天是否已经签过到了
-            
-            
+
             #如果不是补签
             #补签将不记录连续获得积分
             if isPatch == 0:
@@ -278,7 +309,6 @@ class UsersBl(object):
         if vipLevel>=3:
             dayScore += 5
         
-        #print('$$$$$$$$$$$$$$')
         #print(dayScore)
         #print(hasBreak)
         
@@ -342,5 +372,52 @@ class CheckSign(object):
             return false
         
         return true
-    
+
+
+#检查是否登录
+def checkLogin(f):
+    @wraps(f)
+    def decorated_function(*args, **kwargs):
+        if not flask.session.has_key('userid') or flask.session['userid'] == 0:
+            return redirect('/login', code=302)
+        flask.session['username'] = urllib.unquote(flask.session['username'].encode('utf8')).decode('utf8')
+        return f(*args, **kwargs)
+    return decorated_function
+
+def getUserStatus(f):
+    @wraps(f)
+    def decorated_function(*args, **kwargs):
+        uid = flask.session.get('userid') or 0
+        uname = flask.session.get('username') or '0'
+        if uid != 0:
+            userbl = UsersBl(uid)
+            #执行操作
+            r = userbl.getUserVipStatus()        
+            #如果出错，记录日志
+            if r['error'] == 1:
+                LoggerBl.log.error(r['data'])
+        else:
+            r = {
+                'data':''
+            }
+            
+        paramDict = {
+            'uid':uid,
+            'uname':uname,
+            'user':r
+        }
+        return f(paramDict, *args, **kwargs)
+    return decorated_function
+
+
+
+#检查是否登录，json返回版本
+def checkLoginJson(f):
+    @wraps(f)
+    def decorated_function(*args, **kwargs):
+        if not flask.session.has_key('userid') or flask.session['userid'] == 0:
+            return json.dumps({'error':1,data:'请先登录'},mimetype='application/json')
+        flask.session['username'] = urllib.unquote(flask.session['username'].encode('utf8')).decode('utf8')
+        return f(*args, **kwargs)
+    return decorated_function
 

@@ -23,12 +23,16 @@
                         <span class="h">所需积分价格：<font class="cho_red" id="goods_detail_price"></font> 积分</span>
                         <span class="h">库存：<font id="goods_detail_inventory">{{ goods['Inventory'] }}</font></span>
                         <span class="h">已兑换人数：<font id="goods_detail_has_exchange">{{ goods['countall'] }}</font></span>
-                        {% if goods['content'] != '0' %}
-                            <span class="h">您的礼品卡号：<font id="" class="cho_red">{{ goods['content'] }}</font></span>
-                        {% else %}
-                            <a class="icon go_money_1 no_inventory" href="javascript:;" title="库存不足" id="no_inventory" style="display:none;">库存不足</a>
-                            <a class="icon go_money_1" href="javascript:;" title="立即兑换" id="sub_exchange" style="display:none;">立即兑换</a>
-                        {% endif %}
+			{% if uid != 0 %}
+				{% if goods['content'] != '0' %}
+				    <span class="h">您的礼品卡号：<font id="" class="cho_red">{{ goods['content'] }}</font></span>
+				{% else %}
+				    <a class="icon go_money_1 no_inventory" href="javascript:;" title="库存不足" id="no_inventory" style="display:none;">库存不足</a>
+				    <a class="icon go_money_1" href="javascript:;" title="立即兑换" id="sub_exchange" style="display:none;">立即兑换</a>
+				{% endif %}
+			{% else%}
+				<a class="icon go_money_1" href="javascript:;" name="minilogin">立即兑换</a>
+			{% endif%}			
                     </div>
                 </div>
                 <!--商品内容结束-->
@@ -43,7 +47,7 @@
                     </div>
                     <h4 class="det_pro">
                     	<span>注意事项：<br></span>
-                        请您在购买时认真填写您的联系方式，我们的工作人员会在20个工作日内发货，国家法定假期除外！
+                        请您在购买时认真填写您的联系方式，虚拟物品将及时发货，实物奖品我们的工作人员会在20个工作日内发货，国家法定假期除外！
                     </h4>
                 <!--商品文字信息结束-->
             </div>
